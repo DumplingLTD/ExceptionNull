@@ -39,7 +39,7 @@
   1. Open the run configurations panel: `Run` > `Edit Configurations`
   2. Add a new `Spring Boot` run configuration by clicking the "+" and
      changing the following settings:
-     + Main class: `com.jonthanpli.ExceptionNullApplication`
+     + Main class: `com.jonathanpli.ExceptionNullApplication`
      + Program arguments: `-debug`
      + Use classpath of module: `<project name>`
      + Before launch: Add "make"

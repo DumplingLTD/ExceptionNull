@@ -1,4 +1,4 @@
-package com.jonthanpli.exceptionnull.controller;
+package com.jonathanpli.exceptionnull.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;

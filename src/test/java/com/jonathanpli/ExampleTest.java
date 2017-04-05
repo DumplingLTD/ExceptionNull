@@ -1,4 +1,4 @@
-package com.jonthanpli;
+package com.jonathanpli;
 
 import org.junit.Before;
 import org.junit.Test;

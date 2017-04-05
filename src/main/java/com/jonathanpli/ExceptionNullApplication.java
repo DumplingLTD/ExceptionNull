@@ -1,4 +1,4 @@
-package com.jonthanpli;
+package com.jonathanpli;
 
 import com.google.common.collect.ImmutableList;
 import com.mitchellbosecke.pebble.PebbleEngine;

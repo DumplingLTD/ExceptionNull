@@ -114,7 +114,7 @@
                     <archive>
                         <manifest>
                             <!-- Jar file entry point -->
-                            <mainClass>com.jonthanpli.ExceptionNullApplication</mainClass>
+                            <mainClass>com.jonathanpli.ExceptionNullApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
