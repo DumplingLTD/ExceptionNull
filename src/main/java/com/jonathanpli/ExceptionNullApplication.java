@@ -1,6 +1,7 @@
 package com.jonathanpli;
 
 import com.google.common.collect.ImmutableList;
+import com.jonathanpli.exceptionnull.controller.helpers.PebbleExtension;
 import com.mitchellbosecke.pebble.PebbleEngine;
 import com.mitchellbosecke.pebble.loader.ClasspathLoader;
 import com.mitchellbosecke.pebble.loader.Loader;
@@ -23,8 +24,7 @@ public class ExceptionNullApplication {
 	private static boolean debug;
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext ctx =
-				SpringApplication.run(ExceptionNullApplication.class, args);
+		ConfigurableApplicationContext ctx = SpringApplication.run(ExceptionNullApplication.class, args);
 		logger = ctx.getBean(Logger.class);
 
 		List<String> argList = ImmutableList.copyOf(args);
@@ -42,13 +42,13 @@ public class ExceptionNullApplication {
 
 	@Bean
 	public static PebbleEngine pebbleEngine() {
-		PebbleEngine.Builder builder = new PebbleEngine.Builder()
+		PebbleEngine.Builder builder = new PebbleEngine.Builder().extension(new PebbleExtension())
 				.loader(loader());
 
 		// Debug only settings
 		if (debug) {
 			logger.log(Level.INFO, "Disabling Pebble Engine cache");
-			builder.cacheActive(false);
+			// builder.cacheActive(false);
 		}
 
 		return builder.build();
