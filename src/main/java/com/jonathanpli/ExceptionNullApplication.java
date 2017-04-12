@@ -42,7 +42,8 @@ public class ExceptionNullApplication {
 
 	@Bean
 	public static PebbleEngine pebbleEngine() {
-		PebbleEngine.Builder builder = new PebbleEngine.Builder().extension(new PebbleExtension())
+		PebbleEngine.Builder builder = new PebbleEngine.Builder()
+				.extension(new PebbleExtension())
 				.loader(loader());
 
 		// Debug only settings
