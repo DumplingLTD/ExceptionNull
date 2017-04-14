@@ -25,6 +25,7 @@ public class PebbleExtension extends AbstractExtension {
         return globals;
     }
 
+    // TODO:(jonathan) Fix for clarity while mainintaing compatibility with Pebble templating
     private String[][] getPaths() {
         String[][] paths = {
             { "/", "Home" },
