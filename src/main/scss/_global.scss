@@ -1,0 +1,73 @@
+// Styles pertaining to global elements (eg. header, body, and footer)
+.global-header {
+	@extend %shadow-layer-1;
+
+	height: $header-height;
+	background-color: $header-background-color;
+	display: flex;
+	position: relative; // Renders this element + its shadow on top
+
+	.left, .right {
+		height: 100%;
+	}
+
+	.left {
+		flex: 0 0 auto;
+		width: $header-logo-size;
+		font-size: 0; // Adjacent inline-block fix.
+	}
+
+	.right {
+		text-align: right;
+		flex: 1 1 auto;
+	}
+}
+
+.global-logo {
+	width: $header-logo-size;
+}
+
+.global-nav {
+
+	font-size: 0;
+
+	ul, li {
+		height: 100%;
+	}
+
+	li {
+		list-style: none;
+		display: inline-block;
+	}
+
+	a {
+		&, &:link, &:visited {
+			font-size: 16px;
+			color: $header-nav-color;
+			border-bottom: $header-nav-border-bottom-height solid $header-nav-passive-border-color;
+			font-weight: bold;
+			padding: 0 $header-nav-horizontal-spacing $header-nav-bottom-spacing;
+		}
+		&:hover, &:active,
+		&.active {
+			border-bottom-color: $header-nav-active-border-color;
+		}
+	}
+}
+
+// See: http://stackoverflow.com/questions/13274599/sass-calculate-percent-minus-px
+$sass-fix: 100%;
+.global-main {
+	height: calc(#{$sass-fix} - #{$header-height});
+	display: block;
+
+	.left {
+		height: 100%;
+		background-color: $color-white;
+		flex: 0 0 auto;
+		width: 400px;
+	}
+	.right {
+		flex: 1 1 auto;
+	}
+}

@@ -26,8 +26,9 @@ public class LearnController {
 		}
 
 		ModelAndView result = new ModelAndView();
-		result.addObject("addr", language + " " + module);
-		result.setViewName("index");
+		result.addObject("language", language)
+				.addObject("module", module);
+		result.setViewName("learn/edit");
 		return result;
 	}
 }

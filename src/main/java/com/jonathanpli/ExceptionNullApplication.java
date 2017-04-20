@@ -20,12 +20,12 @@ import java.util.logging.Logger;
 public class ExceptionNullApplication {
 	private static final String DEBUG_PARAMETER = "-debug";
 
-	private static Logger logger;
+	private static Logger logger = Logger.getLogger(ExceptionNullApplication.class.getName());
 	private static boolean debug;
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext ctx = SpringApplication.run(ExceptionNullApplication.class, args);
-		logger = ctx.getBean(Logger.class);
+		ConfigurableApplicationContext ctx =
+				SpringApplication.run(ExceptionNullApplication.class, args);
 
 		List<String> argList = ImmutableList.copyOf(args);
 		if (argList.contains(DEBUG_PARAMETER)) {
@@ -46,11 +46,10 @@ public class ExceptionNullApplication {
 				.extension(new PebbleExtension())
 				.loader(loader());
 
-		// Debug only settings
-		if (debug) {
+//		if (debug) {
 			logger.log(Level.INFO, "Disabling Pebble Engine cache");
-			// builder.cacheActive(false);
-		}
+			builder.cacheActive(false);
+//		}
 
 		return builder.build();
 	}
@@ -67,6 +66,6 @@ public class ExceptionNullApplication {
 
 	@Bean
 	public static Logger logger() {
-		return Logger.getLogger(ExceptionNullApplication.class.getName());
+		return logger;
 	}
 }
