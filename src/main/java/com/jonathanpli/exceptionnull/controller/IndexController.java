@@ -26,8 +26,9 @@ public class IndexController {
 	@RequestMapping(value = "*")
 	public ModelAndView getIndex() {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("example", "This is in the and  aaaaa");
-		mav.addObject("profiles", "Go dfsdsfdfssdfdsfdfsdfs!!!");
+
+		mav.addObject("title", "Exception Null");
+		mav.addObject("description", "Exception Null is the new coding platform to teach you how to become a better programmer!");
 		mav.setViewName("index");
 		return mav;
 	}

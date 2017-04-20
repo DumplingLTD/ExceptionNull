@@ -1,11 +1,9 @@
-<html>
-	<head>
-		<link rel="stylesheet" href="/css/styles.css" />
-	</head>
-	<body>
-		<div>Hiasdadsasssssssdsds</div>
-		<div>pre {{example}} post</div>
-		no
-		<pre>{{profiles}}</pre>
-	</body>
-</html>
+<!-- adds base html -->
+{% extends "common" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+	<h1>{{ title }}</h1>
+	<p id="description">{{ description }}</p>
+{% endblock %}
