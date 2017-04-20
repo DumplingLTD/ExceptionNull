@@ -1,0 +1,35 @@
+<!-- The base HTML template for all pages -->
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Exception Null{% endblock %}</title>
+
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <img id="logo" src="images/logo.png" width="48" height="48" />
+                <ul id="paths">
+                    {% for path in paths %}
+                        <li>
+                            <a href={{ path[0] }}>{{ path[1] }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer>
+            {% block footer %}
+                <p>Copyright DumplingLTD 2017</p>
+            {% endblock %}
+        </footer>
+    </body>
+</html>
