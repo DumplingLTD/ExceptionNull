@@ -1,9 +1,13 @@
 <!-- learn.edit - Module editing page -->
-{% extends "base/empty-page" %}
+{% extends "base/dual-pane-page" %}
 
 {% block title %}Exception Null - Edit{% endblock %}
 
-{% block body %}
+{% block sidebar %}
+	This is the sidebar
+{% endblock %}
+
+{% block content %}
 <div class="container">
 	You're logged in and accessing language "{{ language }}", module "{{ module }}" edit page.
 </div>

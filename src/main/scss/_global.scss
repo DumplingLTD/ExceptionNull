@@ -59,13 +59,13 @@
 $sass-fix: 100%;
 .global-main {
 	height: calc(#{$sass-fix} - #{$header-height});
-	display: block;
+	display: flex;
 
 	.left {
 		height: 100%;
 		background-color: $color-white;
 		flex: 0 0 auto;
-		width: 400px;
+		width: $dual-pane-sidebar-width;
 	}
 	.right {
 		flex: 1 1 auto;
