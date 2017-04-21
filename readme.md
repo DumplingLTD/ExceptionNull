@@ -65,3 +65,13 @@ This is used for deployment or deployment package testing.
 ###### Advanced
 Settings for the build can be changed within the `pom.xml` file under
 the `<build>...</build>` tag.
+
+### Server Start
+1. Check to see if a shared screen session is already running on the server. `screen -ls`
+   + If one isn't, start one with `screen -d -m -S shared` (runs screen detached, as a new 
+   session, with the name 'shared')
+   + If one is, go to step 2.
+2. Attach to the screen. Usually `screen -x <username>/shared`, but the `screen -ls` will tell 
+   you what it's called.
+3. Run the server package. `java -jar <jar name>`.
+4. Detach from the screen session. `[ctrl]` + `a` THEN `d`.
