@@ -6,8 +6,8 @@ CREATE TABLE `transaction` (
   `amount` decimal(15,2) NOT NULL,
   `date` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_transaction_transaction_type_idx` (`type_id`),
-  KEY `fk_transaction_user_id_idx` (`sender_user_id`),
+  KEY `idx_type_id` (`type_id`),
+  KEY `idx_sender_user_id` (`sender_user_id`),
   CONSTRAINT `fk_transaction_transaction_type` FOREIGN KEY (`type_id`) REFERENCES `transaction_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_transaction_user_id` FOREIGN KEY (`sender_user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
