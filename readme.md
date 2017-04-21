@@ -73,5 +73,9 @@ the `<build>...</build>` tag.
    + If one is, go to step 2.
 2. Attach to the screen. Usually `screen -x <username>/shared`, but the `screen -ls` will tell 
    you what it's called.
+   + If the screen had to be started in step 1, do the following:
+     + `[ctrl]` + `a`, then type `:multiuser on` and enter.
+     + `[ctrl]` + `a`, then type `:acladd <user>`, replacing `<user>` with (`jonathan` or 
+       `kodlee`) to add the other user to the allowed access control list.
 3. Run the server package. `java -jar <jar name>`.
 4. Detach from the screen session. `[ctrl]` + `a` THEN `d`.
