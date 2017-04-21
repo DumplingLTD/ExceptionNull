@@ -1,0 +1,27 @@
+// Styles that apply to root tag elements.
+* {
+	box-sizing: border-box;
+}
+
+// I'll only need padding and margin when I say I need it.
+html, body,
+h1, h2, h3, h4, h5, h6, p
+ol, ul, li, dd, dl,
+table, thead, tbody, tfoot, th, tr, td {
+	padding: 0;
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background-color: $default-background-color;
+	color: $default-color;
+	font-family: $primary-font;
+}
+
+a {
+	text-decoration: none;
+}
