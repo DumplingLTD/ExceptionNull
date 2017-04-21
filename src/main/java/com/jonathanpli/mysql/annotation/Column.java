@@ -4,12 +4,15 @@ import com.jonathanpli.mysql.Attribute;
 import com.jonathanpli.mysql.Datatype;
 
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
  * Annotation to provide database context to a class's field.
  */
 @Target({ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
 public @interface Column {
 
 	/**
