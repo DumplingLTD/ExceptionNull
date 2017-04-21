@@ -12,7 +12,7 @@ table, thead, tbody, tfoot, th, tr, td {
 	margin: 0;
 }
 
-html {
+html, body {
 	height: 100%;
 }
 
@@ -20,7 +20,6 @@ body {
 	background-color: $default-background-color;
 	color: $default-color;
 	font-family: $primary-font;
-	height: 100%;
 }
 
 a {

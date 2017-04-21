@@ -39,7 +39,7 @@ public class IndexController {
 			@RequestParam(value = "login") String login,
 			HttpServletRequest request) {
 		if (login.equals(PASSWORD)) {
-			request.getSession().setAttribute(SESSION_IS_LOGGED_IN, "");
+			request.getSession().setAttribute(SESSION_IS_LOGGED_IN, true);
 		}
 		return getIndex();
 	}
