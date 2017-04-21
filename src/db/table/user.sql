@@ -1,13 +1,14 @@
+-- User stores all the users that exist on the platform
 CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) NOT NULL,
-  `name` varchar(40) NOT NULL,
-  `email` varchar(254) NOT NULL,
-  `password` varchar(128) NOT NULL,
-  `salt` varchar(128) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uq_username` varchar(45) NOT NULL,
+  `display_name` varchar(40) NOT NULL,
+  `email` varchar(70) NOT NULL,
+  `password` binary(60) NOT NULL,
   `creation_date` datetime NOT NULL,
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `user_id_UNIQUE` (`user_id`),
-  UNIQUE KEY `username_UNIQUE` (`username`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email_UNIQUE` (`email`),
+  UNIQUE KEY `uq_username_UNIQUE` (`uq_username`),
+  KEY `idx_username` (`uq_username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 

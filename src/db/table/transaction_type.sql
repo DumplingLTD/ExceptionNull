@@ -1,7 +1,8 @@
+-- Transaction type stores the various supported transaction types
 CREATE TABLE `transaction_type` (
-  `transaction_type_id` int(11) NOT NULL AUTO_INCREMENT,
-  `transaction_type_name` varchar(45) NOT NULL,
-  PRIMARY KEY (`transaction_type_id`),
-  UNIQUE KEY `transaction_type_id_UNIQUE` (`transaction_type_id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uq_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_transaction_type` (`uq_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

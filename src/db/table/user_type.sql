@@ -1,7 +1,8 @@
+-- User type stores all the possible user types
 CREATE TABLE `user_type` (
-  `user_type_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_type_name` varchar(30) NOT NULL,
-  PRIMARY KEY (`user_type_id`),
-  UNIQUE KEY `user_type_id_UNIQUE` (`user_type_id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uq_name` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_user_type` (`uq_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
