@@ -1,0 +1,25 @@
+// Styles that define large portion behavior of the site.
+// *** Layouts
+.container {
+	padding-left: $default-content-spacing;
+	padding-right: $default-content-spacing;
+}
+
+// *** Positioners/Spacers
+.middle-aligner,
+.middle-aligned {
+	display: inline-block;
+	vertical-align: middle;
+}
+.middle-aligner {
+	height: 100%;
+}
+
+.bottom-aligned,
+.bottom-aligner {
+	display: inline-block;
+	vertical-align: bottom;
+}
+.bottom-aligner {
+	height: 100%;
+}
