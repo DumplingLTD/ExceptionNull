@@ -65,4 +65,5 @@ $header-nav-passive-border-color: transparent;
 $header-nav-active-border-color: $color-grey;
 
 // Dual pane
-$dual-pane-sidebar-width: $size-base * 80; // 640px.
+$dual-pane-left-max-width: $size-base * 80; // 640px.
+$dual-pane-left-width: 25%;
