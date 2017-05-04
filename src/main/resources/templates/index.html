@@ -1,8 +1,27 @@
-<!-- adds base html -->
-{% extends "base/empty-page" %}
+{# Homepage for exceptionnull #}
 
+{% extends "base/empty-page" %}
 {% block title %}Exception Null - Home{% endblock %}
 
 {% block body %}
-
+<div class="home-header">
+	<div class="home-navbar">
+		<img class="left"
+			 src="https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/144x144-white.png" />
+		<ul class="right">
+			<li><a href="#">how it works</a></li>
+			<li><a href="#">login</a></li>
+			<li><a href="#" class="bordered">sign up</a></li>
+		</ul>
+	</div>
+	<div class="middle-aligner"></div>
+	<div class="middle-aligned content">
+		<div class="global-title">BECOME EXCEPTION NULL.</div>
+		<div class="spacer"></div>
+		<div class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+			eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+		<div class="spacer"></div>
+		<a href="#">SIGN UP</a>
+	</div>
+</div>
 {% endblock %}

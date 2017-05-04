@@ -1,40 +1,15 @@
-<!-- empty-page.html - The core shared template page all other pages should extend. -->
+{# An empty page containing all eNull styles, scripts, and tracking code #}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<title>{% block title %}Exception Null{% endblock %}</title>
-
+		<link href="https://www.fontify.me/wf/e6be3d2ca9f6e0ae85eeeaeb28724bd3"
+			  rel="stylesheet"
+			  type="text/css">
 		<link rel="stylesheet" href="/css/styles.css" />
 	</head>
-
 	<body>
-		<header class="global-header container">
-			<div class="left">
-				<div class="middle-aligner"></div>
-				<img class="global-logo middle-aligned"
-					 src="https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/144x144.png" />
-			</div>
-			<nav class="global-nav right">
-				<ul>
-					<li>
-						<div class="bottom-aligner"></div>
-						<a class="bottom-aligned active" href="#">LEARN</a>
-					</li>
-					<li>
-						<div class="bottom-aligner"></div>
-						<a class="bottom-aligned" href="#">CHALLENGE</a>
-					</li>
-					<li>
-						<div class="bottom-aligner"></div>
-						<a class="bottom-aligned" href="#">PROFILE</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
-
-		<main class="global-main">
-			{% block body %}{% endblock %}
-		</main>
+		{% block body %}{% endblock %}
 	</body>
 </html>
