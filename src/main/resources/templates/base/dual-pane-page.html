@@ -4,6 +4,8 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block body %}
-	<div class="left">{% block sidebar %}{% endblock %}</div>
-	<div class="right">{% block content %}{% endblock %}</div>
+<div class="dual-pane-page">
+	<div class="dual-pane-page-left">{% block sidebar %}{% endblock %}</div>
+	<div class="dual-pane-page-right">{% block content %}{% endblock %}</div>
+</div>
 {% endblock %}
