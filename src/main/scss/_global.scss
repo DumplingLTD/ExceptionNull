@@ -54,3 +54,8 @@
 		}
 	}
 }
+
+$sass-fix: 100%;
+.global-main {
+	height: calc(#{$sass-fix} - #{$header-height});
+}

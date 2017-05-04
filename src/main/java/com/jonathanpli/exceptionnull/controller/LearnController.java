@@ -16,6 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping(value = "/learn")
 public class LearnController {
 
+	/**
+	 * Log in using "/login?login=[password]"
+	 * Log out using "/logout"
+	 * Access this page using "/learn/[string]/[string]/edit
+	 */
 	@RequestMapping(value="{language}/{module}/edit")
 	public ModelAndView getModuleForEditing(
 			@PathVariable("language") String language,
