@@ -1,0 +1,25 @@
+// Logged in navigation partial styles.
+.li-navigation {
+	display: inline-block;
+	height: $li-nav-height;
+
+	li {
+		list-style: none;
+		display: inline-block;
+	}
+
+	a {
+		&, &:link, &:visited {
+			display: inline-block;
+			font-size: 16px;
+			color: $li-nav-color;
+			border-bottom: $li-nav-border-bottom-height solid $li-nav-passive-border-color;
+			font-weight: bold;
+			padding: $li-nav-v-spacing $li-nav-h-spacing ($li-nav-v-spacing - $li-nav-border-bottom-height);
+		}
+		&:hover, &:active,
+		&.active {
+			border-bottom-color: $li-nav-active-border-color;
+		}
+	}
+}

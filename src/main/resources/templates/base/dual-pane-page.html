@@ -1,11 +1,19 @@
-{# base.dual-pane-page.html - Provides a sidebar alongside content. #}
+{# base.dual-pane-page.html - Provides a sidebar containing user information and privileged
+links for authorized users. #}
 
-{% extends "base/nav-page" %}
+{% extends "base/empty-page" %}
 {% block title %}{{ title }}{% endblock %}
 
-{% block main %}
+{% block body %}
 <div class="dual-pane-page">
-	<div class="dual-pane-page-left">{% block sidebar %}{% endblock %}</div>
-	<div class="dual-pane-page-right">{% block content %}{% endblock %}</div>
+	<div class="dual-pane-page-left">
+
+	</div>
+	<div class="dual-pane-page-right">
+		<div class="dual-pane-page-header">
+			{% include "partial/li-navigation-partial" %}
+		</div>
+		<div class="dual-pane-page-content">{% block content %}{% endblock %}</div>
+	</div>
 </div>
 {% endblock %}

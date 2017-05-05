@@ -1,5 +1,4 @@
 // Controls styles for the dual pane page.
-
 .dual-pane-page {
 	display: flex;
 	height: 100%;
@@ -7,7 +6,7 @@
 
 .dual-pane-page-left {
 	height: 100%;
-	background-color: $color-white;
+	background-color: $dual-pane-sidebar-background-color;
 	flex: 0 0 auto;
 	width: $dual-pane-left-width;
 	max-width: $dual-pane-left-max-width;
@@ -15,4 +14,17 @@
 
 .dual-pane-page-right {
 	flex: 1 1 auto;
+	height: 100%;
+}
+
+.dual-pane-page-header {
+	text-align: right;
+	background-color: $dual-pane-page-header-color;
+	font-size: 0;
+}
+
+$height-scss-fix: 100%;
+.dual-pane-page-content {
+	height: calc(#{$height-scss-fix} - #{$li-nav-height});
+	overflow: auto;
 }

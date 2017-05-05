@@ -51,8 +51,8 @@ a.home-sign-up {
 	padding: $home-navbar-spacing;
 	letter-spacing: 3px;
 	font-weight: bold;
-	height: $home-navbar-height + ($home-navbar-vertical-spacing * 2);
-	margin-bottom: -($home-navbar-height + ($home-navbar-vertical-spacing * 2));
+	height: $home-navbar-height + ($home-navbar-v-spacing * 2);
+	margin-bottom: -($home-navbar-height + ($home-navbar-v-spacing * 2));
 
 	.left {
 		flex: 0 0 auto;
