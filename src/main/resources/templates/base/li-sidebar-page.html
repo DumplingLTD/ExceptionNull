@@ -1,0 +1,20 @@
+{# Logged in page with a nav menu and profile sidebar. #}
+{% extends "base/li-nav-page" %}
+
+{% block main %}
+<div class="li-sidebar-wrapper">
+	<div class="li-sidebar">
+		<div>
+			<!--<img src="http://www.gantrypark.com/Portals/12/Users/066/14/53314/adam-parker-large.jpg" />-->
+		</div>
+		<ul>
+			<li>
+				<a href="#">asdf</a>
+			</li>
+		</ul>
+	</div>
+	<div class="li-sidebar-content">
+		{% block content %}{% endblock %}
+	</>
+</div>
+{% endblock %}

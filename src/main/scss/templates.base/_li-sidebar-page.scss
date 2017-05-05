@@ -1,0 +1,19 @@
+// Controls styles for the logged-in sidebar page.
+.li-sidebar-wrapper {
+	display: flex;
+	height: 100%;
+}
+
+.li-sidebar {
+	height: 100%;
+	background-color: $li-sidebar-background-color;
+	flex: 0 0 auto;
+	width: $li-sidebar-width;
+	max-width: $li-sidebar-max-width;
+}
+
+.li-sidebar-content {
+	flex: 1 1 auto;
+	height: 100%;
+	overflow: auto;
+}

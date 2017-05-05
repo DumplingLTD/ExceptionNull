@@ -1,0 +1,31 @@
+{# Logged in base page with navigation header #}
+{% extends "base/empty-page" %}
+
+{% block body %}
+<nav class="li-nav">
+	<div class="left">
+		<div class="middle-aligner"></div>
+		<div class="middle-aligned h-spacer"></div>
+		<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/144x144.png"
+			 class="middle-aligned">
+		<div class="middle-aligned title">Exception Null</div>
+	</div>
+	<div class="right">
+		<div class="bottom-aligner"></div>
+		<ul class="bottom-aligned">
+			<li>
+				<a href="#">PROFILE</a>
+			</li>
+			<li>
+				<a href="#">CHALLENGE</a>
+			</li>
+			<li>
+				<a href="#">ABOUT</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<main class="li-main">
+	{% block main %}{% endblock %}
+</main>
+{% endblock %}

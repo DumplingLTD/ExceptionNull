@@ -58,25 +58,25 @@ $default-transition: $animation-time-reactive $animation-fn-ease-in;
 // Default/Tag
 $default-background-color: $color-off-white;
 $default-accent-background-color: $color-white;
-$default-color: $color-dark-grey;
+$default-color: $color-midnight-bluuu;
 
 $default-content-spacing: $size-base * 7;
 
 // Dual pane
-$dual-pane-left-max-width: $size-base * 80; // 640px.
-$dual-pane-left-width: 25%;
-$dual-pane-page-header-color: $color-white;
-$dual-pane-sidebar-background-color: $color-midnight-bluuu;
+$li-sidebar-max-width: $size-base * 80; // 640px.
+$li-sidebar-width: 25%;
+$li-sidebar-background-color: $color-midnight-bluuu;
 
 // li navigation
 $li-nav-height: $size-base * 9;
-$li-nav-color: $color-black;
+$li-nav-color: $color-midnight-bluuu;
 $li-nav-border-bottom-height: $size-base * 1;
-$li-nav-h-spacing: $size-base * 4;
-$li-nav-v-spacing: $size-base * 3;
+$li-nav-v-spacing: $size-base * 2;
 
-$li-nav-passive-border-color: transparent;
-$li-nav-active-border-color: $color-grey;
+$li-nav-passive-link-border-color: transparent;
+$li-nav-passive-link-color: $color-deep-grey;
+$li-nav-active-link-border-color: $color-midnight-bluuu;
+$li-nav-active-link-color: $color-midnight-bluuu;
 
 // *** Page specific
 // index/home
