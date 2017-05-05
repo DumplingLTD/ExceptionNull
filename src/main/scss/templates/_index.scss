@@ -1,0 +1,199 @@
+// Styles only shown in index.html
+a.home-sign-up {
+	&, &:link, &:visited {
+		color: $home-header-color;
+		background-color: $home-header-button-background-color;
+		padding: $size-base * 1 $size-base * 7;
+		border-radius: 100px;
+		display: inline-block;
+		text-transform: uppercase;
+	}
+	&:hover, &:active {
+		color: $home-header-button-background-color;
+		background-color: $home-header-color;
+	}
+}
+
+.home-header,
+.home-footer {
+	background: $home-header-background-color url(https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/home-header-bg.png) fixed;
+	color: $home-header-color;
+}
+
+.home-header {
+	height: $home-header-height;
+	font-size: 0;
+
+	.content {
+		width: 100%;
+		text-align: center;
+		font-size: 16px;
+	}
+
+	.global-title {
+		font-size: $font-size-t1;
+		letter-spacing: 3px;
+	}
+
+	.subtitle {
+		max-width: $size-base * 70;
+		margin: 0 auto;
+	}
+
+	.spacer {
+		height: $size-base * 4;
+	}
+}
+
+.home-navbar {
+	display: flex;
+	align-items: center;
+	padding: $home-navbar-spacing;
+	letter-spacing: 3px;
+	font-weight: bold;
+	height: $home-navbar-height + ($home-navbar-vertical-spacing * 2);
+	margin-bottom: -($home-navbar-height + ($home-navbar-vertical-spacing * 2));
+
+	.left {
+		flex: 0 0 auto;
+		width: $home-navbar-height;
+		height: $home-navbar-height;
+	}
+	.right {
+		flex: 1 1 auto;
+		text-align: right;
+	}
+
+	a {
+		&, &:link, &:visited {
+			font-size: 16px;
+			border-radius: $home-navbar-height;
+			text-transform: uppercase;
+			color: $home-header-color;
+			padding: $home-navbar-link-padding;
+		}
+		&:hover, &:active {
+			color: $home-navbar-color-active;
+		}
+		&.bordered {
+			border: $home-navbar-bordered-width solid $home-header-color;
+		}
+	}
+
+	li {
+		display: inline-block;
+		list-style: none;
+	}
+}
+
+.home-how {
+	text-align: center;
+	background-color: $color-white;
+
+	.spacer {
+		height: $size-base * 12;
+	}
+
+	.global-title {
+		letter-spacing: 1px;
+	}
+
+	> .global-title {
+		font-size: $font-size-t1;
+	}
+
+	.tri {
+		.global-title {
+			font-size: $font-size-t2;
+		}
+
+		> div {
+			display: inline-block;
+			width: 25%;
+			margin: 0 $size-base * 7;
+			max-width: 500px;
+		}
+
+		img {
+			height: 114px;
+			margin: $size-base * 6 0;
+			display: inline-block;
+		}
+	}
+}
+
+.home-sponsors {
+	height: $size-base * 16;
+	text-align: center;
+	background-color: $color-light-grey2;
+	white-space: nowrap;
+	font-size: 0;
+	overflow: hidden;
+
+	img {
+		display: inline-block;
+		vertical-align: middle;
+		max-height: $size-base * 16;
+		margin: 0 $size-base * 8;
+	}
+}
+
+.home-light-demo {
+	background: $color-light-blue url(https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/stacked_browsers.png) center bottom no-repeat;
+	color: $color-white;
+	text-align: center;
+
+	.image-spacer {
+		height: 523px;
+	}
+
+	.global-title {
+		font-size: $font-size-t1;
+		letter-spacing: 1px;
+	}
+
+	.content {
+		padding: $size-base * 10 0;
+		max-width: $size-base * 75; //600px
+		margin: 0 auto;
+	}
+
+	.spacer {
+		height: $size-base * 4;
+	}
+}
+
+.home-achievement {
+	height: $size-base * 80;
+	text-align: center;
+	padding: 0 $size-base * 11;
+	background-color: $color-white;
+
+	img {
+		height: $size-base * 60;
+	}
+
+	.horizontal-spacer {
+		min-width: $size-base * 11;
+		max-width: $size-base * 18;
+		width: 10%;
+	}
+
+	.content {
+		max-width: $size-base * 75;
+
+		.spacer {
+			height: $size-base * 4;
+		}
+
+		.global-title {
+			font-size: $font-size-t1;
+		}
+	}
+}
+
+.home-footer {
+	padding: $size-base * 6 0;
+	text-align: center;
+	font-size: 14px;
+}
