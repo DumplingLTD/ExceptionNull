@@ -1,0 +1,65 @@
+{# Logged in page with a nav menu and profile sidebar. #}
+{% extends "base/li-nav-page" %}
+
+{% block main %}
+<div class="li-sidebar-wrapper">
+	<div class="li-sidebar">
+		<div class="li-sidebar-profile">
+			<div class="large-spacer"></div>
+			<img src="http://www.gantrypark.com/Portals/12/Users/066/14/53314/adam-parker-large.jpg" />
+			<div class="spacer"></div>
+			<div class="username">R_Hendrix</div>
+			<div class="spacer"></div>
+			<div class="account-type global-pink-button">Guru</div>
+			<div class="mini-spacer"></div>
+			<div class="account-rating">★ 4.89</div>
+			<div class="spacer"></div>
+			<div class="tri">
+				<div>
+					<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/heart_badge.png" />
+					<div>123 friends</div>
+				</div>
+				<div>
+					<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/Medal_Badge_SMALL.png" />
+					<div>24 badges</div>
+				</div>
+				<div>
+					<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/Sword_Badge_SMALL.png" />
+					<div>29 wins</div>
+				</div>
+			</div>
+			<div class="large-spacer"></div>
+		</div>
+		<ul class="li-sidebar-nav">
+			{% include "base/partial/li-sidebar-nav-element" with {
+				"href": "#",
+				"image": "ICON_PersonalStats.png",
+				"display": "Personal stats",
+				"class": "active"} %}
+			{% include "base/partial/li-sidebar-nav-element" with {
+				"href": "#",
+				"image": "ICON_Friends.png",
+				"display": "Friends"} %}
+			{% include "base/partial/li-sidebar-nav-element" with {
+				"href": "#",
+				"image": "ICON_reviews.png",
+				"display": "Reviews"} %}
+			{% include "base/partial/li-sidebar-nav-element" with {
+				"href": "#",
+				"image": "ICON_earnings.png",
+				"display": "Earnings"} %}
+			{% include "base/partial/li-sidebar-nav-element" with {
+				"href": "#",
+				"image": "ICON_messages.png",
+				"display": "Messages"} %}
+			{% include "base/partial/li-sidebar-nav-element" with {
+				"href": "#",
+				"image": "ICON_Settings.png",
+				"display": "Settings"} %}
+		</ul>
+	</div>
+	<div class="li-sidebar-content">
+		{% block content %}{% endblock %}
+	</div>
+</div>
+{% endblock %}

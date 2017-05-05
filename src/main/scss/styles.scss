@@ -7,3 +7,8 @@
 
 // Element/Group-specific
 @import 'global';
+
+// Page/template-specific
+@import 'templates.base/li-nav-page';
+@import 'templates.base/li-sidebar-page';
+@import 'templates/index';

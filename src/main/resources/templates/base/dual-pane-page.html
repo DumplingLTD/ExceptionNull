@@ -1,9 +1,0 @@
-<!-- base.dual-pane-page.html - Provides a sidebar alongside content. -->
-{% extends "base/empty-page" %}
-
-{% block title %}{{ title }}{% endblock %}
-
-{% block body %}
-	<div class="left">{% block sidebar %}{% endblock %}</div>
-	<div class="right">{% block content %}{% endblock %}</div>
-{% endblock %}

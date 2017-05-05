@@ -1,0 +1,67 @@
+// Logged in navigation base styles.
+.li-nav {
+	@extend %shadow-layer-2;
+
+	height: $li-nav-height;
+	display: flex;
+	color: $li-nav-color;
+
+
+
+	.left {
+		flex: 1 1 auto;
+		font-family: $title-font;
+		font-size: 0;
+		white-space: nowrap;
+
+		.h-spacer {
+			max-width: $size-base * 11;
+			width: 10%;
+		}
+
+		img {
+			width: $size-base * 6; // 54px;
+		}
+
+		.title {
+			padding-left: $size-base * 3;
+			font-size: 18px;
+		}
+	}
+
+	.right {
+		flex: 1 1 auto;
+		text-align: right;
+
+		.h-spacer {
+			width: $size-base * 2;
+		}
+	}
+
+	li {
+		list-style: none;
+		display: inline-block;
+	}
+
+	a {
+		&, &:link, &:visited {
+			display: inline-block;
+			font-size: 16px;
+			color: $li-nav-passive-link-color;
+			border-bottom: $li-nav-border-bottom-height solid $li-nav-passive-link-border-color;
+			font-weight: bold;
+			margin: 0 $size-base * 3;
+			padding: 0 $size-base ($li-nav-v-spacing - $li-nav-border-bottom-height);
+		}
+		&:hover, &:active,
+		&.active {
+			color: $li-nav-active-link-color;
+			border-bottom-color: $li-nav-active-link-border-color;
+		}
+	}
+}
+
+$height-scss-fix: 100%;
+.li-main {
+	height: calc(#{$height-scss-fix} - #{$li-nav-height});
+}
