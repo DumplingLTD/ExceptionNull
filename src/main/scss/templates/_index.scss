@@ -1,19 +1,4 @@
 // Styles only shown in index.html
-a.home-sign-up {
-	&, &:link, &:visited {
-		color: $home-header-color;
-		background-color: $home-header-button-background-color;
-		padding: $size-base * 1 $size-base * 7;
-		border-radius: 100px;
-		display: inline-block;
-		text-transform: uppercase;
-	}
-	&:hover, &:active {
-		color: $home-header-button-background-color;
-		background-color: $home-header-color;
-	}
-}
-
 .home-header,
 .home-footer {
 	background: $home-header-background-color url(https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/home-header-bg.png) fixed;
@@ -51,8 +36,8 @@ a.home-sign-up {
 	padding: $home-navbar-spacing;
 	letter-spacing: 3px;
 	font-weight: bold;
-	height: $home-navbar-height + ($home-navbar-vertical-spacing * 2);
-	margin-bottom: -($home-navbar-height + ($home-navbar-vertical-spacing * 2));
+	height: $home-navbar-height + ($home-navbar-v-spacing * 2);
+	margin-bottom: -($home-navbar-height + ($home-navbar-v-spacing * 2));
 
 	.left {
 		flex: 0 0 auto;

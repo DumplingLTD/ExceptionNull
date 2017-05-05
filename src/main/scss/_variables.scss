@@ -14,6 +14,7 @@ $color-dark-grey: #4a4a4a;
 $color-black: #000;
 
 $color-midnight-bluuu: #292f3a;
+$color-deep-purple: #181b22;
 $color-green: #fdda46;
 $color-light-blue: #78cffb;
 $color-pink: #b95077;
@@ -54,29 +55,36 @@ $default-transition: $animation-time-reactive $animation-fn-ease-in;
 	}
 }
 
-// *** Application
+// *** Template base/partials
 // Default/Tag
 $default-background-color: $color-off-white;
 $default-accent-background-color: $color-white;
-$default-color: $color-dark-grey;
+$default-color: $color-midnight-bluuu;
 
 $default-content-spacing: $size-base * 7;
 
-// Header
-$header-logo-size: $size-base * 9;
-$header-height: $size-base * 16;
-$header-background-color: $default-accent-background-color;
+// li-sidebar
+$li-sidebar-max-width: $size-base * 67; // 536.
+$li-sidebar-width: 25%;
+$li-sidebar-background-color: $color-midnight-bluuu;
 
-$header-nav-color: $color-black;
-$header-nav-horizontal-spacing: $size-base * 4;
-$header-nav-bottom-spacing: $size-base * 3;
-$header-nav-border-bottom-height: $size-base * 1;
-$header-nav-passive-border-color: transparent;
-$header-nav-active-border-color: $color-grey;
+$li-sidebar-nav-passive-opacity: .65;
+$li-sidebar-nav-passive-border-color: transparent;
+$li-sidebar-nav-active-opacity: 1;
+$li-sidebar-nav-active-border-color: $color-green;
 
-// Dual pane
-$dual-pane-left-max-width: $size-base * 80; // 640px.
-$dual-pane-left-width: 25%;
+// li-nav
+$li-nav-height: $size-base * 9;
+$li-nav-color: $color-midnight-bluuu;
+$li-nav-border-bottom-height: $size-base * 1;
+$li-nav-v-spacing: $size-base * 2;
+
+$li-nav-passive-link-border-color: transparent;
+$li-nav-passive-link-color: $color-deep-grey;
+$li-nav-passive-background-color: transparent;
+$li-nav-active-link-border-color: $color-midnight-bluuu;
+$li-nav-active-link-color: $color-midnight-bluuu;
+$li-nav-active-background-color: $color-deep-purple;
 
 // *** Page specific
 // index/home
@@ -86,9 +94,9 @@ $home-header-height: $size-base * 110; // 880px
 $home-header-button-background-color: $color-pink;
 
 $home-navbar-height: $size-base * 8; // 64
-$home-navbar-vertical-spacing: $size-base * 2;
-$home-navbar-horizontal-spacing: $size-base * 3;
-$home-navbar-spacing: $home-navbar-vertical-spacing $header-nav-horizontal-spacing;
+$home-navbar-v-spacing: $size-base * 2;
+$home-navbar-h-spacing: $size-base * 4;
+$home-navbar-spacing: $home-navbar-v-spacing $home-navbar-h-spacing;
 $home-navbar-color-active: $color-light-blue;
 $home-navbar-link-padding: $size-base * 2 $size-base * 3;
 $home-navbar-bordered-width: 2px;

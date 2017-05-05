@@ -1,66 +1,22 @@
 // Styles pertaining to global elements (eg. header, body, and footer)
-.global-header {
-	@extend %shadow-layer-1;
-
-	height: $header-height;
-	background-color: $header-background-color;
-	display: flex;
-	position: relative; // Renders this element + its shadow on top
-
-	.left, .right {
-		height: 100%;
-	}
-
-	.left {
-		flex: 0 0 auto;
-		width: $header-logo-size;
-		font-size: 0; // Adjacent inline-block fix.
-	}
-
-	.right {
-		text-align: right;
-		flex: 1 1 auto;
-	}
-}
-
-.global-logo {
-	width: $header-logo-size;
-}
-
-.global-nav {
-
-	font-size: 0;
-
-	ul, li {
-		height: 100%;
-	}
-
-	li {
-		list-style: none;
-		display: inline-block;
-	}
-
-	a {
-		&, &:link, &:visited {
-			font-size: 16px;
-			color: $header-nav-color;
-			border-bottom: $header-nav-border-bottom-height solid $header-nav-passive-border-color;
-			font-weight: bold;
-			padding: 0 $header-nav-horizontal-spacing $header-nav-bottom-spacing;
-		}
-		&:hover, &:active,
-		&.active {
-			border-bottom-color: $header-nav-active-border-color;
-		}
-	}
-}
-
-$sass-fix: 100%;
-.global-main {
-	height: calc(#{$sass-fix} - #{$header-height});
-}
-
 .global-title {
 	font-family: $title-font;
 	text-transform: uppercase;
+}
+
+.global-pink-button {
+	&, &:link, &:visited {
+		color: $home-header-color;
+		background-color: $home-header-button-background-color;
+		padding: $size-base * 1 $size-base * 7;
+		border-radius: 100px;
+		display: inline-block;
+		text-transform: uppercase;
+	}
+}
+a.global-pink-button {
+	&:hover, &:active {
+		color: $home-header-button-background-color;
+		background-color: $home-header-color;
+	}
 }
