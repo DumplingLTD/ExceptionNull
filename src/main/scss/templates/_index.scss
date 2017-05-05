@@ -88,6 +88,7 @@ a.home-sign-up {
 
 .home-how {
 	text-align: center;
+	background-color: $color-white;
 
 	.spacer {
 		height: $size-base * 12;
@@ -166,6 +167,7 @@ a.home-sign-up {
 	height: $size-base * 80;
 	text-align: center;
 	padding: 0 $size-base * 11;
+	background-color: $color-white;
 
 	img {
 		height: $size-base * 60;
