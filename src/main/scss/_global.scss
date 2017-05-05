@@ -3,3 +3,20 @@
 	font-family: $title-font;
 	text-transform: uppercase;
 }
+
+.global-pink-button {
+	&, &:link, &:visited {
+		color: $home-header-color;
+		background-color: $home-header-button-background-color;
+		padding: $size-base * 1 $size-base * 7;
+		border-radius: 100px;
+		display: inline-block;
+		text-transform: uppercase;
+	}
+}
+a.global-pink-button {
+	&:hover, &:active {
+		color: $home-header-button-background-color;
+		background-color: $home-header-color;
+	}
+}
