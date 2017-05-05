@@ -57,7 +57,7 @@ public class IndexController {
 	@RequestMapping(value = "/dashboard")
 	public ModelAndView dashboard() {
 		ModelAndView result = new ModelAndView();
-		result.setViewName("test-dual-pane-page");
+		result.setViewName("dashboard");
 		return result;
 	}
 }

@@ -1,0 +1,93 @@
+// Logged-in dashboard section styles
+.dashboard-section-split {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-section {
+  @extend %shadow-layer-2;
+
+  width: $dashboard-section-width;
+  min-height: $dashboard-section-min-height;
+  background-color: $dashboard-section-bg-color;
+  margin: $dashboard-section-margin auto;
+  padding: $dashboard-section-vertical-padding 0;
+  font-size: 0;
+
+  .dashboard-circle {
+    width: 100%;
+  }
+
+  .dashboard-circle, .dashboard-hours-spent {
+    padding: $dashboard-section-chart-padding;
+  }
+
+  .dashboard-section-subsection-smaller-right, .dashboard-section-subsection-larger-left {
+    padding: 0 $dashboard-section-horizontal-padding;
+    height: 20vh;
+    font-size: 0;
+    display: table;
+  }
+
+  .dashboard-section-subsection-larger-left {
+    width: $dashboard-section-left-larger-width;
+    border-right: 1px solid $color-deep-grey;
+    font-size: 0;
+
+    .dashboard-subsection-3-grouping {
+      display: inline-block;
+      width: $dashboard-section-circle-small-chart-size;
+    }
+  }
+
+  .dashboard-section-subsection-smaller-right {
+    width: $dashboard-section-right-smaller-width;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .dashboard-section-title {
+    letter-spacing: 1px;
+    color: $dashboard-section-title;
+    font-size: $dashboard-section-title-size;
+    padding-bottom: 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .dashboard-grid {
+    width: 100%;
+
+    tr:nth-child(even) {
+      background-color: $color-lighter-blue;
+    }
+
+    tr td:nth-child(2) {
+      font-weight: bold; // bolden the descriptors
+    }
+
+    tr td:not(:nth-child(2)) {
+      text-align: center;
+    }
+
+    td, th {
+      font-size: $size-base * 2;
+      padding: 10px;
+    }
+  }
+
+  .dashboard-subsection-5-grouping {
+    display: inline-block;
+    width: $dashboard-section-circle-medium-chart-size;
+  }
+
+  label {
+    display: block;
+    font-size: $dashboard-subsection-label-size;
+    text-align: center;
+  }
+}

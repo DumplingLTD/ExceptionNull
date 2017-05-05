@@ -1,0 +1,123 @@
+{# The dashboard page #}
+{% extends "base/li-sidebar-page" %}
+
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="dashboard-section dashboard-section-split">
+        <div class="dashboard-section-subsection-larger-left">
+            <h4 class="dashboard-section-title">SKILL DEVELOPMENT</h4>
+
+            <div class="dashboard-subsection-3-grouping">
+                <img class="dashboard-circle" src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/50%25.png"/>
+                <label>Java</label>
+            </div>
+
+            <div class="dashboard-subsection-3-grouping">
+                <img class="dashboard-circle" src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/70%25.png"/>
+                <label>JavaScript</label>
+            </div>
+
+            <div class="dashboard-subsection-3-grouping">
+                <img class="dashboard-circle" src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/20%25.png"/>
+                <label>HTML/CSS</label>
+            </div>
+        </div>
+
+        <div class="dashboard-section-subsection-smaller-right">
+            <h4 class="dashboard-section-title">HOURS SPENT THIS WEEK</h4>
+
+            <img class="dashboard-hours-spent" src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/bar_graph.png"/>
+        </div>
+    </div>
+
+    <div class="dashboard-section">
+        <h4 class="dashboard-section-title">CHALLENGES</h4>
+
+        <table class="dashboard-grid">
+            <tr>
+                <th>DATE</th>
+                <th>DESCRIPTION</th>
+                <th>TIME</th>
+                <th>SCORE</th>
+                <th>RESULT</th>
+            </tr>
+
+            <tr>
+                <td>05/04</td>
+                <td>Building an Image Editor with Java</td>
+                <td>2 days</td>
+                <td>4.50</td>
+                <td>Win</td>
+            </tr>
+
+            <tr>
+                <td>05/01</td>
+                <td>Data Structures: Interview Questions from Amazon</td>
+                <td>2 days</td>
+                <td>3.50</td>
+                <td>Win</td>
+            </tr>
+
+            <tr>
+                <td>04/28</td>
+                <td>Evil Hangman</td>
+                <td>2 days</td>
+                <td>3.75</td>
+                <td>Tie</td>
+            </tr>
+
+            <tr>
+                <td>04/28</td>
+                <td>Uncovering Police Shootings: Introduction to D3</td>
+                <td>3 days</td>
+                <td>3.75</td>
+                <td>Tie</td>
+            </tr>
+
+            <tr>
+                <td>04/12</td>
+                <td>Critters</td>
+                <td>1 day</td>
+                <td>4.50</td>
+                <td>Loss</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="dashboard-section">
+        <h4 class="dashboard-section-title">BADGES</h4>
+
+        <div class="dashboard-subsection-5-grouping top-aligned">
+            <img class="dashboard-circle" src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/Trophy_Badge.png"/>
+            <label class="bold">First Place Team</label>
+            <label>Challenge Title</label>
+        </div>
+
+        <div class="dashboard-subsection-5-grouping top-aligned">
+            <img class="dashboard-circle" src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/Medal_Badge.png"/>
+            <label class="bold">First Place Single</label>
+            <label>Challenge Title</label>
+        </div>
+
+        <div class="dashboard-subsection-5-grouping top-aligned">
+            <img class="dashboard-circle" src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/Sword_Badge.png"/>
+            <label class="bold">Three Wins</label>
+            <label>Challenge Title</label>
+        </div>
+
+        <div class="dashboard-subsection-5-grouping top-aligned">
+            <img class="dashboard-circle" src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/Gem_Badge.png"/>
+            <label class="bold">Best Practices Bonus</label>
+            <label>Challenge Title</label>
+        </div>
+
+        <div class="dashboard-subsection-5-grouping top-aligned">
+            <img class="dashboard-circle" src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/Medal_Badge.png"/>
+            <label class="bold">First Place Single</label>
+            <label>Challenge Title</label>
+        </div>
+    </div>
+</div>
+{% endblock %}
