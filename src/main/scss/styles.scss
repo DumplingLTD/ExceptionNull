@@ -4,6 +4,7 @@
 @import 'variables';
 @import 'tags';
 @import 'layout';
+@import 'decoration';
 
 // Element/Group-specific
 @import 'global';
@@ -12,3 +13,5 @@
 @import 'templates.base/li-nav-page';
 @import 'templates.base/li-sidebar-page';
 @import 'templates/index';
+
+@import 'templates/dashboard';

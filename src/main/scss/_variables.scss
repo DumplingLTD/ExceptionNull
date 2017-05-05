@@ -17,6 +17,7 @@ $color-midnight-bluuu: #292f3a;
 $color-deep-purple: #181b22;
 $color-light-purple: #533e8d;
 $color-green: #fdda46;
+$color-lighter-blue: #BBDEFB;
 $color-light-blue: #78cffb;
 $color-pink: #b95077;
 
@@ -101,3 +102,19 @@ $home-navbar-spacing: $home-navbar-v-spacing $home-navbar-h-spacing;
 $home-navbar-color-active: $color-light-blue;
 $home-navbar-link-padding: $size-base * 2 $size-base * 3;
 $home-navbar-bordered-width: 2px;
+
+// dashboard
+$dashboard-section-width: 75%;
+$dashboard-section-min-height: 35%;
+$dashboard-section-bg-color: $color-white;
+$dashboard-section-left-larger-width: 60%;
+$dashboard-section-right-smaller-width: 40%;
+$dashboard-section-circle-small-chart-size: calc(100% / 3);
+$dashboard-section-circle-medium-chart-size: calc(100% / 5);
+$dashboard-section-chart-padding: 10%;
+$dashboard-section-title: $color-dark-grey;
+$dashboard-section-title-size: $size-base * 2.5;
+$dashboard-subsection-label-size: $size-base * 1.5;
+$dashboard-section-vertical-padding: $size-base * 3;
+$dashboard-section-horizontal-padding: $size-base * 2;
+$dashboard-section-margin: $size-base * 6;
