@@ -53,4 +53,11 @@ public class IndexController {
 		request.getSession().removeAttribute(SESSION_IS_LOGGED_IN);
 		return getIndex();
 	}
+	
+	@RequestMapping(value = "/dashboard")
+	public ModelAndView dashboard() {
+		ModelAndView result = new ModelAndView();
+		result.setViewName("dashboard/index");
+		return result;
+	}
 }

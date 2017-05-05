@@ -4,7 +4,7 @@ package com.jonathanpli.mysql;
  * A representation of the datatype available in MySQL.
  * @link https://www.techonthenet.com/mysql/datatypes.php
  */
-public enum Datatype {
+public enum DataType {
 	// Strings
 	CHAR(1, true),
 	VARCHAR(1, true),
@@ -54,7 +54,7 @@ public enum Datatype {
 	 * @param isParameterRequired If the length specification parameter is required for the
 	 * datatype.
 	 */
-	private Datatype(int parameterCount, boolean isParameterRequired) {
+	private DataType(int parameterCount, boolean isParameterRequired) {
 		this.parameterCount = parameterCount;
 		this.isParameterRequired = isParameterRequired;
 	}

@@ -9,8 +9,8 @@ import static com.jonathanpli.mysql.Attribute.INDEXED;
 import static com.jonathanpli.mysql.Attribute.NOT_NULL;
 import static com.jonathanpli.mysql.Attribute.PRIMARY_KEY;
 import static com.jonathanpli.mysql.Attribute.UNIQUE;
-import static com.jonathanpli.mysql.Datatype.INT;
-import static com.jonathanpli.mysql.Datatype.VARCHAR;
+import static com.jonathanpli.mysql.DataType.INT;
+import static com.jonathanpli.mysql.DataType.VARCHAR;
 
 /**
  * The metadata associated to a lesson. A lesson contains multiple {@link ModuleLessonCard}s in order to
@@ -20,29 +20,29 @@ import static com.jonathanpli.mysql.Datatype.VARCHAR;
 @Table(name = "module_lesson")
 public class ModuleLesson {
 	@Column(name = "id",
-			datatype = INT,
+			dataType = INT,
 			datatypeParams = { 11 },
 			attributes = { PRIMARY_KEY, AUTO_INCREMENT, NOT_NULL })
 	public int id;
 
 	@Column(name = "module_id",
-			datatype = INT,
+			dataType = INT,
 			datatypeParams = { 11 },
 			attributes = { FOREIGN_KEY, INDEXED, UNIQUE, NOT_NULL })
 	public int moduleId;
 
 	@Column(name = "order",
-			datatype = INT,
+			dataType = INT,
 			datatypeParams = { 11 },
 			attributes = { UNIQUE, NOT_NULL })
 	public int order;
 
 	@Column(name = "title",
-			datatype = VARCHAR,
+			dataType = VARCHAR,
 			datatypeParams = { 256 },
 			attributes = { NOT_NULL })
 	public String title;
 
-	@Column(name = "description", datatype = VARCHAR, datatypeParams = { 1024 })
+	@Column(name = "description", dataType = VARCHAR, datatypeParams = { 1024 })
 	public String description;
 }

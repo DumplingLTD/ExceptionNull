@@ -1,7 +1,7 @@
 package com.jonathanpli.mysql.annotation;
 
 import com.jonathanpli.mysql.Attribute;
-import com.jonathanpli.mysql.Datatype;
+import com.jonathanpli.mysql.DataType;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -23,7 +23,7 @@ public @interface Column {
 	/**
 	 * The datatype of the column. For example, VARCHAR, INT, etc.
 	 */
-	Datatype datatype();
+	DataType dataType();
 
 	/**
 	 * Parameters that the datatype may have. For example, the length of a VARCHAR, or the

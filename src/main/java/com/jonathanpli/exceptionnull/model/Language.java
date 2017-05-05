@@ -8,8 +8,8 @@ import static com.jonathanpli.mysql.Attribute.INDEXED;
 import static com.jonathanpli.mysql.Attribute.NOT_NULL;
 import static com.jonathanpli.mysql.Attribute.PRIMARY_KEY;
 import static com.jonathanpli.mysql.Attribute.UNIQUE;
-import static com.jonathanpli.mysql.Datatype.INT;
-import static com.jonathanpli.mysql.Datatype.VARCHAR;
+import static com.jonathanpli.mysql.DataType.INT;
+import static com.jonathanpli.mysql.DataType.VARCHAR;
 
 /**
  * Represents the language table in the database, containing the possible languages for a user to
@@ -19,13 +19,13 @@ import static com.jonathanpli.mysql.Datatype.VARCHAR;
 @Table(name = "language")
 public class Language {
 	@Column(name = "id",
-			datatype = INT,
+			dataType = INT,
 			datatypeParams = { 11 },
 			attributes = { PRIMARY_KEY, AUTO_INCREMENT, NOT_NULL })
 	public int id;
 
 	@Column(name = "name",
-			datatype = VARCHAR,
+			dataType = VARCHAR,
 			datatypeParams = { 45 },
 			attributes = { INDEXED, UNIQUE, NOT_NULL })
 	public String name;

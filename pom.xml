@@ -57,6 +57,11 @@
             <artifactId>guava</artifactId>
             <version>20.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>1.5.9</version>
+        </dependency>
 
         <!-- Scope: Runtime - Not needed at compile time, but later when the app is running -->
         <dependency>

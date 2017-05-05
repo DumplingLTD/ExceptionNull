@@ -9,10 +9,10 @@ import static com.jonathanpli.mysql.Attribute.INDEXED;
 import static com.jonathanpli.mysql.Attribute.NOT_NULL;
 import static com.jonathanpli.mysql.Attribute.PRIMARY_KEY;
 import static com.jonathanpli.mysql.Attribute.UNIQUE;
-import static com.jonathanpli.mysql.Datatype.DATETIME;
-import static com.jonathanpli.mysql.Datatype.INT;
-import static com.jonathanpli.mysql.Datatype.TINYINT;
-import static com.jonathanpli.mysql.Datatype.VARCHAR;
+import static com.jonathanpli.mysql.DataType.DATETIME;
+import static com.jonathanpli.mysql.DataType.INT;
+import static com.jonathanpli.mysql.DataType.TINYINT;
+import static com.jonathanpli.mysql.DataType.VARCHAR;
 
 /**
  * Contains metadata associated to a module. A module contains one or more lessons, which contain
@@ -22,55 +22,55 @@ import static com.jonathanpli.mysql.Datatype.VARCHAR;
 @Table(name = "module")
 public class Module {
 	@Column(name = "id",
-			datatype = INT,
+			dataType = INT,
 			datatypeParams = { 11 },
 			attributes = { PRIMARY_KEY, AUTO_INCREMENT, NOT_NULL })
 	public int id;
 
 	@Column(name = "language_id",
-			datatype = INT,
+			dataType = INT,
 			datatypeParams = { 11 },
 			attributes = { FOREIGN_KEY, INDEXED, UNIQUE, NOT_NULL })
 	public int languageId;
 
 	@Column(name = "owner_user_id",
-			datatype = INT,
+			dataType = INT,
 			datatypeParams = { 11 },
 			attributes = { FOREIGN_KEY, INDEXED, NOT_NULL })
 	public int ownerUserId;
 
 	@Column(name = "title",
-			datatype = VARCHAR,
+			dataType = VARCHAR,
 			datatypeParams = { 128 },
 			attributes = { INDEXED, UNIQUE, NOT_NULL })
 	public String title;
 
-	@Column(name = "description", datatype = VARCHAR, datatypeParams = { 1024 })
+	@Column(name = "description", dataType = VARCHAR, datatypeParams = { 1024 })
 	public String description;
 
-	@Column(name = "date_created", datatype = DATETIME, attributes = { NOT_NULL })
+	@Column(name = "date_created", dataType = DATETIME, attributes = { NOT_NULL })
 	public long dateCreated;
 
-	@Column(name = "image_thumbnail_url", datatype = VARCHAR, datatypeParams = { 2048 })
+	@Column(name = "image_thumbnail_url", dataType = VARCHAR, datatypeParams = { 2048 })
 	public String imageThumbnailUrl;
 
-	@Column(name = "image_banner_url", datatype = VARCHAR, datatypeParams = { 2048 })
+	@Column(name = "image_banner_url", dataType = VARCHAR, datatypeParams = { 2048 })
 	public String imageBannerUrl;
 
 	@Column(name = "is_author_hidden",
-			datatype = TINYINT,
+			dataType = TINYINT,
 			datatypeParams = { 1 },
 			attributes = { NOT_NULL })
 	public boolean isAuthorHidden;
 
 	@Column(name = "is_published",
-			datatype = TINYINT,
+			dataType = TINYINT,
 			datatypeParams = { 1 },
 			attributes = { NOT_NULL })
 	public boolean isPublished;
 
 	@Column(name = "is_premium",
-			datatype = TINYINT,
+			dataType = TINYINT,
 			datatypeParams = { 1 },
 			attributes = { NOT_NULL })
 	public boolean isPremium;
