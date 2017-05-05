@@ -100,7 +100,7 @@
 		}
 
 		img {
-			height: 114px;
+			width: 75%;
 			margin: $size-base * 6 0;
 			display: inline-block;
 		}
@@ -154,8 +154,19 @@
 	padding: 0 $size-base * 11;
 	background-color: $color-white;
 
+	&.top {
+		padding-top: $size-base * 10;
+	}
+	&.bottom {
+		padding-bottom: $size-base * 10;
+	}
+
 	img {
 		height: $size-base * 60;
+	}
+
+	.push-spacer {
+		height: $size-base * 10;
 	}
 
 	.horizontal-spacer {
@@ -174,6 +185,78 @@
 		.global-title {
 			font-size: $font-size-t1;
 		}
+	}
+}
+
+.home-membership {
+	text-align: center;
+	width: 100%;
+	font-size: 0;
+	display: table;
+
+	.left, .right {
+		font-size: 16px;
+		vertical-align: top;
+		padding: 0 10%;
+		width: 50%;
+		height: 100%;
+		display: table-cell;
+	}
+
+	.left {
+		background-color: #eeeeee;
+
+		a {
+			&, &:link, &:visited {
+				color: $color-light-purple;
+				background-color: #cecece;
+			}
+			&:hover, &:active {
+				color: $color-white;
+				background-color: $color-light-purple;
+			}
+		}
+	}
+
+	.right {
+		color: $color-white;
+		background: $color-light-purple url(https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/home-header-bg.png);
+
+		a {
+			&, &:link, &:visited {
+				color: $color-light-purple;
+				background-color: $color-white;
+			}
+			&:hover, &:active {
+				color: $color-light-purple;
+				background-color: #cecece;
+			}
+		}
+	}
+
+	.global-title {
+		font-size: $font-size-t1;
+		padding-top: $size-base * 9;
+	}
+
+	img {
+		padding: $size-base * 4 0;
+	}
+
+	li {
+		list-style: none;
+		padding-bottom: $size-base;
+		max-width: 512px;
+		margin: 0 auto;
+	}
+
+	a {
+		padding: $size-base $size-base * 4;
+		border-radius: 100px;
+		text-transform: uppercase;
+		display: inline-block;
+		margin: $size-base * 6 0;
+		font-family: $title-font;
 	}
 }
 
