@@ -42,7 +42,7 @@
 		width: 75%;
 		padding: $size-base * 3 $size-base * 2;
 		color: $color-deep-purple;
-		background-color: $color-grey;
+		background-color: $color-grey-3;
 		border: none;
 		border-radius: $size-base;
 		font-weight: bold;
@@ -59,7 +59,7 @@
 
 .home-how {
 	text-align: center;
-	background-color: $color-light-grey2;
+	background-color: $color-grey-2;
 	padding: $size-base * 12;
 
 	.global-title-font {
@@ -85,7 +85,6 @@
 			width: 75%;
 			max-width: 253px;
 			margin: $size-base * 6 0;
-			display: inline-block;
 		}
 	}
 }

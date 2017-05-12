@@ -5,19 +5,16 @@
 	height: $li-nav-height;
 	display: flex;
 	color: $li-nav-color;
+	padding: 0 $size-base * 2;
 
 
 
 	.left {
-		flex: 1 1 auto;
+		flex: 0 0 auto;
 		font-family: $title-font;
 		font-size: 0;
 		white-space: nowrap;
-
-		.h-spacer {
-			max-width: $size-base * 11;
-			width: 10%;
-		}
+		padding-left: $size-base * 4;
 
 		img {
 			width: $size-base * 6; // 54px;
@@ -32,10 +29,6 @@
 	.right {
 		flex: 1 1 auto;
 		text-align: right;
-
-		.h-spacer {
-			width: $size-base * 2;
-		}
 	}
 
 	li {
@@ -52,6 +45,7 @@
 			font-weight: bold;
 			margin: 0 $size-base * 3;
 			padding: 0 $size-base ($li-nav-v-spacing - $li-nav-border-bottom-height);
+			letter-spacing: 2px;
 		}
 		&:hover, &:active,
 		&.active {

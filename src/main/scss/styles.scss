@@ -9,6 +9,8 @@
 @import 'global';
 
 // Page/template-specific
+@import 'templates.base.partial/radial-progress';
 @import 'templates.base/li-nav-page';
 @import 'templates.base/li-sidebar-page';
 @import 'templates/index';
+@import 'templates/dashboard';

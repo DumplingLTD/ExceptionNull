@@ -6,67 +6,70 @@
 
 .li-sidebar {
 	height: 100%;
-	background-color: $li-sidebar-background-color;
+	background-color: $color-midnight-bluuu;
 	flex: 0 0 auto;
-	width: $li-sidebar-width;
-	max-width: $li-sidebar-max-width;
+	width: $size-base * 40;
 	color: $color-white;
 	overflow: auto;
+	padding-top: $size-base * 8;
 }
 
 .li-sidebar-profile {
 	text-align: center;
 
+	.username {
+		margin-top: $size-base;
+	}
+
+	.account {
+		font-size: 14px;
+		letter-spacing: 1px;
+
+		.type {
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+
+		span {
+			padding: 0 $size-base;
+		}
+	}
+
 	> img {
 		margin: 0 auto;
-		max-width: $size-base * 32; // 256px
-		width: 50%;
-		border-radius: $size-base * 16;
-		border: $size-base * 1 solid $color-white;
-	}
-
-	.large-spacer {
-		max-height: $size-base * 11;
-		height: 3vw;
-	}
-
-	.spacer {
-		height: 1vw;
-		max-height: $size-base * 4;
-	}
-
-	.mini-spacer {
-		height: $size-base;
+		width: $size-base * 16; // 128px
+		border-radius: $size-base * 8;
+		border: 2px solid $color-white;
 	}
 
 	.tri {
 		font-size: 0;
-		padding: 0 12%;
-		font-weight: bold;
+		padding: $size-base * 5 $size-base;
 
 		> div {
 			display: inline-block;
-			font-size: 12px;
+			font-size: 10px;
 			width: 33.3333%;
-			padding: 0 $size-base * 1;
+			padding: 0 $size-base;
+			color: $color-grey-4;
 		}
 
 		img {
-			margin: 0 auto $size-base;
-			width: 75%;
+			margin: 0 auto 4px;
+			width: 17px;
+			opacity: 0.65;
 		}
 	}
 }
 
 .li-sidebar-nav {
-	border-top: 1px solid rgba(255, 255, 255, $li-sidebar-nav-passive-opacity);
-
 	li {
 		list-style: none;
 		display: block;
 
 		a {
 			&, &:link, &:visited {
+				padding: $size-base * 2 0;
 				display: block;
 				color: rgba(255, 255, 255, $li-sidebar-nav-passive-opacity);
 				border-left: $size-base solid $li-sidebar-nav-passive-border-color;
@@ -80,7 +83,7 @@
 			&.active {
 				color: rgba(255, 255, 255, $li-sidebar-nav-active-opacity);
 				border-color: $li-sidebar-nav-active-border-color;
-				background-color: $li-nav-active-background-color;
+				background-color: $li-nav-active-background-color; // TODO: FIX THIS
 
 				img {
 					opacity: $li-sidebar-nav-active-opacity;
@@ -88,18 +91,10 @@
 			}
 		}
 		img {
-			width: 2vw;
-			max-width: $size-base * 4;
+			margin: 0 $size-base * 3 0 $size-base * 4;
+			width: 19px;
+			height: 19px;
 			display: inline-block;
-		}
-		.v-spacer {
-			max-height: $size-base * 4;
-			height: .8vw;
-		}
-
-		.h-spacer {
-			width: 2vw;
-			max-width: $size-base * 4;
 		}
 	}
 }

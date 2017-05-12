@@ -1,0 +1,12 @@
+{# A radial progress bar #}
+<div class="progress-radial-wrapper">
+	<div class="progress-radial progress-{{ percent }}">
+		<div class="overlay">
+			<div class="middle-aligner"></div>
+			<div class="middle-aligned">
+				<div class="percent">{{ percent }}</div>
+				{% if subtitle != "" %}<div class="subtitle">{{ subtitle }}</div>{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
