@@ -67,4 +67,11 @@ public class IndexController {
 		result.setViewName("evaluate");
 		return result;
 	}
+
+	@RequestMapping(value = "/challenge")
+	public ModelAndView challenge() {
+		ModelAndView result = new ModelAndView();
+		result.setViewName("challenge");
+		return result;
+	}
 }

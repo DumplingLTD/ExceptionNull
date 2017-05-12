@@ -1,0 +1,74 @@
+// Styles relating to the challenge screen.
+$challenge-header-height: 52px;
+.challenge-header {
+	@extend %shadow-layer-2;
+
+	width: 100%;
+	height: $challenge-header-height;
+	padding: 0 $size-base * 2;
+	display: flex;
+	margin-bottom: -$challenge-header-height;
+	position: absolute;
+
+	button, a {
+		&, &:link, &:visited {
+			display: inline-block;
+			background-color: transparent;
+			color: $color-light-purple;
+			height: $challenge-header-height;
+			border: none;
+			padding: 0 $size-base * 2;
+			cursor: pointer;
+			font-size: 16px;
+			line-height: $challenge-header-height;
+		}
+
+		&:hover, &:active {
+			background-color: $color-grey;
+		}
+
+		&.primary:hover {
+			background-color: $color-light-purple;
+			color: $color-white;
+		}
+
+		i {
+			padding-right: $size-base * 2;
+		}
+	}
+
+	.left, .right {
+		flex: 1 1 auto;
+	}
+	.right {
+		text-align: right;
+	}
+}
+
+.challenge-tri {
+	display: flex;
+	height: 100%;
+	padding-top: $challenge-header-height;
+
+	> div {
+		overflow: hidden;
+		height: 100%;
+		flex: 1 1 auto;
+		width: 50%;
+
+		textarea, pre, code {
+			width: 100%;
+			height: 100%;
+			resize: none;
+			border: none;
+		}
+		textarea, code, &.challenge-output {
+			padding: $size-base;
+		}
+
+		textarea {
+			background-color: $color-midnight-bluuu;
+			color: $color-white;
+		}
+	}
+}

@@ -1,0 +1,39 @@
+{# Code eval page a peer reviewer will interact with #}
+{% extends "base/empty-page" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/css/highlightjs-tomorrow-night.css" />
+{% endblock %}
+
+{% block body %}
+<div class="challenge-header">
+	<div class="left">
+		<button type="button"><i class="fa fa-play"></i>Run</button>
+	</div>
+	<div class="right">
+		<a href="/dashboard"><i class="fa fa-save"></i>Save</a>
+		<a href="/dashboard" class="primary"><i class="fa fa-graduation-cap"></i>Submit</a>
+	</div>
+</div>
+<div class="challenge-tri">
+<div><textarea class="challenge-input" id="challenge-input">
+// Challenge: Type something that triggers the pretty print.
+// Try something like "var a = document.getElementById('hi');"
+</textarea></div>
+	<div><pre><code id="challenge-pretty" class="js"></code></pre></div>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+<script>
+	hljs.configure({
+		classPrefix: ''
+	});
+	hljs.initHighlighting();
+	let a = document.getElementById('challenge-pretty');
+	document.getElementById('challenge-input').oninput = function() {
+		a.innerHTML = this.value;
+		hljs.highlightBlock(a);
+	};
+	document.getElementById('challenge-input').oninput();
+</script>
+{% endblock %}
