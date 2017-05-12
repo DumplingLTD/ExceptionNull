@@ -60,4 +60,11 @@ public class IndexController {
 		result.setViewName("dashboard");
 		return result;
 	}
+
+	@RequestMapping(value = "/evaluate")
+	public ModelAndView evaluate() {
+		ModelAndView result = new ModelAndView();
+		result.setViewName("evaluate");
+		return result;
+	}
 }

@@ -107,15 +107,17 @@
 }
 
 .dashboard-active-eval-resume {
-	background-color: $color-yellow-orange;
-	padding: $size-base $size-base * 12;
-	border-radius: 100px;
-	border: none;
-	font-family: $primary-font;
-	color: $color-white;
-	cursor: pointer;
+	&, &:link, &:visited {
+		background-color: $color-yellow-orange;
+		padding: $size-base $size-base * 12;
+		border-radius: 100px;
+		border: none;
+		font-family: $primary-font;
+		color: $color-white;
+		cursor: pointer;
+	}
 
-	&:hover {
+	&:hover, &:active {
 		background-color: darken($color-yellow-orange, 5%);
 	}
 }

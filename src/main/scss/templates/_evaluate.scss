@@ -1,0 +1,151 @@
+// Styles relating to the evaluation page
+.eval {
+	display: flex;
+	height: 100%;
+
+	> .left {
+		flex: 0 0 auto;
+		width: $size-base * 54; // 432px
+		border-right: 4px solid #b8babd;
+		background-color: $color-white;
+		overflow: auto;
+
+		.flag {
+			background-color: $color-midnight-bluuu;
+
+		}
+	}
+
+	> .right {
+		flex: 1 1 auto;
+		height: 100%;
+		pre,
+		code {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+.eval-header {
+	padding: $size-base * 6 $size-base * 4 0;
+	text-align: center;
+
+	.global-title-font {
+		font-size: 24px;
+	}
+	.subtitle {
+		font-size: 14px;
+	}
+
+	.hint {
+		font-size: 12px;
+		color: $color-deep-grey;
+		margin-top: $size-base * 2;
+	}
+}
+
+.eval-flag {
+	padding-top: $size-base * 8;
+
+	.global-title-font {
+		text-align: center;
+		padding: $size-base;
+		background-color: $color-midnight-bluuu;
+		color: $color-white;
+		font-size: 19px;
+	}
+}
+
+.eval-rubric {
+	width: 291px;
+	margin: $size-base * 4 auto 0;
+	padding: 0 2px;
+	border-bottom: 1px solid $color-light-grey-5;
+
+	.metric {
+		display: flex;
+		align-items: center;
+		margin-bottom: $size-base * 3;
+	}
+
+	label {
+		flex: 1 1 auto;
+	}
+	select {
+		flex: 0 0 auto;
+		width: 114px;
+		background-color: $color-light-grey-5;
+		border-radius: 4px;
+		border: none;
+
+	}
+	select, option {
+		font-family: $primary-font;
+		padding: 11px;
+		font-weight: bold;
+	}
+}
+
+.eval-total {
+	display: flex;
+	margin: $size-base auto 0;
+	font-size: 19px;
+	width: 291px;
+
+	.left, .right {
+		flex: 1 1 auto;
+	}
+
+	.right {
+		text-align: right;
+	}
+
+	.left,
+	.bold {
+		font-weight: bold;
+	}
+}
+
+.eval-last-notes {
+	padding: $size-base * 8 $size-base * 2 0;
+
+	textarea {
+		width: 100%;
+		min-height: 128px;
+		resize: vertical;
+		padding: $size-base;
+		font-family: $primary-font;
+		border: 1px solid $color-light-grey3;
+		border-radius: 3px;
+	}
+}
+
+.eval-buttons {
+	padding: $size-base * 2;
+
+	a {
+		display: inline-block;
+		margin: $size-base;
+		padding: $size-base $size-base * 4;
+		border-radius: 3px;
+
+		&, &:link, &:visited {
+			color: $color-midnight-bluuu;
+			background-color: transparent;
+		}
+	}
+
+	.save {
+		&:hover, &:active {
+			background-color: $color-light-grey-5;
+		}
+	}
+	.submit {
+		&:hover, &:active {
+			background-color: $color-midnight-bluuu;
+			color: $color-white;
+		}
+	}
+
+}
