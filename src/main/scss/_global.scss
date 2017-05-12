@@ -3,20 +3,26 @@
 	font-family: $title-font;
 	text-transform: uppercase;
 }
+.global-title-font {
+	font-family: $title-font;
+}
 
 .global-pink-button {
 	&, &:link, &:visited {
-		color: $home-header-color;
-		background-color: $home-header-button-background-color;
+		color: $color-white;
+		background-color: $color-pink;
 		padding: $size-base * 1 $size-base * 7;
 		border-radius: 100px;
 		display: inline-block;
 		text-transform: uppercase;
+		border: none;
+		cursor: pointer;
 	}
 }
-a.global-pink-button {
+a.global-pink-button,
+button.global-pink-button {
 	&:hover, &:active {
-		color: $home-header-button-background-color;
-		background-color: $home-header-color;
+		color: $color-pink;
+		background-color: $color-white;
 	}
 }

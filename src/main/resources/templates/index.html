@@ -4,61 +4,47 @@
 {% block title %}Exception Null - Home{% endblock %}
 
 {% block body %}
-<div class="home-header">
-	<div class="home-navbar">
-		<img class="left"
-			 src="https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/144x144-white.png" />
-		<ul class="right">
-			<li><a href="#home-how-it-works">how it works</a></li>
-			<li><a href="/dashboard">login</a></li>
-			<li><a href="#" class="bordered">sign up</a></li>
-		</ul>
+<div class="home-sign-up" id="home-sign-up">
+	<div class="left">
+		<div class="middle-aligner"></div>
+		<div class="middle-aligned">
+			<div><img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/144x144-white.png" /></div>
+			<div class="global-title-font">
+				Sign up now to experience<br />
+				Exception Null's coding challenges.
+			</div>
+			<div class="subtitle">Write something additional here.</div>
+			<div>
+				<form action="/dashboard" method="post">
+					<div><input type="text" placeholder="NAME" /></div>
+					<div><input type="text" placeholder="EMAIL" /></div>
+					<div><button type="submit" class="global-pink-button">SIGN UP</button></div>
+				</form>
+			</div>
+		</div>
 	</div>
-	<div class="middle-aligner"></div>
-	<div class="middle-aligned content">
-		<div class="global-title">BECOME EXCEPTION NULL.</div>
-		<div class="spacer"></div>
-		<div class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-			eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-		<div class="spacer"></div>
-		<a href="#" class="global-pink-button">sign up</a>
-	</div>
+	<div class="right"></div>
 </div>
 
-<div class="home-how" id="home-how-it-works">
-	<div class="spacer"></div>
-	<div class="global-title">how it works</div>
-	<div class="spacer"></div>
+<div class="home-how">
 	<div class="tri">
 		<div>
-			<div class="global-title">gamified learning</div>
+			<div class="global-title-font">Gamified Learning</div>
 			<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/Woman_1.png" />
-			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+			<div>Gamified learning experience. Opportunity to test your knowledge and skills.</div>
 		</div>
 		<div>
-			<div class="global-title">get feedback</div>
+			<div class="global-title-font">Receive Feedback</div>
 			<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/woman_2.png" />
-			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+			<div>Comprehensive and professional feedback from our team of industry
+				professionals.</div>
 		</div>
 		<div>
-			<div class="global-title">get jobs</div>
+			<div class="global-title-font">Get Jobs</div>
 			<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/woman_3.png" />
-			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+			<div>Own technical interviews. Learn industry best practices for code!</div>
 		</div>
 	</div>
-	<div class="spacer"></div>
-</div>
-
-<div class="home-sponsors">
-	<div class="middle-aligner"></div>
-	<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/AZUQUA_logo.png" />
-	<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/GOOGLE_logo.png" />
-	<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/APPLE_logo.png" />
-	<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/TMOBILE_logo.png" />
-	<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/CONCUR_logo.png" />
 </div>
 
 <div class="home-light-demo">
@@ -85,7 +71,7 @@
 			sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
 			voluptatem sequi nesciunt.</div>
 		<div class="spacer"></div>
-		<a href="#" class="global-pink-button">sign up</a>
+		<a href="#home-sign-up" class="global-pink-button">sign up</a>
 	</div>
 </div>
 <div class="home-achievement bottom">
@@ -111,33 +97,38 @@
 </div>
 
 <div class="home-membership">
-	<div class="left">
-		<div class="global-title">free members</div>
-		<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/Arrows_Badge_Landing.png" />
-		<ul>
-			<li>Submit prompts and challenges of your own creation to be published on our platform.</li>
-			<li>Free challenges with an overall score.</li>
-		</ul>
-	</div>
-	<div class="right">
-		<div class="global-title">premium members</div>
-		<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/Sword_Badge_Landing.png" />
-		<ul>
-			<li>Submit prompts and challenges of your own creation to be published on our platform.</li>
-			<li>Free challenges with an overall score.</li>
-			<li>Each challenge will be broken down and evaluated by our team of industry professionals.</li>
-			<li>Receive reviews and feedback from other ExceptionNull users.</li>
-			<li>Get exclusive access to companies that are looking to hire.</li>
-			<li>Provide your own to other coders learn.</li>
-		</ul>
-	</div>
-</div>
-<div class="home-membership">
-	<div class="left">
-		<a href="#">sign up</a>
-	</div>
-	<div class="right">
-		<a href="#">go premium</a>
+	<div class="global-title">MEMBERSHIPS</div>
+	<div class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+		eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+	<div class="home-membership-plans">
+		<div class="free">
+			<div class="body">
+				<div class="global-title">FREE</div>
+				<div class="price">0</div>
+				<ul>
+					<li>Submit prompts and challenges of your own creation to be published on our platform.</li>
+					<li>Free challenges with an overall score.</li>
+				</ul>
+			</div>
+			<a href="/dashboard">SIGN UP</a>
+		</div>
+		<div class="divider"></div>
+		<div class="premium">
+			<div class="body">
+				<div class="global-title">PREMIUM</div>
+				<div class="price">19.99</div>
+				<ul>
+					<li>Submit prompts and challenges of your own creation.</li>
+					<li>Free challenges with an overall score.</li>
+					<li>Challenges are segmented and evaluated by industry professionals.</li>
+					<li>Receive reviews and feedback from other ExceptionNull users.</li>
+					<li>Get exclusive access to companies that are looking to hire!</li>
+					<li>Provide your own feedback to other coders learn.</li>
+				</ul>
+			</div>
+			<a href="/dashboard">GO PREMIUM</a>
+		</div>
 	</div>
 </div>
 

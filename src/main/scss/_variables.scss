@@ -8,6 +8,7 @@ $color-white: #fff;
 $color-off-white: #f0f0f0;
 $color-light-grey: #e9e9e9;
 $color-light-grey2: #e7e7e7;
+$color-light-grey3: #c1c1c1;
 $color-grey: #d8d8d8;
 $color-deep-grey: #9b9b9b;
 $color-dark-grey: #4a4a4a;
@@ -19,6 +20,7 @@ $color-light-purple: #533e8d;
 $color-green: #fdda46;
 $color-light-blue: #78cffb;
 $color-pink: #b95077;
+$color-pink2: #ee1d79;
 
 // Sizing
 $size-base: 8px;
@@ -87,17 +89,3 @@ $li-nav-active-link-border-color: $color-midnight-bluuu;
 $li-nav-active-link-color: $color-midnight-bluuu;
 $li-nav-active-background-color: $color-deep-purple;
 
-// *** Page specific
-// index/home
-$home-header-color: $color-white;
-$home-header-background-color: $color-midnight-bluuu;
-$home-header-height: $size-base * 110; // 880px
-$home-header-button-background-color: $color-pink;
-
-$home-navbar-height: $size-base * 8; // 64
-$home-navbar-v-spacing: $size-base * 2;
-$home-navbar-h-spacing: $size-base * 4;
-$home-navbar-spacing: $home-navbar-v-spacing $home-navbar-h-spacing;
-$home-navbar-color-active: $color-light-blue;
-$home-navbar-link-padding: $size-base * 2 $size-base * 3;
-$home-navbar-bordered-width: 2px;

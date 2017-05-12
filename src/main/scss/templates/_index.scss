@@ -1,125 +1,92 @@
 // Styles only shown in index.html
-.home-header,
-.home-footer {
-	background: $home-header-background-color url(https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/home-header-bg.png) fixed;
-	color: $home-header-color;
-}
+.home-sign-up {
+	height: 100vh;
+	min-height: 550px;
+	display: flex;
 
-.home-header {
-	height: $home-header-height;
-	font-size: 0;
-
-	.content {
-		width: 100%;
+	.left {
+		flex: 1 1 40%;
+		background-color: $color-midnight-bluuu;
+		color: $color-white;
+		height: 100%;
 		text-align: center;
-		font-size: 16px;
+		font-size: 0;
+
+		img {
+			height: $size-base * 12; // 96px;
+		}
+
+		.middle-aligned {
+			width: 100%;
+		}
+	}
+	.right {
+		flex: 1 1 60%;
+		height: 100%;
+		background: $color-white url(https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/comp-right.png) left center no-repeat;
+		background-size: cover;
 	}
 
-	.global-title {
-		font-size: $font-size-t1;
-		letter-spacing: 3px;
+	.global-title-font {
+		padding: 10px 0 20px;
+		letter-spacing: 2px;
+		font-size: 19px;
 	}
 
 	.subtitle {
-		max-width: $size-base * 70;
-		margin: 0 auto;
+		font-size: 14px;
+		padding-bottom: 30px;
 	}
 
-	.spacer {
-		height: $size-base * 4;
-	}
-}
-
-.home-navbar {
-	display: flex;
-	align-items: center;
-	padding: $home-navbar-spacing;
-	letter-spacing: 3px;
-	font-weight: bold;
-	height: $home-navbar-height + ($home-navbar-v-spacing * 2);
-	margin-bottom: -($home-navbar-height + ($home-navbar-v-spacing * 2));
-
-	.left {
-		flex: 0 0 auto;
-		width: $home-navbar-height;
-		height: $home-navbar-height;
-	}
-	.right {
-		flex: 1 1 auto;
-		text-align: right;
-	}
-
-	a {
-		&, &:link, &:visited {
-			font-size: 16px;
-			border-radius: $home-navbar-height;
-			text-transform: uppercase;
-			color: $home-header-color;
-			padding: $home-navbar-link-padding;
-		}
-		&:hover, &:active {
-			color: $home-navbar-color-active;
-		}
-		&.bordered {
-			border: $home-navbar-bordered-width solid $home-header-color;
-		}
-	}
-
-	li {
-		display: inline-block;
-		list-style: none;
-	}
-}
-
-.home-how {
-	text-align: center;
-	background-color: $color-white;
-
-	.spacer {
-		height: $size-base * 12;
-	}
-
-	.global-title {
+	input {
+		width: 75%;
+		padding: $size-base * 3 $size-base * 2;
+		color: $color-deep-purple;
+		background-color: $color-grey;
+		border: none;
+		border-radius: $size-base;
+		font-weight: bold;
+		margin-bottom: $size-base * 3;
 		letter-spacing: 1px;
 	}
 
-	> .global-title {
-		font-size: $font-size-t1;
+	button {
+		margin-top: $size-base * 2;
+		padding: $size-base * 2 $size-base * 12;
+	}
+}
+
+
+.home-how {
+	text-align: center;
+	background-color: $color-light-grey2;
+	padding: $size-base * 12;
+
+	.global-title-font {
+		font-size: 17px;
 	}
 
 	.tri {
-		.global-title {
-			font-size: $font-size-t2;
-		}
+		display: flex;
+		align-items: flex-start;
+		padding: 0 $size-base * 3;
 
 		> div {
-			display: inline-block;
-			width: 25%;
-			margin: 0 $size-base * 7;
-			max-width: 500px;
+			flex: 1 1 33.3333%;
+			padding: 0 $size-base * 5;
+
+			> div {
+				max-width: 500px;
+				margin: 0 auto;
+			}
 		}
 
 		img {
 			width: 75%;
+			max-width: 253px;
 			margin: $size-base * 6 0;
 			display: inline-block;
 		}
-	}
-}
-
-.home-sponsors {
-	height: $size-base * 16;
-	text-align: center;
-	background-color: $color-light-grey2;
-	white-space: nowrap;
-	font-size: 0;
-	overflow: hidden;
-
-	img {
-		display: inline-block;
-		vertical-align: middle;
-		max-height: $size-base * 16;
-		margin: 0 $size-base * 8;
 	}
 }
 
@@ -189,79 +156,111 @@
 }
 
 .home-membership {
+	background: $color-midnight-bluuu url(https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/home-header-bg.png) fixed;
+	color: $color-white;
+	padding: $size-base * 13 0;
 	text-align: center;
-	width: 100%;
-	font-size: 0;
-	display: table;
 
-	.left, .right {
-		font-size: 16px;
-		vertical-align: top;
-		padding: 0 10%;
-		width: 50%;
-		height: 100%;
-		display: table-cell;
+	> .global-title {
+		letter-spacing: 2px;
+		font-size: $font-size-t1;
+		margin-bottom: $size-base * 3;
 	}
 
-	.left {
-		background-color: #eeeeee;
+	> .subtitle {
+		max-width: 700px;
+		margin: 0 auto $size-base * 14;
+	}
+}
+.home-membership-plans {
+	width: $size-base * 150; // 1200px;
+	display: flex;
+	margin: 0 auto;
+	color: $color-dark-grey;
 
+	.free, .premium {
+		flex: 0 0 500px;
+		background-color: $color-white;
+		border-radius: $size-base;
+	}
+	.divider {
+		flex: 1 1 auto;
+	}
+
+	.global-title {
+		margin-top: 36px;
+		font-size: $font-size-t2;
+	}
+
+	.price {
+		font-size: 36px;
+		font-weight: bold;
+		margin: 48px 0;
+		letter-spacing: 1px;
+
+		&::before {
+			content: '$';
+		}
+		&::after {
+			display: block;
+			content: 'per month';
+			font-size: $font-size-t2;
+			margin-top: -10px;
+			letter-spacing: 0;
+		}
+	}
+
+	li {
+		font-size: 13px;
+		margin: 0 auto $size-base;
+		max-width: 430px;
+		list-style: none;
+	}
+
+	.body {
+		height: 467px;
+	}
+
+	a {
+		padding: $size-base * 3 0;
+		display: block;
+		font-weight: bold;
+		border-radius: 0 0 $size-base $size-base;
+	}
+
+	.free {
+		.price {
+			color: $color-light-grey3;
+		}
 		a {
-			&, &:link, &:visited {
-				color: $color-light-purple;
-				background-color: #cecece;
+			&:link, &:visited {
+				background-color: $color-light-blue;
+				color: $color-white;
 			}
 			&:hover, &:active {
+				background-color: $color-light-grey3;
+			}
+		}
+	}
+
+	.premium {
+		.price {
+			color: $color-pink2;
+		}
+		a {
+			&:link, &:visited {
+				background-color: $color-pink2;
 				color: $color-white;
+			}
+			&:hover, &:active {
 				background-color: $color-light-purple;
 			}
 		}
 	}
-
-	.right {
-		color: $color-white;
-		background: $color-light-purple url(https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/home-header-bg.png);
-
-		a {
-			&, &:link, &:visited {
-				color: $color-light-purple;
-				background-color: $color-white;
-			}
-			&:hover, &:active {
-				color: $color-light-purple;
-				background-color: #cecece;
-			}
-		}
-	}
-
-	.global-title {
-		font-size: $font-size-t1;
-		padding-top: $size-base * 9;
-	}
-
-	img {
-		padding: $size-base * 4 0;
-	}
-
-	li {
-		list-style: none;
-		padding-bottom: $size-base;
-		max-width: 512px;
-		margin: 0 auto;
-	}
-
-	a {
-		padding: $size-base $size-base * 4;
-		border-radius: 100px;
-		text-transform: uppercase;
-		display: inline-block;
-		margin: $size-base * 6 0;
-		font-family: $title-font;
-	}
 }
 
 .home-footer {
-	padding: $size-base * 6 0;
+	padding: $size-base * 4 0;
 	text-align: center;
 	font-size: 14px;
 }
