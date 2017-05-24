@@ -45,30 +45,80 @@ $challenge-header-height: 52px;
 	}
 }
 
-.challenge-tri {
+$height-scss-fix: 100%;
+.challenge-dual-pane {
 	display: flex;
 	height: 100%;
 	padding-top: $challenge-header-height;
 
-	> div {
-		overflow: hidden;
-		height: 100%;
-		flex: 1 1 auto;
-		width: 50%;
+	.left {
+		flex: 1 1 30%;
+		background-color: $color-deep-purple;
+		color: $color-grey;
+		padding: $size-base * 4;
+	}
 
-		textarea, pre, code {
+	.right {
+		flex: 1 1 70%;
+
+		pre, code {
 			width: 100%;
 			height: 100%;
-			resize: none;
-			border: none;
-		}
-		textarea, code, &.challenge-output {
-			padding: $size-base;
 		}
 
-		textarea {
-			background-color: $color-midnight-bluuu;
-			color: $color-white;
+		> div {
+			position: absolute;
+			width: 70%;
+			height: calc(#{$height-scss-fix} - #{$challenge-header-height});
+			&:nth-child(1) {
+				z-index: 3;
+			}
+			&:nth-child(2) {
+				z-index: 2;
+			}
 		}
+	}
+}
+#challenge-input {
+	width: 100%;
+	height: 100%;
+	resize: none;
+	border: none;
+	display: block;
+	background: transparent;
+	color: transparent;
+	caret-color: $color-white;
+	outline: none;
+	overflow: auto;
+	white-space: nowrap;
+}
+
+.challenge-side-header {
+	padding-bottom: $size-base * 4;
+	.title {
+		font-size: 21px;
+	}
+	.subtitle {
+		color: $color-deep-grey;
+		font-size: 14px;
+	}
+}
+
+.challenge-side-body {
+	font-size: 14px;
+
+	.block {
+		padding-bottom: $size-base * 2;
+	}
+	li {
+		margin-left: $size-base * 3;
+		margin-top: $size-base;
+
+		&:nth-child(1) {
+			margin-top: 0;
+		}
+	}
+	code {
+		background-color: $color-midnight-bluuu;
 	}
 }

@@ -25,11 +25,11 @@
 .tomorrow-purple, pre .keyword, pre .javascript .function {
   color: #b294bb; }
 
-pre code {
+pre code,
+.code-highlight {
   display: block;
   background: #1d1f21;
   color: #c5c8c6;
-  border: 1px solid #ccc;
   padding: 10px;
   overflow: auto;
   font-size: 16px; }
