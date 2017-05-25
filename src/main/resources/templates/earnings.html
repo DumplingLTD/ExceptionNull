@@ -3,23 +3,26 @@
 {% block title %} Exception Null - Earnings{% endblock %}
 
 {% block content %}
-<div class="dashboard">
-	<div class="dashboard-row">
-		<div class="col col-4 centered">
+<div class="earnings">
+	<div class="left">
+		<div class="card">
 			<div class="title">Earnings <span class="hint">this month, estimated</span></div>
 			<div class="big-number">$11.15</div>
 		</div>
-		<div class="col col-4 centered">
+		<div class="card-spacing"></div>
+		<div class="card">
 			<div class="title">Reviews Completed <span class="hint">this month</span></div>
 			<div class="big-number">8</div>
 		</div>
-		<div class="col col-4 centered">
-			<div class="title">Grader Score <span class="hint">this month, average</span></div>
-			<div class="big-number">3.60</div>
+		<div class="card-spacing"></div>
+		<div class="card">
+			<div class="title">Rating <span class="hint">this month, average</span></div>
+			<div class="big-number">3.11</div>
 		</div>
 	</div>
-	<div class="dashboard-row">
-		<div class="col col-12">
+
+	<div class="right">
+		<div class="card">
 			<div class="title">History</div>
 			<canvas id="earning-review-history">8</canvas>
 		</div>
