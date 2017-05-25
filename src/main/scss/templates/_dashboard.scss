@@ -1,0 +1,247 @@
+// Styles for the dashboard
+.dashboard {
+}
+.dashboard-row {
+	display: table;
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: $size-base * 3;
+	margin-bottom: -$size-base * 3;
+	table-layout: fixed;
+
+	> div {
+		display: table-cell;
+		background-color: $color-white;
+		padding: $size-base * 2;
+		border-radius: $size-base;
+	}
+
+	.no-padding {
+		padding: 0;
+	}
+
+	@for $i from 1 through 12 {
+		.col-#{$i} {
+			width: 100% * $i/12;
+		}
+	}
+
+	@for $i from 1 through 5 {
+		.spacer-#{$i} {
+			height: $size-base * $i;
+		}
+	}
+
+	.col > .title {
+		font-size: 18px;
+		text-align: left;
+		margin-bottom: $size-base * 2;
+
+		.attention {
+			font-size: 14px;
+			font-weight: bold;
+			color: $color-red;
+		}
+		.hint {
+			font-size: 14px;
+			color: $color-grey-5;
+		}
+	}
+
+	.no-padding.col > .title {
+		padding: $size-base * 2;
+		padding-bottom: 0;
+	}
+
+	.centered {
+		text-align: center;
+	}
+
+	.padded-text {
+		padding: $size-base * 2 0;
+		font-size: 14px;
+	}
+
+	.card-list {
+		font-size: 11px;
+
+		li {
+			margin-top: $size-base * 2;
+			list-style: none;
+			display: flex;
+			align-items: center;
+		}
+		.date {
+			color: $color-grey-5;
+			font-size: 11px;
+			text-transform: uppercase;
+			font-weight: bold;
+			margin-top: $size-base * 3;
+		}
+
+		.title {
+			color: $color-deep-grey;
+			text-transform: uppercase;
+			font-weight: bold;
+			flex: 0 0
+		}
+		img {
+			flex: 0 0 auto;
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			margin-right: $size-base * 2;
+		}
+		> div {
+			flex: 1 1 auto;
+		}
+	}
+
+	.h-scroll {
+		white-space: nowrap;
+		overflow-y: auto;
+		padding-bottom: $size-base * 2;
+		width: 100%;
+		text-align: center;
+	}
+}
+
+.dashboard-active-eval-resume {
+	&, &:link, &:visited {
+		background-color: $color-yellow-orange;
+		padding: $size-base $size-base * 12;
+		border-radius: 100px;
+		border: none;
+		font-family: $primary-font;
+		color: $color-white;
+		cursor: pointer;
+	}
+
+	&:hover, &:active {
+		background-color: darken($color-yellow-orange, 5%);
+	}
+}
+
+.dashboard-guru-rating {
+	.average {
+		padding: $size-base * 10 0;
+
+		.title {
+			font-size: 28px;
+			margin-bottom: $size-base * 2;
+		}
+		.subtitle {
+			font-size: 12px;
+			color: $color-deep-grey;
+			max-width: 260px;
+			margin: 0 auto;
+		}
+	}
+
+	.tri {
+		display: flex;
+		padding: 0 $size-base;
+
+		> div {
+			flex: 1 1 auto;
+			width: 33.3333%;
+			padding: 0 $size-base;
+		}
+		.metric {
+			font-size: 10px;
+			font-weight: bold;
+			color: $color-deep-grey;
+			margin-top: $size-base;
+		}
+	}
+}
+
+.dashboard-active-hours {
+	img {
+		width: 100%;
+		max-width: 640px;
+	}
+}
+
+.dashboard-challenges {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+
+	th:nth-child(3),
+	th:nth-child(2),
+	td:nth-child(3),
+	td:nth-child(2) {
+		width: $size-base * 8;
+		text-align: center;
+	}
+
+	td:last-child,
+	th:last-child {
+		padding-right: $size-base * 2;
+	}
+
+	td:first-child,
+	th:first-child {
+		padding-left: $size-base * 2;
+	}
+	
+	td, th {
+		padding-top: $size-base;
+		padding-bottom: $size-base;
+	}
+
+	th {
+		color: #a9acb0;
+	}
+
+	.win {
+		&::after {
+			width: 50px;
+			background-color: #d9edc5;
+			content: 'Win';
+			display: inline-block;
+		}
+	}
+	.tie {
+		&::after {
+			width: 50px;
+			background-color: #f5cd8c;
+			content: 'Tie';
+			display: inline-block;
+		}
+	}
+	.loss {
+		&::after {
+			content: 'Loss';
+		}
+	}
+
+	tbody tr:nth-child(odd) {
+		background-color: $color-off-white-2;
+	}
+}
+
+.dashboard-badge {
+	padding: $size-base * 5;
+	text-align: center;
+	display: inline-block;
+
+	&:first-child {
+		padding-left: $size-base * 3;
+	}
+	&:last-child {
+		padding-right: $size-base * 3;
+	}
+
+	img {
+		display: inline-block;
+	}
+
+	> div {
+		max-width: 140px;
+		white-space: normal;
+		margin: 0 auto;
+		font-size: 14px;
+	}
+}

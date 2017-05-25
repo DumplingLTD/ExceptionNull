@@ -1,0 +1,129 @@
+{# Code eval page a peer reviewer will interact with #}
+{% extends "base/empty-page" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/css/highlightjs-tomorrow-night.css" />
+{% endblock %}
+
+{% block body %}
+<div class="eval">
+	<div class="left">
+		<div class="eval-header">
+			<div class="global-title-font">Image Editor with Java + JS</div>
+			<div class="subtitle">Team A versus Team B</div>
+			<div class="hint">The building bocks of JavaScript make up every program and line of
+				JavaScript.</div>
+		</div>
+
+		<div class="eval-flag">
+			<div class="global-title-font">Grading Rubric</div>
+			<div class="eval-rubric">
+				{% include "base/partial/evaluate-rubric-metric" with {
+					"id": "eval-rubric-metric-compiles",
+					"name": "Code compiles" } %}
+				{% include "base/partial/evaluate-rubric-metric" with {
+					"id": "eval-rubric-metric-runs",
+					"name": "Code runs" } %}
+				{% include "base/partial/evaluate-rubric-metric" with {
+					"id": "eval-rubric-metric-runtime",
+					"name": "Runtime" } %}
+				{% include "base/partial/evaluate-rubric-metric" with {
+					"id": "eval-rubric-metric-Coding style",
+					"name": "Coding style" } %}
+			</div>
+			<div class="eval-total">
+				<div class="left">Total</div>
+				<div class="right"><span class="bold">0</span> out of <span class="bold">20</span></div>
+			</div>
+			<div class="eval-last-notes">
+				<textarea placeholder="Any last comments for the submitter?"></textarea>
+			</div>
+			<div class="eval-buttons">
+				<a class="submit" href="/dashboard">Submit Review</a>
+				<a class="save" href="/dashboard">Save For Later</a>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<pre><code>package com.jonathanpli;
+
+import com.google.common.collect.ImmutableList;
+import com.jonathanpli.exceptionnull.controller.helpers.PebbleExtension;
+import com.mitchellbosecke.pebble.PebbleEngine;
+import com.mitchellbosecke.pebble.loader.ClasspathLoader;
+import com.mitchellbosecke.pebble.loader.Loader;
+import com.mitchellbosecke.pebble.spring4.PebbleViewResolver;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.ViewResolver;
+
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+@SpringBootApplication
+public class ExceptionNullApplication {
+	private static final String DEBUG_PARAMETER = "-debug";
+
+	private static Logger logger = Logger.getLogger(ExceptionNullApplication.class.getName());
+	private static boolean debug;
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext ctx =
+				SpringApplication.run(ExceptionNullApplication.class, args);
+
+		List&lt;String> argList = ImmutableList.copyOf(args);
+		if (argList.contains(DEBUG_PARAMETER)) {
+			logger.log(Level.WARNING, "Debugging is enabled. If you see this message in prod, "
+					+ "something's gone horribly wrong.");
+			debug = true;
+		}
+	}
+
+	@Bean
+	public static Loader&lt;?> loader() {
+		return new ClasspathLoader();
+	}
+
+	@Bean
+	public static PebbleEngine pebbleEngine() {
+		PebbleEngine.Builder builder = new PebbleEngine.Builder()
+				.extension(new PebbleExtension())
+				.loader(loader());
+
+//		if (debug) {
+			logger.log(Level.INFO, "Disabling Pebble Engine cache");
+			builder.cacheActive(false);
+//		}
+
+		return builder.build();
+	}
+
+	@Bean
+	public static ViewResolver viewResolver() {
+		PebbleViewResolver viewResolver = new PebbleViewResolver();
+		viewResolver.setPrefix("templates/");
+		viewResolver.setSuffix(".html");
+		viewResolver.setPebbleEngine(pebbleEngine());
+
+		return viewResolver;
+	}
+
+	@Bean
+	public static Logger logger() {
+		return logger;
+	}
+}</code></pre>
+	</div>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+<script>
+	hljs.configure({
+		classPrefix: ''
+	});
+	hljs.initHighlighting();
+</script>
+{% endblock %}

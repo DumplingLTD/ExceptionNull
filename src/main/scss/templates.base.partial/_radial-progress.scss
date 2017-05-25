@@ -1,0 +1,60 @@
+// Radial progress bar.
+// Dude don't ask me how this works. I have no idea.
+
+$barUnfilledColor: $color-light-grey4;
+$barFilledColor: $color-light-purple;
+$step: 5; // step of % for created classes
+$loops: round(100 / $step);
+$increment: 360 / $loops;
+$half: round($loops / 2);
+
+.progress-radial-wrapper {
+	width: 168px + $size-base * 2;
+	height: 168px;
+	display: inline-block;
+	padding: 0 $size-base;
+}
+.progress-radial {
+	width: 168px;
+	height: 168px;
+	border-radius: 50%;
+	margin: 0 $size-base -168px;
+	display: inline-block;
+
+	.overlay {
+		width: 158px;
+		height: 158px;
+		background-color: $color-white;
+		border-radius: 50%;
+		margin-left: 5px;
+		margin-top: 5px;
+		text-align: center;
+		font-size: 16px;
+	}
+	.percent {
+		color: $color-deluge;
+		font-size: 28px;
+
+		&::after {
+			content: '%';
+		}
+	}
+	.subtitle {
+		margin-top: -4px;
+		font-size: 14px;
+		color: $color-light-grey3;
+	}
+}
+@for $i from 0 through $loops {
+	.progress-#{$i*$step} {
+		@if $i < $half {
+			$nextdeg: 90deg + ( $increment * $i );
+			background: linear-gradient(90deg, $barUnfilledColor 50%, transparent 50%, transparent),
+				linear-gradient($nextdeg, $barFilledColor 50%, $barUnfilledColor 50%, $barUnfilledColor);
+		} @else {
+			$nextdeg: -90deg + ( $increment * ( $i - $half ) );
+			background: linear-gradient($nextdeg, $barFilledColor 50%, transparent 50%, transparent),
+				linear-gradient(270deg, $barFilledColor 50%, $barUnfilledColor 50%, $barUnfilledColor);
+		}
+	}
+}
