@@ -168,23 +168,27 @@
 	border-collapse: collapse;
 	font-size: 14px;
 
-	th:first-child,
-	th:last-child,
-	tr:first-child,
-	tr:last-child {
-		width: $size-base * 2;
-	}
-
-	th:nth-child(4),
 	th:nth-child(3),
-	td:nth-child(4),
-	td:nth-child(3) {
+	th:nth-child(2),
+	td:nth-child(3),
+	td:nth-child(2) {
 		width: $size-base * 8;
 		text-align: center;
 	}
 
+	td:last-child,
+	th:last-child {
+		padding-right: $size-base * 2;
+	}
+
+	td:first-child,
+	th:first-child {
+		padding-left: $size-base * 2;
+	}
+	
 	td, th {
-		padding: $size-base 0;
+		padding-top: $size-base;
+		padding-bottom: $size-base;
 	}
 
 	th {
