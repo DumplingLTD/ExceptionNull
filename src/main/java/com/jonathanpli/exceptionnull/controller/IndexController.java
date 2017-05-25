@@ -81,4 +81,11 @@ public class IndexController {
 		result.setViewName("feedback");
 		return result;
 	}
+
+	@RequestMapping(value = "/earnings")
+	public ModelAndView earnings() {
+		ModelAndView result = new ModelAndView();
+		result.setViewName("earnings");
+		return result;
+	}
 }

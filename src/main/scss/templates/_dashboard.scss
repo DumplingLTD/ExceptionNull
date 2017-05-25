@@ -32,6 +32,11 @@
 		}
 	}
 
+	.big-number {
+		font-size: 60px;
+		font-weight: bold;
+	}
+
 	.col > .title {
 		font-size: 18px;
 		text-align: left;
@@ -185,7 +190,7 @@
 	th:first-child {
 		padding-left: $size-base * 2;
 	}
-	
+
 	td, th {
 		padding-top: $size-base;
 		padding-bottom: $size-base;
