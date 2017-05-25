@@ -33,7 +33,7 @@
 			</div>
 			<div class="eval-total">
 				<div class="left">Total</div>
-				<div class="right"><span class="bold">0</span> out of <span class="bold">20</span></div>
+				<div class="right"><span class="bold" id="eval-total-score">0</span> out of <span class="bold">20</span></div>
 			</div>
 			<div class="eval-last-notes">
 				<textarea placeholder="Any last comments for the submitter?"></textarea>
@@ -45,7 +45,7 @@
 		</div>
 	</div>
 	<div class="right">
-		<pre><code>package com.jonathanpli;
+		<pre><code id="eval-code">package com.jonathanpli;
 
 import com.google.common.collect.ImmutableList;
 import com.jonathanpli.exceptionnull.controller.helpers.PebbleExtension;
@@ -121,9 +121,56 @@ public class ExceptionNullApplication {
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
 <script>
+(function() {
 	hljs.configure({
 		classPrefix: ''
 	});
 	hljs.initHighlighting();
+
+	let a = document.getElementById('eval-code');
+	let r = "";
+	a.innerHTML.split("\n").forEach(function(lineContent) {
+		if (lineContent == "") {
+			lineContent = " ";
+		}
+		r += '<div class="eval-line">' + lineContent + '<div class="eval-comment-wrapper"><textarea placeholder="Comment..."></textarea></div></div>';
+	});
+	a.innerHTML = r;
+
+	// Wire open/close of comment wrapper
+	let lines = document.getElementsByClassName('eval-line');
+	for (let i = 0; i < lines.length; i++) {
+		lines[i].onclick = function() {
+			if (this.classList.contains("active")) {
+				this.classList.remove("active");
+			} else {
+				this.classList.add("active");
+			}
+		};
+	}
+
+	// Prevent clicking of the wrapper closing the comment wrapper
+	let comments = document.getElementsByClassName('eval-comment-wrapper');
+	for (let i = 0; i < comments.length; i++) {
+		comments[i].onclick = function(e) {
+			e.stopPropagation();
+			return false;
+		};
+	}
+
+	// Wire changing metric values to do something
+	let totalEl = document.getElementById('eval-total-score');
+	let metrics = document.getElementsByClassName('eval-metric');
+	for (let i = 0; i < metrics.length; i++) {
+		metrics[i].onchange = function() {
+			let total = 0;
+			for (let j = 0; j < metrics.length; j++) {
+				total += parseFloat(metrics[j].options[metrics[j].selectedIndex].text)
+			}
+			totalEl.innerHTML = total;
+		}
+	}
+
+} ())
 </script>
 {% endblock %}

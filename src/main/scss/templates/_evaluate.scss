@@ -147,5 +147,35 @@
 			color: $color-white;
 		}
 	}
+}
 
+$eval-comment-height: 100px;
+.eval-line {
+	cursor: pointer;
+
+	&:hover {
+		background-color: lighten($color-midnight-bluuu, 5%);
+	}
+
+	&.active {
+		.eval-comment-wrapper {
+			height: $eval-comment-height + $size-base * 8;
+			padding: $size-base * 4;
+		}
+	}
+}
+
+.eval-comment-wrapper {
+	overflow: hidden;
+	height: 0;
+	transition: all $default-transition;
+	transition-property: height, padding;
+	padding: 0 $size-base * 4;
+
+	textarea {
+		padding: $size-base;
+		height: $eval-comment-height;
+		width: 100%;
+		resize: none;
+	}
 }
