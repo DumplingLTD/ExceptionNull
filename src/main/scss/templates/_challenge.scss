@@ -45,21 +45,24 @@ $challenge-header-height: 52px;
 	}
 }
 
-$height-scss-fix: 100%;
+$challenge-sidebar-width: 400px;
+$scss-calc-fix: 100%;
 .challenge-dual-pane {
 	display: flex;
 	height: 100%;
 	padding-top: $challenge-header-height;
 
 	.left {
-		flex: 1 1 30%;
+		flex: 0 0 auto;
+		width: $challenge-sidebar-width;
 		background-color: $color-deep-purple;
 		color: $color-grey;
 		padding: $size-base * 4;
+		overflow: auto;
 	}
 
 	.right {
-		flex: 1 1 70%;
+		flex: 1 1 auto;
 
 		pre, code {
 			width: 100%;
@@ -68,8 +71,10 @@ $height-scss-fix: 100%;
 
 		> div {
 			position: absolute;
-			width: 70%;
-			height: calc(#{$height-scss-fix} - #{$challenge-header-height});
+			height: calc(#{$scss-calc-fix} - #{$challenge-header-height});
+			width: calc(#{$scss-calc-fix} - #{$challenge-sidebar-width});
+			overflow: auto;
+
 			&:nth-child(1) {
 				z-index: 3;
 			}
@@ -80,8 +85,9 @@ $height-scss-fix: 100%;
 	}
 }
 #challenge-input {
-	width: 100%;
+	min-width: 100%;
 	height: 100%;
+	box-sizing: border-box;
 	resize: none;
 	border: none;
 	display: block;
@@ -89,8 +95,7 @@ $height-scss-fix: 100%;
 	color: transparent;
 	caret-color: $color-white;
 	outline: none;
-	overflow: auto;
-	white-space: nowrap;
+	white-space: pre;
 }
 
 .challenge-side-header {
