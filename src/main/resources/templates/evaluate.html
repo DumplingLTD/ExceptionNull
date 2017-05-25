@@ -133,7 +133,7 @@ public class ExceptionNullApplication {
 		if (lineContent == "") {
 			lineContent = " ";
 		}
-		r += '<div class="eval-line">' + lineContent + '<div class="eval-comment-wrapper"><textarea placeholder="Comment..."></textarea></div></div>';
+		r += '<div class="eval-line">' + lineContent + '<div class="eval-comment-wrapper"><textarea placeholder="Comment..." autocomplete="off" spellcheck="false"></textarea></div></div>';
 	});
 	a.innerHTML = r;
 
