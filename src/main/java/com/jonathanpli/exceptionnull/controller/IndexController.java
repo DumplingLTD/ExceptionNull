@@ -96,6 +96,7 @@ public class IndexController {
 	public ModelAndView friends() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("friends");
+		mav.addObject("friendsClasses", "active");
 		return mav;
 	}
 }
