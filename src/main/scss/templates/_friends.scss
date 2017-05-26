@@ -7,19 +7,22 @@
     background-color: $color-white;
     padding: $size-base * 2;
     border-radius: $size-base;
-    margin-right: $size-base * 3;
-    margin-bottom: $size-base * 3;
+    margin: $size-base * 1.5;
     text-align: center;
     width: 250px;
     height: 300px;
+    display: inline-block;
+    vertical-align: top;
 
     .username {
-      font-size: $size-base * 2;
+      margin-top: $size-base * 1.5;
+      font-size: 16px;
       font-weight: bold;
     }
 
     .user-type {
-      font-size: $size-base * 1.5;
+      font-size: 12px;
+      color: $color-deep-grey;
     }
 
     .profile-container {
@@ -36,12 +39,11 @@
     }
 
     .status-offline, .status-online {
-      font-size: $size-base * 1.5;
+      font-size: 12px;
     }
 
     .status-offline {
       color: $color-grey-5;
-      font-weight: normal;
       font-style: italic;
     }
 
