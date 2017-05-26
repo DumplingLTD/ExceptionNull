@@ -8,10 +8,10 @@
 	height: 100%;
 	background-color: $color-midnight-bluuu;
 	flex: 0 0 auto;
-	width: $size-base * 40;
+	width: 300px;
 	color: $color-white;
 	overflow: auto;
-	padding-top: $size-base * 8;
+	padding-top: $size-base * 6;
 }
 
 .li-sidebar-profile {
@@ -44,7 +44,7 @@
 
 	.tri {
 		font-size: 0;
-		padding: $size-base * 5 $size-base;
+		padding: $size-base * 4 $size-base;
 
 		> div {
 			display: inline-block;
@@ -69,11 +69,12 @@
 
 		a {
 			&, &:link, &:visited {
-				padding: $size-base * 2 0;
+				padding: 12px $size-base * 4 12px $size-base * 3;
 				display: block;
 				color: rgba(255, 255, 255, $li-sidebar-nav-passive-opacity);
 				border-left: $size-base solid $li-sidebar-nav-passive-border-color;
 				background-color: $li-nav-passive-background-color;
+				font-size: 15px;
 
 				img {
 					opacity: $li-sidebar-nav-passive-opacity;
@@ -91,7 +92,7 @@
 			}
 		}
 		img {
-			margin: 0 $size-base * 3 0 $size-base * 4;
+			margin-right: $size-base * 2;
 			width: 19px;
 			height: 19px;
 			display: inline-block;
