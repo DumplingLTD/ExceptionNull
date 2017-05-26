@@ -37,17 +37,17 @@
 			let myChart = new Chart(ctx, {
 				type: 'bar',
 				data: {
-					labels: ["May (this month)", "April", "March", "February", "January"],
+					labels: ["January", "February", "March", "April", "May (this month)"],
 					datasets: [{
 						type: 'bar',
 						label: 'Reviews',
-						data: [ 8, 4, 7, 8, 5 ],
+						data: [ 4, 7, 8, 5, 8 ],
 						backgroundColor: 'rgba(255, 99, 132, 0.2)',
 						yAxisID: 'y-axis-1',
 					}, {
 						type: 'line',
 						label: 'Earnings',
-						data: [null, '6.23', '10.11', '14.82', '7.56'],
+						data: [ '6.23', '10.11', '14.82', '7.56', null ],
 						pointBackgroundColor: 'rgba(153, 102, 255, 0.2)',
 						pointHoverBackgroundColor: 'rgba(153, 102, 255, 0.5)',
 						fill: false,
@@ -58,6 +58,10 @@
 					responsive: true,
 					legend: { display: false, },
 					title: { display: false, },
+					tooltips: {
+						mode: 'index',
+						intersect: false,
+					},
 					scales: {
 						yAxes: [{
 							type: "linear",

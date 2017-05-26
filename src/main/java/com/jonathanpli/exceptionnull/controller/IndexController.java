@@ -54,13 +54,6 @@ public class IndexController {
 		return getIndex();
 	}
 
-	@RequestMapping(value = "/dashboard")
-	public ModelAndView dashboard() {
-		ModelAndView result = new ModelAndView();
-		result.setViewName("dashboard");
-		return result;
-	}
-
 	@RequestMapping(value = "/evaluate")
 	public ModelAndView evaluate() {
 		ModelAndView result = new ModelAndView();
@@ -82,10 +75,20 @@ public class IndexController {
 		return result;
 	}
 
+	/** li-sidebar pages */
+	@RequestMapping(value = "/dashboard")
+	public ModelAndView dashboard() {
+		ModelAndView result = new ModelAndView();
+		result.setViewName("dashboard");
+		result.addObject("dashboardClasses", "active");
+		return result;
+	}
+
 	@RequestMapping(value = "/earnings")
 	public ModelAndView earnings() {
 		ModelAndView result = new ModelAndView();
 		result.setViewName("earnings");
+		result.addObject("earningsClasses", "active");
 		return result;
 	}
 

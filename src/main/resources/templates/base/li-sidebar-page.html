@@ -1,6 +1,17 @@
 {# Logged in page with a nav menu and profile sidebar. #}
 {% extends "base/li-nav-page" %}
 
+{% macro navElement(href, image, display, class) %}
+<li>
+	<a href="{{ href }}" class="{{ class }}">
+		<div class="middle-aligner"></div>
+		<img class="middle-aligned"
+			 src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/{{ image }}" />
+		<div class="middle-aligned">{{ display }}</div>
+	</a>
+</li>
+{% endmacro %}
+
 {% block main %}
 <div class="li-sidebar-wrapper">
 	<div class="li-sidebar">
@@ -24,26 +35,11 @@
 			</div>
 		</div>
 		<ul class="li-sidebar-nav">
-			{% include "base/partial/li-sidebar-nav-element" with {
-				"href": "/dashboard",
-				"image": "ICON_PersonalStats.png",
-				"display": "Overview"} %}
-			{% include "base/partial/li-sidebar-nav-element" with {
-				"href": "/friends",
-				"image": "ICON_Friends.png",
-				"display": "Friends"} %}
-			{% include "base/partial/li-sidebar-nav-element" with {
-				"href": "/earnings",
-				"image": "ICON_earnings.png",
-				"display": "Earnings"} %}
-			{% include "base/partial/li-sidebar-nav-element" with {
-				"href": "#",
-				"image": "ICON_messages.png",
-				"display": "Messages"} %}
-			{% include "base/partial/li-sidebar-nav-element" with {
-				"href": "#",
-				"image": "ICON_Settings.png",
-				"display": "Settings"} %}
+			{{ navElement("/dashboard", "ICON_PersonalStats.png", "Overview", dashboardClasses) }}
+			{{ navElement("/friends", "ICON_Friends.png", "Friends", friendsClasses) }}
+			{{ navElement("/earnings", "ICON_earnings.png", "Earnings", earningsClasses) }}
+			{{ navElement("#", "ICON_messages.png", "Messages", messagesClasses) }}
+			{{ navElement("#", "ICON_Settings.png", "Settings", settingsClasses) }}
 		</ul>
 	</div>
 	<div class="li-sidebar-content">

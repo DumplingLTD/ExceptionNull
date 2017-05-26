@@ -45,7 +45,7 @@ $challenge-header-height: 52px;
 	}
 }
 
-$challenge-sidebar-width: 400px;
+$challenge-sidebar-width: 350px;
 $scss-calc-fix: 100%;
 .challenge-dual-pane {
 	display: flex;
@@ -57,8 +57,8 @@ $scss-calc-fix: 100%;
 		width: $challenge-sidebar-width;
 		background-color: $color-deep-purple;
 		color: $color-grey;
-		padding: $size-base * 4;
 		overflow: auto;
+		border-right: 4px solid $color-dark-grey;
 	}
 
 	.right {
@@ -99,21 +99,29 @@ $scss-calc-fix: 100%;
 }
 
 .challenge-side-header {
-	padding-bottom: $size-base * 4;
+	padding: $size-base * 6 $size-base * 4;
 	.title {
-		font-size: 21px;
+		font-size: 16px;
 	}
 	.subtitle {
 		color: $color-deep-grey;
-		font-size: 14px;
+		font-size: 12px;
 	}
 }
 
 .challenge-side-body {
-	font-size: 14px;
+	font-size: 13px;
+
+	.global-title-font {
+		font-size: 16px;
+		background-color: $color-dark-grey;
+		padding: $size-base 0;
+		text-align: center;
+		margin-bottom: $size-base * 4;
+	}
 
 	.block {
-		padding-bottom: $size-base * 2;
+		padding: 0 $size-base * 4 $size-base * 2;
 	}
 	li {
 		margin-left: $size-base * 3;
