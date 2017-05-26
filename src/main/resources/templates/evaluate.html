@@ -1,44 +1,55 @@
 {# Code eval page a peer reviewer will interact with #}
 {% extends "base/empty-page" %}
 
+{% macro metric(id, name) %}
+<div class="metric">
+	<label for="{{ id }}">{{ name }}</label>
+	<select id="{{ id }}" name="{{ id }}" class="eval-metric">
+		<option selected="selected">0</option>
+		<option>0.5</option>
+		<option>1</option>
+		<option>1.5</option>
+		<option>2</option>
+		<option>2.5</option>
+		<option>3</option>
+		<option>3.5</option>
+		<option>4</option>
+		<option>4.5</option>
+		<option>5</option>
+	</select>
+</div>
+{% endmacro %}
+
 {% block head %}
 <link rel="stylesheet" type="text/css" href="/css/highlightjs-tomorrow-night.css" />
 {% endblock %}
 
 {% block body %}
-<div class="eval">
+<div class="code-split">
 	<div class="left">
-		<div class="eval-header">
+		<div class="code-split-header">
 			<div class="global-title-font">Image Editor with Java + JS</div>
 			<div class="subtitle">Team A versus Team B</div>
 			<div class="hint">The building bocks of JavaScript make up every program and line of
 				JavaScript.</div>
 		</div>
 
-		<div class="eval-flag">
+		<div class="code-split-rubric">
 			<div class="global-title-font">Grading Rubric</div>
-			<div class="eval-rubric">
-				{% include "base/partial/evaluate-rubric-metric" with {
-					"id": "eval-rubric-metric-compiles",
-					"name": "Code compiles" } %}
-				{% include "base/partial/evaluate-rubric-metric" with {
-					"id": "eval-rubric-metric-runs",
-					"name": "Code runs" } %}
-				{% include "base/partial/evaluate-rubric-metric" with {
-					"id": "eval-rubric-metric-runtime",
-					"name": "Runtime" } %}
-				{% include "base/partial/evaluate-rubric-metric" with {
-					"id": "eval-rubric-metric-Coding style",
-					"name": "Coding style" } %}
+			<div class="metric-container">
+				{{ metric("eval-rubric-metric-compiles", "Code Style") }}
+				{{ metric("eval-rubric-metric-runs", "Efficiency") }}
+				{{ metric("eval-rubric-metric-runtime", "Documentation") }}
+				{{ metric("eval-rubric-metric-Coding style", "Goal") }}
 			</div>
-			<div class="eval-total">
+			<div class="total-wrapper">
 				<div class="left">Total</div>
 				<div class="right"><span class="bold" id="eval-total-score">0</span> out of <span class="bold">20</span></div>
 			</div>
-			<div class="eval-last-notes">
+			<div class="last-notes">
 				<textarea placeholder="Any last comments for the submitter?"></textarea>
 			</div>
-			<div class="eval-buttons">
+			<div class="buttons">
 				<a class="submit" href="/dashboard">Submit Review</a>
 				<a class="save" href="/dashboard">Save For Later</a>
 			</div>

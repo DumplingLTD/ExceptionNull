@@ -1,0 +1,13 @@
+// Feedback
+.feedback-comment {
+	background-color: lighten($color-midnight-bluuu, 5%);
+	padding: $size-base * 2 $size-base * 4;
+	font-family: $primary-font;
+	color: $color-green;
+
+	&::before {
+		content: 'Feedback Note:';
+		font-size: 10px;
+		display: block;
+	}
+}
