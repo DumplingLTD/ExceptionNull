@@ -1,6 +1,25 @@
 {# Code eval page a peer reviewer will interact with #}
 {% extends "base/empty-page" %}
 
+{% macro metric(id, name) %}
+<div class="metric">
+	<label for="{{ id }}">{{ name }}</label>
+	<select id="{{ id }}" name="{{ id }}" class="eval-metric">
+		<option selected="selected">0</option>
+		<option>0.5</option>
+		<option>1</option>
+		<option>1.5</option>
+		<option>2</option>
+		<option>2.5</option>
+		<option>3</option>
+		<option>3.5</option>
+		<option>4</option>
+		<option>4.5</option>
+		<option>5</option>
+	</select>
+</div>
+{% endmacro %}
+
 {% block head %}
 <link rel="stylesheet" type="text/css" href="/css/highlightjs-tomorrow-night.css" />
 {% endblock %}
@@ -18,18 +37,10 @@
 		<div class="code-split-rubric">
 			<div class="global-title-font">Grading Rubric</div>
 			<div class="metric-container">
-				{% include "base/partial/evaluate-rubric-metric" with {
-					"id": "eval-rubric-metric-compiles",
-					"name": "Code Style" } %}
-				{% include "base/partial/evaluate-rubric-metric" with {
-					"id": "eval-rubric-metric-runs",
-					"name": "Efficiency" } %}
-				{% include "base/partial/evaluate-rubric-metric" with {
-					"id": "eval-rubric-metric-runtime",
-					"name": "Documentation" } %}
-				{% include "base/partial/evaluate-rubric-metric" with {
-					"id": "eval-rubric-metric-Coding style",
-					"name": "Goal" } %}
+				{{ metric("eval-rubric-metric-compiles", "Code Style") }}
+				{{ metric("eval-rubric-metric-runs", "Efficiency") }}
+				{{ metric("eval-rubric-metric-runtime", "Documentation") }}
+				{{ metric("eval-rubric-metric-Coding style", "Goal") }}
 			</div>
 			<div class="total-wrapper">
 				<div class="left">Total</div>

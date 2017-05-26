@@ -1,6 +1,24 @@
 {# A test page for the dual pane page #}
 {% extends "base/li-sidebar-page" %}
-{% block title %} Exception Null - This will override all other titles{% endblock %}
+{% block title %} Exception Null - Overview {% endblock %}
+
+{% macro cardListElement(imageUrl, title, subtitle) %}
+<li>
+	<img src="{{ imageUrl }}" />
+	<div>
+		<div class="title">{{ title }}</div>
+		<div>{{ subtitle }}</div>
+	</div>
+</li>
+{% endmacro %}
+
+{% macro challengeTableRow(name, score, result) %}
+<tr>
+	<td><a href="/feedback">{{ name }}</a></td>
+	<td>{{ score }}</td>
+	<td class="{{ result }}"></td>
+</tr>
+{% endmacro %}
 
 {% block content %}
 <div class="dashboard">
@@ -22,24 +40,24 @@
 			<div class="title">Completed Evaluations</div>
 			<ul class="card-list">
 				<li class="date">FRIDAY, MAY 5</li>
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
-					"title": "PROVIDED FEEDBACK",
-					"subtitle": "Placeholder title for module: language here" } %}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"EVALUATED CHALLENGE",
+						"Placeholder title for module: language here and this one is too long for the page so it will cause a line wrap but that's ok.") }}
 
 				<li class="date">THURSDAY, MAY 4</li>
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
-					"title": "EVALUATED CHALLENGE",
-					"subtitle": "Placeholder title for module: language here and this one is too long for the page so it will cause a line wrap but that's ok." } %}
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
-					"title": "PROVIDED FEEDBACK",
-					"subtitle": "Placeholder title for module: language here" } %}
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
-					"title": "EVALUATED CHALLENGE",
-					"subtitle": "Placeholder title for module: language here" } %}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"PROVIDED FEEDBACK",
+						"Placeholder title for module: language here") }}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"PROVIDED FEEDBACK",
+						"Placeholder title for module: language here") }}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"EVALUATED CHALLENGE",
+						"Placeholder title for module: language here") }}
 			</ul>
 		</div>
 
@@ -74,14 +92,14 @@
 			<div class="title">Skill Development</div>
 			<div class="h-scroll">
 				{% include "base/partial/radial-progress" with {
-				"percent": "35",
-				"subtitle": "Java" } %}
+					"percent": "35",
+					"subtitle": "Java" } %}
 				{% include "base/partial/radial-progress" with {
-				"percent": "90",
-				"subtitle": "Python" } %}
+					"percent": "90",
+					"subtitle": "Python" } %}
 				{% include "base/partial/radial-progress" with {
-				"percent": "45",
-				"subtitle": "HTML & CSS" } %}
+					"percent": "45",
+					"subtitle": "HTML & CSS" } %}
 			</div>
 		</div>
 		<div class="card col-6 dashboard-active-hours centered">
@@ -102,41 +120,13 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td><a href="/feedback">Simple Dependency Injection</a></td>
-						<td>4.63</td>
-						<td class="win"></td>
-					</tr>
-					<tr>
-						<td><a href="/feedback">Data Structures: Interview Question from Amazon</a></td>
-						<td>4.50</td>
-						<td class="win"></td>
-					</tr>
-					<tr>
-						<td><a href="/feedback">Evil Hangman</a></td>
-						<td>3.75</td>
-						<td class="tie"></td>
-					</tr>
-					<tr>
-						<td><a href="/feedback">Uncovering Police Shootings: Introduction to D3</a></td>
-						<td>3.50</td>
-						<td class="loss"></td>
-					</tr>
-					<tr>
-						<td><a href="/feedback">Critters</a></td>
-						<td>3.75</td>
-						<td class="loss"></td>
-					</tr>
-					<tr>
-						<td><a href="/feedback">Wikipedia: The Java Implementation</a></td>
-						<td>1.40</td>
-						<td class="loss"></td>
-					</tr>
-					<tr>
-						<td><a href="/feedback">Undirected Cyclic Graph Detection: Python Challenges</a></td>
-						<td>4.96</td>
-						<td class="win"></td>
-					</tr>
+					{{ challengeTableRow("Simple Dependency Injection", "4.63", "win") }}
+					{{ challengeTableRow("Data Structures: Interview Question from Amazon", "4.50", "win") }}
+					{{ challengeTableRow("Evil Hangman", "3.75", "tie") }}
+					{{ challengeTableRow("Uncovering Police Shootings: Introduction to D3", "3.50", "loss") }}
+					{{ challengeTableRow("Critters", "3.75", "loss") }}
+					{{ challengeTableRow("Wikipedia: The Java Implementation", "1.40", "loss") }}
+					{{ challengeTableRow("Undirected Cyclic Graph Detection: Python Challenges", "4.96", "win") }}
 				</tbody>
 			</table>
 		</div>
@@ -145,24 +135,24 @@
 			<div class="title">Messages (4 new)</div>
 			<ul class="card-list">
 				<li class="date">FRIDAY, MAY 5</li>
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
-					"title": "COMMENT",
-					"subtitle": "\"Did you see the feedback on our score?\"" } %}
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
-					"title": "COMMENT",
-					"subtitle": "\"Did you see the feedback on our score?\"" } %}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"COMMENT",
+						"\"Did you see the feedback on our score?\"") }}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"COMMENT",
+						"\"Did you see the feedback on our score?\"") }}
 
 				<li class="date">THURSDAY, MAY 4</li>
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
-					"title": "QUESTION",
-					"subtitle": "\"Did you see the feedback on our score?\"" } %}
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
-					"title": "COMMENT",
-					"subtitle": "\"Did you see the feedback on our score?\"" } %}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"QUESTION",
+						"\"Did you see the feedback on our score?\"") }}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"COMMENT",
+						"\"Did you see the feedback on our score?\"") }}
 			</ul>
 		</div>
 	</div>
