@@ -16,8 +16,6 @@
 		border-radius: $size-base;
 	}
 
-
-
 	@for $i from 1 through 12 {
 		.col-#{$i} {
 			width: 100% * $i/12;
@@ -66,8 +64,6 @@
 			flex: 1 1 auto;
 		}
 	}
-
-
 }
 
 .dashboard-active-eval-resume {
