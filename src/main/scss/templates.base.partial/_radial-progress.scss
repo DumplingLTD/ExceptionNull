@@ -8,32 +8,35 @@ $loops: round(100 / $step);
 $increment: 360 / $loops;
 $half: round($loops / 2);
 
+$radial-progress-size: 138px;
+$radial-progress-bar-width: 5px;
+$radial-progress-h-margin: $size-base;
 .progress-radial-wrapper {
-	width: 168px + $size-base * 2;
-	height: 168px;
+	width: 138px + $radial-progress-h-margin * 2;
+	height: 138px;
 	display: inline-block;
 	padding: 0 $size-base;
 }
 .progress-radial {
-	width: 168px;
-	height: 168px;
+	width: $radial-progress-size;
+	height: $radial-progress-size;
 	border-radius: 50%;
-	margin: 0 $size-base -168px;
+	margin: 0 $radial-progress-h-margin (-$radial-progress-size);
 	display: inline-block;
 
 	.overlay {
-		width: 158px;
-		height: 158px;
+		width: $radial-progress-size - (2 * $radial-progress-bar-width);
+		height: $radial-progress-size - (2 * $radial-progress-bar-width);
 		background-color: $color-white;
 		border-radius: 50%;
-		margin-left: 5px;
-		margin-top: 5px;
+		margin-left: $radial-progress-bar-width;
+		margin-top: $radial-progress-bar-width;
 		text-align: center;
 		font-size: 16px;
 	}
 	.percent {
 		color: $color-deluge;
-		font-size: 28px;
+		font-size: 24px;
 
 		&::after {
 			content: '%';
@@ -41,7 +44,7 @@ $half: round($loops / 2);
 	}
 	.subtitle {
 		margin-top: -4px;
-		font-size: 14px;
+		font-size: 12px;
 		color: $color-light-grey3;
 	}
 }

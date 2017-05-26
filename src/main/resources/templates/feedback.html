@@ -6,41 +6,44 @@
 {% endblock %}
 
 {% block body %}
-<div class="eval">
+<div class="code-split">
 	<div class="left">
-		<div class="eval-header">
+		<div class="code-split-header">
 			<div class="global-title-font">Simple Dependency Injection</div>
 			<div class="subtitle">Java Challenge</div>
 		</div>
 
-		<div class="eval-flag">
+		<div class="code-split-rubric">
 			<div class="global-title-font">Grading Rubric</div>
-			<div class="eval-rubric">
+			<div class="metric-container">
 				<div class="metric">
-					<label>Code compiles</label>
-					<select disabled="disabled"><option selected="selected">3.5</option></select>
+					<label>Code Style</label>
+					<select disabled="disabled"><option selected="selected">4.5</option></select>
 				</div>
 				<div class="metric">
-					<label>Code runs</label>
-					<select disabled="disabled"><option selected="selected">3.0</option></select>
+					<label>Efficiency</label>
+					<select disabled="disabled"><option selected="selected">5.0</option></select>
 				</div>
 				<div class="metric">
-					<label>Runtime</label>
-					<select disabled="disabled"><option selected="selected">3.0</option></select>
+					<label>Documentation</label>
+					<select disabled="disabled"><option selected="selected">4.5</option></select>
 				</div>
 				<div class="metric">
-					<label>Coding style</label>
-					<select disabled="disabled"><option selected="selected">4.0</option></select>
+					<label>Goal</label>
+					<select disabled="disabled"><option selected="selected">4.5</option></select>
 				</div>
 			</div>
-			<div class="eval-total">
+
+			<div class="total-wrapper">
 				<div class="left">Total</div>
-				<div class="right"><span class="bold" id="eval-total-score">13.5</span> out of <span class="bold">20</span></div>
+				<div class="right"><span class="bold" id="eval-total-score">18.5</span> out of <span class="bold">20</span></div>
 			</div>
-			<div class="eval-last-notes">
+
+			<div class="last-notes">
 				<textarea disabled="disabled" class="feedback-notes-other">No other comments...</textarea>
 			</div>
-			<div class="feedback-buttons">
+
+			<div class="buttons">
 				<a class="submit" href="/dashboard">Back to Dashboard</a>
 			</div>
 		</div>
