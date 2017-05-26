@@ -185,6 +185,15 @@
 	tbody tr:nth-child(odd) {
 		background-color: $color-off-white-2;
 	}
+
+	a {
+		&, &:link, &:visited {
+			color: $color-midnight-bluuu;
+		}
+		&:hover, &:active {
+			color: $color-deluge;
+		}
+	}
 }
 
 .dashboard-badge {
