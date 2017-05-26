@@ -88,4 +88,11 @@ public class IndexController {
 		result.setViewName("earnings");
 		return result;
 	}
+
+	@RequestMapping(value = "/friends")
+	public ModelAndView friends() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("friends");
+		return mav;
+	}
 }
