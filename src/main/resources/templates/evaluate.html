@@ -1,51 +1,62 @@
 {# Code eval page a peer reviewer will interact with #}
 {% extends "base/empty-page" %}
 
+{% macro metric(id, name) %}
+<div class="metric">
+	<label for="{{ id }}">{{ name }}</label>
+	<select id="{{ id }}" name="{{ id }}" class="eval-metric">
+		<option selected="selected">0</option>
+		<option>0.5</option>
+		<option>1</option>
+		<option>1.5</option>
+		<option>2</option>
+		<option>2.5</option>
+		<option>3</option>
+		<option>3.5</option>
+		<option>4</option>
+		<option>4.5</option>
+		<option>5</option>
+	</select>
+</div>
+{% endmacro %}
+
 {% block head %}
 <link rel="stylesheet" type="text/css" href="/css/highlightjs-tomorrow-night.css" />
 {% endblock %}
 
 {% block body %}
-<div class="eval">
+<div class="code-split">
 	<div class="left">
-		<div class="eval-header">
+		<div class="code-split-header">
 			<div class="global-title-font">Image Editor with Java + JS</div>
 			<div class="subtitle">Team A versus Team B</div>
 			<div class="hint">The building bocks of JavaScript make up every program and line of
 				JavaScript.</div>
 		</div>
 
-		<div class="eval-flag">
+		<div class="code-split-rubric">
 			<div class="global-title-font">Grading Rubric</div>
-			<div class="eval-rubric">
-				{% include "base/partial/evaluate-rubric-metric" with {
-					"id": "eval-rubric-metric-compiles",
-					"name": "Code compiles" } %}
-				{% include "base/partial/evaluate-rubric-metric" with {
-					"id": "eval-rubric-metric-runs",
-					"name": "Code runs" } %}
-				{% include "base/partial/evaluate-rubric-metric" with {
-					"id": "eval-rubric-metric-runtime",
-					"name": "Runtime" } %}
-				{% include "base/partial/evaluate-rubric-metric" with {
-					"id": "eval-rubric-metric-Coding style",
-					"name": "Coding style" } %}
+			<div class="metric-container">
+				{{ metric("eval-rubric-metric-compiles", "Code Style") }}
+				{{ metric("eval-rubric-metric-runs", "Efficiency") }}
+				{{ metric("eval-rubric-metric-runtime", "Documentation") }}
+				{{ metric("eval-rubric-metric-Coding style", "Goal") }}
 			</div>
-			<div class="eval-total">
+			<div class="total-wrapper">
 				<div class="left">Total</div>
-				<div class="right"><span class="bold">0</span> out of <span class="bold">20</span></div>
+				<div class="right"><span class="bold" id="eval-total-score">0</span> out of <span class="bold">20</span></div>
 			</div>
-			<div class="eval-last-notes">
+			<div class="last-notes">
 				<textarea placeholder="Any last comments for the submitter?"></textarea>
 			</div>
-			<div class="eval-buttons">
+			<div class="buttons">
 				<a class="submit" href="/dashboard">Submit Review</a>
 				<a class="save" href="/dashboard">Save For Later</a>
 			</div>
 		</div>
 	</div>
 	<div class="right">
-		<pre><code>package com.jonathanpli;
+		<pre><code id="eval-code">package com.jonathanpli;
 
 import com.google.common.collect.ImmutableList;
 import com.jonathanpli.exceptionnull.controller.helpers.PebbleExtension;
@@ -121,9 +132,56 @@ public class ExceptionNullApplication {
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
 <script>
+(function() {
 	hljs.configure({
 		classPrefix: ''
 	});
 	hljs.initHighlighting();
+
+	let a = document.getElementById('eval-code');
+	let r = "";
+	a.innerHTML.split("\n").forEach(function(lineContent) {
+		if (lineContent == "") {
+			lineContent = " ";
+		}
+		r += '<div class="eval-line">' + lineContent + '<div class="eval-comment-wrapper"><textarea placeholder="Comment..." autocomplete="off" spellcheck="false"></textarea></div></div>';
+	});
+	a.innerHTML = r;
+
+	// Wire open/close of comment wrapper
+	let lines = document.getElementsByClassName('eval-line');
+	for (let i = 0; i < lines.length; i++) {
+		lines[i].onclick = function() {
+			if (this.classList.contains("active")) {
+				this.classList.remove("active");
+			} else {
+				this.classList.add("active");
+			}
+		};
+	}
+
+	// Prevent clicking of the wrapper closing the comment wrapper
+	let comments = document.getElementsByClassName('eval-comment-wrapper');
+	for (let i = 0; i < comments.length; i++) {
+		comments[i].onclick = function(e) {
+			e.stopPropagation();
+			return false;
+		};
+	}
+
+	// Wire changing metric values to do something
+	let totalEl = document.getElementById('eval-total-score');
+	let metrics = document.getElementsByClassName('eval-metric');
+	for (let i = 0; i < metrics.length; i++) {
+		metrics[i].onchange = function() {
+			let total = 0;
+			for (let j = 0; j < metrics.length; j++) {
+				total += parseFloat(metrics[j].options[metrics[j].selectedIndex].text)
+			}
+			totalEl.innerHTML = total;
+		}
+	}
+
+} ())
 </script>
 {% endblock %}

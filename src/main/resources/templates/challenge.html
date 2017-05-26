@@ -15,12 +15,187 @@
 		<a href="/dashboard" class="primary"><i class="fa fa-graduation-cap"></i>Submit</a>
 	</div>
 </div>
-<div class="challenge-tri">
-<div><textarea class="challenge-input" id="challenge-input">
-// Challenge: Type something that triggers the pretty print.
-// Try something like "var a = document.getElementById('hi');"
-</textarea></div>
-	<div><pre><code id="challenge-pretty" class="js"></code></pre></div>
+<div class="challenge-dual-pane">
+	<div class="left">
+		<div class="challenge-side-header">
+			<div class="title">Simple Dependency Injection</div>
+			<div class="subtitle">Java Challenge</div>
+		</div>
+		<div class="challenge-side-body">
+			<div class="global-title-font">Challenge</div>
+
+			<div class="block">
+				Implement a simple dependency injection library that has a single
+				<code>#provide</code> method. You may assume the following:
+			</div>
+			<ul class="block">
+				<li>All injectable constructors are annotated with <code>@Inject</code>.</li>
+				<li>A class named <code>InjectException</code> exists and extends <code>Exception</code>.</li>
+				<li>Only the core Java JDK is allowed. All versions are allowed.</li>
+			</ul>
+			<div class="block">
+				Any other non-listed assumptions must be handled appropriately.
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<div>
+			<textarea class="code-highlight" id="challenge-input" autocomplete="off" spellcheck="false">import java.lang.annotation.Annotation;
+import java.lang.reflect.AnnotatedElement;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Injector {
+	@SuppressWarnings("unchecked")
+	public <T> Injector provide(T object) {
+		// TODO: Complete
+	}
+
+	/**
+	 * Attempts to create and return an instance of a class.
+	 *
+	 * @param clazz The class to make an instance of.
+	 * @return An instance of the class.
+	 */
+	public <T> T get(Class<T> clazz) {
+		// Grab the class's constructors
+		@SuppressWarnings("unchecked") // We're guaranteed this array is of type Constructor<T>
+		Constructor<T>[] constructors = (Constructor<T>[]) clazz.getDeclaredConstructors();
+		if (constructors.length == 0) {
+			throw new SlickException(String.format("\n\t%s has no constructors.", clazz.getName()));
+		}
+
+		// Find an @Inject-able constructor
+		Constructor<T> injectableConstructor = null;
+		Inject injectAnnotation = null;
+		for (Constructor<T> constructor : constructors) {
+			if (constructor.isAnnotationPresent(Inject.class)) {
+				if (injectableConstructor != null) {
+					throw new SlickException(String.format(
+							"\n\t%s cannot have multiple @Inject-annotated constructors",
+							clazz.getName()));
+				}
+				injectableConstructor = constructor;
+				injectAnnotation = constructor.getAnnotation(Inject.class);
+			}
+		}
+
+		// None found
+		if (injectableConstructor == null) {
+			throw new SlickException(String.format(
+					"\n\t%s has no constructor with the @Inject annotation.",
+					clazz.getName()));
+		}
+
+		// Allow = false
+		if (!injectAnnotation.allow()) {
+			throw new SlickException(String.format(
+					"\n\t%s explicitly marks itself as non-injectable with reason: %s",
+					clazz.getName(),
+					injectAnnotation.reason()));
+		}
+
+		// Make sure we can see it from here
+		if ((injectableConstructor.getModifiers() & (Modifier.PRIVATE | Modifier.PROTECTED)) > 0) {
+			injectableConstructor.setAccessible(true);
+		}
+
+		// Grab necessary information
+		Class<?>[] dependencies = injectableConstructor.getParameterTypes();
+		Annotation[][] annotations = injectableConstructor.getParameterAnnotations();
+		Type[] types = injectableConstructor.getGenericParameterTypes();
+		Object[] fulfillments = new Object[dependencies.length];
+
+		// Fulfill dependencies
+		for (int i = 0; i < dependencies.length; i++) {
+
+			// Must match singleton states
+			boolean isClassSingleton = isSingletonAnnotated(dependencies[i]);
+			boolean isParameterSingleton = containsSingletonAnnotation(annotations[i]);
+
+			if (!isClassSingleton && isParameterSingleton) {
+				throw new SlickException(String.format(
+						"\n\t%s depends on %s but annotates it as @Singleton, "
+								+ "while the definition isn't a singleton.",
+						clazz.getName(), dependencies[i].getName()));
+			}
+			if (!isParameterSingleton && isClassSingleton) {
+				throw new SlickException(String.format(
+						"\n\t%s depends on %s but doesn't annotate it as @Singleton, "
+								+ "while the definition is a singleton.",
+						clazz.getName(), dependencies[i].getName()));
+			}
+
+			// Is a provider?
+			if (dependencies[i].equals(Provider.class)) {
+				// Get provided type
+				Type providedType = ((ParameterizedType) types[i]).getActualTypeArguments()[0];
+				// If provided type is generic, get raw type then cast, otherwise, just cast.
+				Class<?> providerClass = (providedType instanceof ParameterizedType)
+						? (Class<?>) ((ParameterizedType) providedType).getRawType()
+						: (Class<?>) providedType;
+				fulfillments[i] = getInstanceFromProviders(providerClass);
+				continue;
+			}
+
+			// Is a singleton?
+			if (isClassSingleton) {
+				fulfillments[i] = getInstanceFromSingleton(dependencies[i]);
+			}
+
+			// Recurse
+			if (fulfillments[i] == null) {
+				try {
+					fulfillments[i] = get(dependencies[i]);
+				} catch (SlickException se) {
+					// Catch and rethrow for easier debugging
+					throw new SlickException(
+							String.format(
+									"%s\n\t...Failed to fulfill %s required by %s",
+									se.getMessage(),
+									dependencies[i].getName(),
+									clazz.getName()));
+				}
+
+				// Place into singleton if applicable
+				if (isClassSingleton) {
+					singletonInstances.put(dependencies[i], fulfillments[i]);
+				}
+			}
+		}
+
+		try {
+			return injectableConstructor.newInstance(fulfillments);
+		} catch (SlickException se) {
+			throw new SlickException(
+					String.format(
+							"%s\n\t...Failed to instantiate %s",
+							se.getMessage(),
+							clazz.getName()),
+					se.getCause());
+		} catch (InvocationTargetException ite) {
+			throw new RuntimeException(String.format(
+					"Slick couldn't create an instance of %s",
+					clazz.getName()),
+					ite);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+}</textarea>
+		</div>
+		<div>
+			<pre id="challenge-pre"><code id="challenge-pretty" class="java"></code></pre>
+		</div>
+	</div>
 </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
@@ -30,10 +205,47 @@
 	});
 	hljs.initHighlighting();
 	let a = document.getElementById('challenge-pretty');
-	document.getElementById('challenge-input').oninput = function() {
-		a.innerHTML = this.value;
+	let b = document.getElementById('challenge-input');
+	b.oninput = function() {
+		a.innerHTML = this.value.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 		hljs.highlightBlock(a);
 	};
-	document.getElementById('challenge-input').oninput();
+	b.onkeydown = function(e) {
+		if (e.ctrlKey) {
+			let c = e.which || e.keyCode;
+			switch (c) {
+				case 83: // ctrl+s
+					e.preventDefault();
+					e.stopPropagation();
+					break;
+			}
+		}
+		if (e.keyCode === 9) { // tab
+			// get caret position/selection
+			let start = this.selectionStart;
+			let end = this.selectionEnd;
+
+			let target = e.target;
+			let value = target.value;
+
+			// set textarea value to: text before caret + tab + text after caret
+			target.value = value.substring(0, start)
+					+ "\t"
+					+ value.substring(end);
+
+			// put caret at right position again (add one for the tab)
+			this.selectionStart = this.selectionEnd = start + 1;
+
+			// prevent the focus lose
+			e.preventDefault();
+
+			this.oninput();
+		}
+	};
+	b.onscroll = function() {
+		a.scrollTop = this.scrollTop;
+		a.scrollLeft = this.scrollLeft;
+	};
+	b.oninput();
 </script>
 {% endblock %}

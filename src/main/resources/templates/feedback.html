@@ -1,0 +1,201 @@
+{# Code eval page a peer reviewer will interact with #}
+{% extends "base/empty-page" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/css/highlightjs-tomorrow-night.css" />
+{% endblock %}
+
+{% block body %}
+<div class="code-split">
+	<div class="left">
+		<div class="code-split-header">
+			<div class="global-title-font">Simple Dependency Injection</div>
+			<div class="subtitle">Java Challenge</div>
+		</div>
+
+		<div class="code-split-rubric">
+			<div class="global-title-font">Grading Rubric</div>
+			<div class="metric-container">
+				<div class="metric">
+					<label>Code Style</label>
+					<select disabled="disabled"><option selected="selected">4.5</option></select>
+				</div>
+				<div class="metric">
+					<label>Efficiency</label>
+					<select disabled="disabled"><option selected="selected">5.0</option></select>
+				</div>
+				<div class="metric">
+					<label>Documentation</label>
+					<select disabled="disabled"><option selected="selected">4.5</option></select>
+				</div>
+				<div class="metric">
+					<label>Goal</label>
+					<select disabled="disabled"><option selected="selected">4.5</option></select>
+				</div>
+			</div>
+
+			<div class="total-wrapper">
+				<div class="left">Total</div>
+				<div class="right"><span class="bold" id="eval-total-score">18.5</span> out of <span class="bold">20</span></div>
+			</div>
+
+			<div class="last-notes">
+				<textarea disabled="disabled" class="feedback-notes-other">No other comments...</textarea>
+			</div>
+
+			<div class="buttons">
+				<a class="submit" href="/dashboard">Back to Dashboard</a>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<pre><code id="challenge-pretty" class="java hljs"><span class="keyword">import</span> java.lang.annotation.Annotation;
+<span class="keyword">import</span> java.lang.reflect.AnnotatedElement;
+<span class="keyword">import</span> java.lang.reflect.Constructor;
+<span class="keyword">import</span> java.lang.reflect.InvocationTargetException;
+<span class="keyword">import</span> java.lang.reflect.Method;
+<span class="keyword">import</span> java.lang.reflect.Modifier;
+<span class="keyword">import</span> java.lang.reflect.ParameterizedType;
+<span class="keyword">import</span> java.lang.reflect.Type;
+<span class="keyword">import</span> java.util.ArrayList;
+<span class="keyword">import</span> java.util.HashMap;
+<span class="keyword">import</span> java.util.List;
+<span class="keyword">import</span> java.util.Map;
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Injector</span> </span>{
+	<span class="comment">/**
+	 * Attempts to create and return an instance of a class.
+	 *
+	 * <span class="doctag">@param</span> clazz The class to make an instance of.
+	 * <span class="doctag">@return</span> An instance of the class.
+	 */</span>
+	<span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">get</span><span class="params">(Class&lt;T&gt; clazz)</span> </span>{
+		<span class="comment">// Grab the class's constructors</span>
+<div class="feedback-comment">This may also throw a heap pollution error, but good forethought on the unchecked warning.</div>		<span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>) <span class="comment">// We're guaranteed this array is of type Constructor&lt;T&gt;</span>
+		Constructor&lt;T&gt;[] constructors = (Constructor&lt;T&gt;[]) clazz.getDeclaredConstructors();
+		<span class="keyword">if</span> (constructors.length == <span class="number">0</span>) {
+			<span class="keyword">throw</span> <span class="keyword">new</span> SlickException(String.format(<span class="string">"\n\t%s has no constructors."</span>, clazz.getName()));
+		}
+
+		<span class="comment">// Find an @Inject-able constructor</span>
+		Constructor&lt;T&gt; injectableConstructor = <span class="keyword">null</span>;
+		Inject injectAnnotation = <span class="keyword">null</span>;
+		<span class="keyword">for</span> (Constructor&lt;T&gt; constructor : constructors) {
+			<span class="keyword">if</span> (constructor.isAnnotationPresent(Inject.class)) {
+				<span class="keyword">if</span> (injectableConstructor != <span class="keyword">null</span>) {
+<div class="feedback-comment">Great use of safety checking.</div>					<span class="keyword">throw</span> <span class="keyword">new</span> SlickException(String.format(
+							<span class="string">"\n\t%s cannot have multiple @Inject-annotated constructors"</span>,
+							clazz.getName()));
+				}
+				injectableConstructor = constructor;
+				injectAnnotation = constructor.getAnnotation(Inject.class);
+			}
+		}
+
+		<span class="comment">// None found</span>
+		<span class="keyword">if</span> (injectableConstructor == <span class="keyword">null</span>) {
+			<span class="keyword">throw</span> <span class="keyword">new</span> SlickException(String.format(
+					<span class="string">"\n\t%s has no constructor with the @Inject annotation."</span>,
+					clazz.getName()));
+		}
+
+		<span class="comment">// Allow = false</span>
+		<span class="keyword">if</span> (!injectAnnotation.allow()) {
+			<span class="keyword">throw</span> <span class="keyword">new</span> SlickException(String.format(
+					<span class="string">"\n\t%s explicitly marks itself as non-injectable with reason: %s"</span>,
+					clazz.getName(),
+					injectAnnotation.reason()));
+		}
+
+		<span class="comment">// Make sure we can see it from here</span>
+		<span class="keyword">if</span> ((injectableConstructor.getModifiers() &amp; (Modifier.PRIVATE | Modifier.PROTECTED)) &gt; <span class="number">0</span>) {
+			injectableConstructor.setAccessible(<span class="keyword">true</span>);
+		}
+
+		<span class="comment">// Grab necessary information</span>
+<div class="feedback-comment">While this does get the job done, a more efficient implementation would include a TreeSet and HashMap combination.</div>		Class&lt;?&gt;[] dependencies = injectableConstructor.getParameterTypes();
+		Annotation[][] annotations = injectableConstructor.getParameterAnnotations();
+		Type[] types = injectableConstructor.getGenericParameterTypes();
+		Object[] fulfillments = <span class="keyword">new</span> Object[dependencies.length];
+
+		<span class="comment">// Fulfill dependencies</span>
+		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dependencies.length; i++) {
+
+			<span class="comment">// Must match singleton states</span>
+			<span class="keyword">boolean</span> isClassSingleton = isSingletonAnnotated(dependencies[i]);
+			<span class="keyword">boolean</span> isParameterSingleton = containsSingletonAnnotation(annotations[i]);
+
+			<span class="keyword">if</span> (!isClassSingleton &amp;&amp; isParameterSingleton) {
+				<span class="keyword">throw</span> <span class="keyword">new</span> SlickException(String.format(
+						<span class="string">"\n\t%s depends on %s but annotates it as @Singleton, "</span>
+								+ <span class="string">"while the definition isn't a singleton."</span>,
+						clazz.getName(), dependencies[i].getName()));
+			}
+			<span class="keyword">if</span> (!isParameterSingleton &amp;&amp; isClassSingleton) {
+				<span class="keyword">throw</span> <span class="keyword">new</span> SlickException(String.format(
+						<span class="string">"\n\t%s depends on %s but doesn't annotate it as @Singleton, "</span>
+								+ <span class="string">"while the definition is a singleton."</span>,
+						clazz.getName(), dependencies[i].getName()));
+			}
+
+			<span class="comment">// Is a provider?</span>
+			<span class="keyword">if</span> (dependencies[i].equals(Provider.class)) {
+				<span class="comment">// Get provided type</span>
+				Type providedType = ((ParameterizedType) types[i]).getActualTypeArguments()[<span class="number">0</span>];
+				<span class="comment">// If provided type is generic, get raw type then cast, otherwise, just cast.</span>
+				Class&lt;?&gt; providerClass = (providedType <span class="keyword">instanceof</span> ParameterizedType)
+						? (Class&lt;?&gt;) ((ParameterizedType) providedType).getRawType()
+						: (Class&lt;?&gt;) providedType;
+				fulfillments[i] = getInstanceFromProviders(providerClass);
+				<span class="keyword">continue</span>;
+			}
+
+			<span class="comment">// Is a singleton?</span>
+			<span class="keyword">if</span> (isClassSingleton) {
+				fulfillments[i] = getInstanceFromSingleton(dependencies[i]);
+			}
+
+			<span class="comment">// Recurse</span>
+			<span class="keyword">if</span> (fulfillments[i] == <span class="keyword">null</span>) {
+				<span class="keyword">try</span> {
+					fulfillments[i] = get(dependencies[i]);
+				} <span class="keyword">catch</span> (SlickException se) {
+					<span class="comment">// Catch and rethrow for easier debugging</span>
+					<span class="keyword">throw</span> <span class="keyword">new</span> SlickException(
+							String.format(
+									<span class="string">"%s\n\t...Failed to fulfill %s required by %s"</span>,
+									se.getMessage(),
+									dependencies[i].getName(),
+									clazz.getName()));
+				}
+
+				<span class="comment">// Place into singleton if applicable</span>
+				<span class="keyword">if</span> (isClassSingleton) {
+					singletonInstances.put(dependencies[i], fulfillments[i]);
+				}
+			}
+		}
+
+		<span class="keyword">try</span> {
+			<span class="keyword">return</span> injectableConstructor.newInstance(fulfillments);
+		} <span class="keyword">catch</span> (SlickException se) {
+			<span class="keyword">throw</span> <span class="keyword">new</span> SlickException(
+					String.format(
+							<span class="string">"%s\n\t...Failed to instantiate %s"</span>,
+							se.getMessage(),
+							clazz.getName()),
+					se.getCause());
+		} <span class="keyword">catch</span> (InvocationTargetException ite) {
+			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(String.format(
+					<span class="string">"Slick couldn't create an instance of %s"</span>,
+					clazz.getName()),
+					ite);
+		} <span class="keyword">catch</span> (Exception e) {
+			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);
+		}
+	}
+}</code></pre>
+	</div>
+</div>
+
+{% endblock %}

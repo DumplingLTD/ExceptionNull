@@ -1,0 +1,94 @@
+{# A test page for the dual pane page #}
+{% extends "base/li-sidebar-page" %}
+{% block title %} Exception Null - Earnings{% endblock %}
+
+{% block content %}
+<div class="earnings">
+	<div class="left">
+		<div class="card">
+			<div class="title">Earnings <span class="hint">this month, estimated</span></div>
+			<div class="big-number">$11.15</div>
+		</div>
+		<div class="card-spacing"></div>
+		<div class="card">
+			<div class="title">Reviews Completed <span class="hint">this month</span></div>
+			<div class="big-number">8</div>
+		</div>
+		<div class="card-spacing"></div>
+		<div class="card">
+			<div class="title">Rating <span class="hint">this month, average</span></div>
+			<div class="big-number">3.11</div>
+		</div>
+	</div>
+
+	<div class="right">
+		<div class="card">
+			<div class="title">History</div>
+			<canvas id="earning-review-history">8</canvas>
+		</div>
+	</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+<script>
+	(function() {
+		window.onload = function() {
+			let ctx = document.getElementById('earning-review-history').getContext('2d');
+			let myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: ["January", "February", "March", "April", "May (this month)"],
+					datasets: [{
+						type: 'bar',
+						label: 'Reviews',
+						data: [ 4, 7, 8, 5, 8 ],
+						backgroundColor: 'rgba(255, 99, 132, 0.2)',
+						yAxisID: 'y-axis-1',
+					}, {
+						type: 'line',
+						label: 'Earnings',
+						data: [ '6.23', '10.11', '14.82', '7.56', null ],
+						pointBackgroundColor: 'rgba(153, 102, 255, 0.2)',
+						pointHoverBackgroundColor: 'rgba(153, 102, 255, 0.5)',
+						fill: false,
+						yAxisID: 'y-axis-2'
+					}]
+				},
+				options: {
+					responsive: true,
+					legend: { display: false, },
+					title: { display: false, },
+					tooltips: {
+						mode: 'index',
+						intersect: false,
+					},
+					scales: {
+						yAxes: [{
+							type: "linear",
+							display: true,
+							position: "left",
+							id: "y-axis-1",
+							gridLines:{ display: false },
+							labels: { show: true, },
+							ticks: { beginAtZero: true }
+						}, {
+							type: "linear",
+							display: true,
+							position: "right",
+							id: "y-axis-2",
+							gridLines:{ display: false },
+							labels: { show: true, },
+							ticks: {
+								beginAtZero: true,
+								callback: function(label) {
+									return  '$' + label.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+								}
+							}
+						}]
+					}
+				}
+			});
+		}
+	} ());
+</script>
+{% endblock %}

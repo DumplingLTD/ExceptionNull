@@ -1,11 +1,29 @@
 {# A test page for the dual pane page #}
 {% extends "base/li-sidebar-page" %}
-{% block title %} Exception Null - This will override all other titles{% endblock %}
+{% block title %} Exception Null - Overview {% endblock %}
+
+{% macro cardListElement(imageUrl, title, subtitle) %}
+<li>
+	<img src="{{ imageUrl }}" />
+	<div>
+		<div class="title">{{ title }}</div>
+		<div>{{ subtitle }}</div>
+	</div>
+</li>
+{% endmacro %}
+
+{% macro challengeTableRow(name, score, result) %}
+<tr>
+	<td><a href="/feedback">{{ name }}</a></td>
+	<td>{{ score }}</td>
+	<td class="{{ result }}"></td>
+</tr>
+{% endmacro %}
 
 {% block content %}
 <div class="dashboard">
 	<div class="dashboard-row">
-		<div class="col col-4 centered">
+		<div class="card col-4 centered">
 			<div class="title">Active Evaluation <span class="attention">Due in 14 hours</span></div>
 			{% include "base/partial/radial-progress" with {
 				"percent": "65",
@@ -13,39 +31,37 @@
 			<div class="padded-text">Modeling data with Python (Team)</div>
 			<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/eval-image.png" />
 			<div class="spacer-5"></div>
-			<a href="/evaluate" class="dashboard-active-eval-resume">Resume</a>
+			<div>
+				<a href="/evaluate" class="dashboard-active-eval-resume">Resume</a>
+			</div>
 		</div>
 
-		<div class="col col-4">
+		<div class="card col-4">
 			<div class="title">Completed Evaluations</div>
 			<ul class="card-list">
 				<li class="date">FRIDAY, MAY 5</li>
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "http://www.gantrypark.com/Portals/12/Users/066/14/53314/adam-parker-large.jpg",
-					"title": "PROVIDED FEEDBACK",
-					"subtitle": "Placeholder title for module: language here" } %}
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "http://www.gantrypark.com/Portals/12/Users/066/14/53314/adam-parker-large.jpg",
-					"title": "PROVIDED FEEDBACK",
-					"subtitle": "Placeholder title for module: language here" } %}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"EVALUATED CHALLENGE",
+						"Placeholder title for module: language here and this one is too long for the page so it will cause a line wrap but that's ok.") }}
 
 				<li class="date">THURSDAY, MAY 4</li>
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "http://www.gantrypark.com/Portals/12/Users/066/14/53314/adam-parker-large.jpg",
-					"title": "EVALUATED CHALLENGE",
-					"subtitle": "Placeholder title for module: language here and this one is too long for the page so it will cause a line wrap but that's ok." } %}
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "http://www.gantrypark.com/Portals/12/Users/066/14/53314/adam-parker-large.jpg",
-					"title": "PROVIDED FEEDBACK",
-					"subtitle": "Placeholder title for module: language here" } %}
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "http://www.gantrypark.com/Portals/12/Users/066/14/53314/adam-parker-large.jpg",
-					"title": "EVALUATED CHALLENGE",
-					"subtitle": "Placeholder title for module: language here" } %}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"PROVIDED FEEDBACK",
+						"Placeholder title for module: language here") }}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"PROVIDED FEEDBACK",
+						"Placeholder title for module: language here") }}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"EVALUATED CHALLENGE",
+						"Placeholder title for module: language here") }}
 			</ul>
 		</div>
 
-		<div class="col col-4 centered">
+		<div class="card col-4 centered">
 			<div class="title">Your Rating</div>
 			<div class="dashboard-guru-rating">
 				<div class="average">
@@ -72,10 +88,9 @@
 	</div>
 
 	<div class="dashboard-row">
-		<div class="col col-6 centered">
+		<div class="card col-6 centered">
 			<div class="title">Skill Development</div>
-			<div class="middle-aligner"></div>
-			<div class="middle-aligned h-scroll">
+			<div class="h-scroll">
 				{% include "base/partial/radial-progress" with {
 					"percent": "35",
 					"subtitle": "Java" } %}
@@ -87,15 +102,14 @@
 					"subtitle": "HTML & CSS" } %}
 			</div>
 		</div>
-		<div class="col col-6 dashboard-active-hours centered">
+		<div class="card col-6 dashboard-active-hours centered">
 			<div class="title">Active Hours <span class="hint">This Week</span></div>
-			<div class="middle-aligner"></div>
-			<img class="middle-aligned" src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/dashboard-hours.png" />
+			<div class="dashboard-active-hours-wrapper"><canvas id="dashboard-active-hours"></canvas></div>
 		</div>
 	</div>
 
 	<div class="dashboard-row">
-		<div class="col col-8 no-padding">
+		<div class="card col-8 no-padding">
 			<div class="title">Challenges (30)</div>
 			<table class="dashboard-challenges">
 				<thead>
@@ -106,73 +120,45 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>Building an Image Editor with Java</td>
-						<td>4.50</td>
-						<td class="win"></td>
-					</tr>
-					<tr>
-						<td>Data Structures: Interview Question from Amazon</td>
-						<td>4.50</td>
-						<td class="win"></td>
-					</tr>
-					<tr>
-						<td>Evil Hangman</td>
-						<td>3.75</td>
-						<td class="tie"></td>
-					</tr>
-					<tr>
-						<td>Uncovering Police Shootings: Introduction to D3</td>
-						<td>3.50</td>
-						<td class="loss"></td>
-					</tr>
-					<tr>
-						<td>Critters</td>
-						<td>3.75</td>
-						<td class="loss"></td>
-					</tr>
-					<tr>
-						<td>Wikipedia: The Java Implementation</td>
-						<td>1.4</td>
-						<td class="loss"></td>
-					</tr>
-					<tr>
-						<td>Undirected Cyclic Graph Detection: Python Challenges</td>
-						<td>4.96</td>
-						<td class="win"></td>
-					</tr>
+					{{ challengeTableRow("Simple Dependency Injection", "4.63", "win") }}
+					{{ challengeTableRow("Data Structures: Interview Question from Amazon", "4.50", "win") }}
+					{{ challengeTableRow("Evil Hangman", "3.75", "tie") }}
+					{{ challengeTableRow("Uncovering Police Shootings: Introduction to D3", "3.50", "loss") }}
+					{{ challengeTableRow("Critters", "3.75", "loss") }}
+					{{ challengeTableRow("Wikipedia: The Java Implementation", "1.40", "loss") }}
+					{{ challengeTableRow("Undirected Cyclic Graph Detection: Python Challenges", "4.96", "win") }}
 				</tbody>
 			</table>
 		</div>
 
-		<div class="col col-4">
+		<div class="card col-4">
 			<div class="title">Messages (4 new)</div>
 			<ul class="card-list">
 				<li class="date">FRIDAY, MAY 5</li>
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "http://www.gantrypark.com/Portals/12/Users/066/14/53314/adam-parker-large.jpg",
-					"title": "COMMENT",
-					"subtitle": "\"Did you see the feedback on our score?\"" } %}
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "http://www.gantrypark.com/Portals/12/Users/066/14/53314/adam-parker-large.jpg",
-					"title": "COMMENT",
-					"subtitle": "\"Did you see the feedback on our score?\"" } %}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"COMMENT",
+						"\"Did you see the feedback on our score?\"") }}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"COMMENT",
+						"\"Did you see the feedback on our score?\"") }}
 
 				<li class="date">THURSDAY, MAY 4</li>
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "http://www.gantrypark.com/Portals/12/Users/066/14/53314/adam-parker-large.jpg",
-					"title": "QUESTION",
-					"subtitle": "\"Did you see the feedback on our score?\"" } %}
-				{% include "base/partial/dashboard-card-list-element" with {
-					"imageUrl": "http://www.gantrypark.com/Portals/12/Users/066/14/53314/adam-parker-large.jpg",
-					"title": "COMMENT",
-					"subtitle": "\"Did you see the feedback on our score?\"" } %}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"QUESTION",
+						"\"Did you see the feedback on our score?\"") }}
+				{{ cardListElement(
+						"https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png",
+						"COMMENT",
+						"\"Did you see the feedback on our score?\"") }}
 			</ul>
 		</div>
 	</div>
 
 	<div class="dashboard-row">
-		<div class="col col-12">
+		<div class="card col-12">
 			<div class="title">Badges (24)</div>
 			<div class="h-scroll">
 				<div class="dashboard-badge">
@@ -203,4 +189,49 @@
 		</div>
 	</div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+<script>
+	(function() {
+		window.onload = function() {
+			let ctx = document.getElementById('dashboard-active-hours');
+			let myChart = new Chart(ctx, {
+				type: 'line',
+				data: {
+					labels: ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon", "Tues"],
+					datasets: [{
+						label: 'Evaluations',
+						backgroundColor: '#533e8d',
+						borderColor: '#533e8d',
+						data: [ 1.2, 0, 2.4, 1.1, 0.5, 0, 1.3 ],
+						fill: false,
+					}, {
+						label: 'Challenges',
+						backgroundColor: '#fdda46',
+						borderColor: '#fdda46',
+						data: [ 0.3, 0.2, 0, 0, 0.5, 1.2, 0.1 ],
+						fill: false,
+					}]
+				},
+				options: {
+					maintainAspectRatio: false,
+					responsive: true,
+					title: { display: false, },
+					legend: { display: false },
+					tooltips: {
+						mode: 'index',
+						intersect: false,
+					},
+					scales: {
+						yAxes: [{
+							ticks: {
+								beginAtZero: true
+							}
+						}]
+					}
+				}
+			});
+		}
+	} ());
+</script>
 {% endblock %}
