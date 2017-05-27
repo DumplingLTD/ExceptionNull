@@ -6,7 +6,7 @@
 	<a href="{{ href }}" class="{{ class }}">
 		<div class="middle-aligner"></div>
 		<img class="middle-aligned"
-			 src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/{{ image }}" />
+			 src="{{ image }}" />
 		<div class="middle-aligned">{{ display }}</div>
 	</a>
 </li>
@@ -16,30 +16,30 @@
 <div class="li-sidebar-wrapper">
 	<div class="li-sidebar">
 		<div class="li-sidebar-profile">
-			<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/13654212_10153855726968553_7627473543532932060_n.png" />
+			<img src="{{ resource.amazon }}/icons/13654212_10153855726968553_7627473543532932060_n.png" />
 			<div class="username">Mr. Gabe Alex Ho</div>
 			<div class="account"><span class="type">GURU</span>•<span class="rating">★ 4.89</span></div>
 			<div class="tri">
 				<div>
-					<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/ICON_Friends.png" />
+					<img src="{{ resource.amazon }}/icons/ICON_Friends.png" />
 					<div>123 friends</div>
 				</div>
 				<div>
-					<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/ICON_Friends.png" />
+					<img src="{{ resource.amazon }}/icons/ICON_Friends.png" />
 					<div>24 badges</div>
 				</div>
 				<div>
-					<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/ICON_Friends.png" />
+					<img src="{{ resource.amazon }}/icons/ICON_Friends.png" />
 					<div>29 wins</div>
 				</div>
 			</div>
 		</div>
 		<ul class="li-sidebar-nav">
-			{{ navElement("/dashboard", "ICON_PersonalStats.png", "Overview", dashboardClasses) }}
-			{{ navElement("/friends", "ICON_Friends.png", "Friends", friendsClasses) }}
-			{{ navElement("/earnings", "ICON_earnings.png", "Earnings", earningsClasses) }}
-			{{ navElement("#", "ICON_messages.png", "Messages", messagesClasses) }}
-			{{ navElement("#", "ICON_Settings.png", "Settings", settingsClasses) }}
+			{{ navElement("/dashboard", resource.amazon + "/icons/ICON_PersonalStats.png", "Overview", dashboardClasses) }}
+			{{ navElement("/friends", resource.amazon + "/icons/ICON_Friends.png", "Friends", friendsClasses) }}
+			{{ navElement("/earnings", resource.amazon + "/icons/ICON_earnings.png", "Earnings", earningsClasses) }}
+			{{ navElement("#", resource.amazon + "/icons/ICON_messages.png", "Messages", messagesClasses) }}
+			{{ navElement("#", resource.amazon + "/icons/ICON_Settings.png", "Settings", settingsClasses) }}
 		</ul>
 	</div>
 	<div class="li-sidebar-content">

@@ -8,7 +8,7 @@
 	<div class="left">
 		<div class="middle-aligner"></div>
 		<div class="middle-aligned">
-			<div><img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/144x144-white.png" /></div>
+			<div><img src="{{ resource.amazon }}/logo/144x144-white.png" /></div>
 			<div class="global-title-font">
 				Sign up now to experience<br />
 				Exception Null's coding challenges.
@@ -23,25 +23,25 @@
 			</div>
 		</div>
 	</div>
-	<div class="right"></div>
+	<div class="right" style="background-image: url({{ resource.amazon }}/icons/comp-right.png)"></div>
 </div>
 
 <div class="home-how" id="home-how">
 	<div class="tri">
 		<div id="home-how-1">
 			<div class="global-title-font">Gamified Learning</div>
-			<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/Woman_1.png" />
+			<img src="{{ resource.amazon }}/icons/Woman_1.png" />
 			<div>Gamified learning experience. Opportunity to test your knowledge and skills.</div>
 		</div>
 		<div id="home-how-2">
 			<div class="global-title-font">Receive Feedback</div>
-			<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/woman_2.png" />
+			<img src="{{ resource.amazon }}/icons/woman_2.png" />
 			<div>Comprehensive and professional feedback from our team of industry
 				professionals.</div>
 		</div>
 		<div id="home-how-3">
 			<div class="global-title-font">Get Jobs</div>
-			<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/woman_3.png" />
+			<img src="{{ resource.amazon }}/icons/woman_3.png" />
 			<div>Own technical interviews. Learn industry best practices for code!</div>
 		</div>
 	</div>
@@ -50,7 +50,7 @@
 <div class="home-light-demo" id="home-demo">
 	<div class="content">
 		<div class="global-title" id="home-demo-1">
-			<img width="72" src="https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/144x144-white.png"/>
+			<img width="72" src="{{ resource.amazon }}/logo/144x144-white.png"/>
 		</div>
 		<div class="spacer"></div>
 		<div id="home-demo-2">
@@ -59,18 +59,18 @@
 		</div>
 	</div>
 	<div class="images" id="home-demo-images">
-		<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/landing-ss-1.png"
+		<img src="{{ resource.amazon }}/icons/landing-ss-1.png"
 			 id="home-demo-images-1"/>
-		<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/landing-ss-2.png"
+		<img src="{{ resource.amazon }}/icons/landing-ss-2.png"
 			 id="home-demo-images-2"/>
-		<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/landing-ss-3.png"
+		<img src="{{ resource.amazon }}/icons/landing-ss-3.png"
 			 id="home-demo-images-3"/>
 	</div>
 </div>
 
 <div class="home-achievement top" id="home-achievement">
 	<div class="middle-aligner"></div>
-	<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/woman.png"
+	<img src="{{ resource.amazon }}/icons/woman.png"
 		 class="middle-aligned"
 		 id="home-achievement-1" />
 	<div class="horizontal-spacer middle-aligned"></div>
@@ -113,12 +113,12 @@
 		</div>
 	</div>
 	<div class="horizontal-spacer middle-aligned"></div>
-	<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/standing_woman.png"
+	<img src="{{ resource.amazon }}/icons/standing_woman.png"
 		 class="middle-aligned"
 		 id="home-mission-1" />
 </div>
 
-<div class="home-membership" id="home-membership">
+<div class="home-membership" id="home-membership" style="background-image: url({{ resource.amazon }}/logo/home-header-bg.png)">
 	<div class="global-title" id="home-membership-1">MEMBERSHIPS</div>
 	<div class="subtitle" id="home-membership-2">When you sign up for our premium membership, we pledge that a
 		portion of the proceeds goes towards providing opportunities for others to learn coding!</div>
@@ -154,8 +154,8 @@
 	</div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="{{ resource.jquery }}/jquery-3.2.1.min.js"></script>
+<script src="{{ resource.jscloudflare }}/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 <script>
 	(function() {
 		// This sequence of functions is a little confusing, so to explain here's an example:

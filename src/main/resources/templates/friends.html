@@ -15,13 +15,13 @@
 
 {% block content %}
 <div class="friends">
-    {{ friendCard("https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/profile-photo-1.jpg", "Kodlee Yin", "GURU", true, 5.00) }}
-    {{ friendCard("https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/profile-photo-2.jpg", "Brittney Hoy", "GURU", true, 5.00) }}
-    {{ friendCard("https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/profile-photo-3.jpg", "Royce Le", "GURU", true, 4.78) }}
-    {{ friendCard("https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/profile-photo-4.jpg", "Chengsu Chen", "GURU", true, 4.67) }}
-    {{ friendCard("https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/profile-photo-5.jpg", "Jonathan Li", "MEMBER", false, 4.21) }}
-    {{ friendCard("https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/profile-photo-6.jpg", "Michael Davidson", "MEMBER", false, 3.57) }}
-    {{ friendCard("https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/profile-photo-7.jpg", "Irene Adler", "MEMBER", false, 3) }}
+    {{ friendCard(resource.amazon + "/icons/profile-photo-1.jpg", "Kodlee Yin", "GURU", true, 5.00) }}
+    {{ friendCard(resource.amazon + "/icons/profile-photo-2.jpg", "Brittney Hoy", "GURU", true, 5.00) }}
+    {{ friendCard(resource.amazon + "/icons/profile-photo-3.jpg", "Royce Le", "GURU", true, 4.78) }}
+    {{ friendCard(resource.amazon + "/icons/profile-photo-4.jpg", "Chengsu Chen", "GURU", true, 4.67) }}
+    {{ friendCard(resource.amazon + "/icons/profile-photo-5.jpg", "Jonathan Li", "MEMBER", false, 4.21) }}
+    {{ friendCard(resource.amazon + "/icons/profile-photo-6.jpg", "Michael Davidson", "MEMBER", false, 3.57) }}
+    {{ friendCard(resource.amazon + "/icons/profile-photo-7.jpg", "Irene Adler", "MEMBER", false, 3) }}
 </div>
 
 {% endblock %}
