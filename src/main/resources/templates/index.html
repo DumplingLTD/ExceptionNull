@@ -26,20 +26,20 @@
 	<div class="right"></div>
 </div>
 
-<div class="home-how">
+<div class="home-how" id="home-how">
 	<div class="tri">
-		<div>
+		<div id="home-how-1">
 			<div class="global-title-font">Gamified Learning</div>
 			<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/Woman_1.png" />
 			<div>Gamified learning experience. Opportunity to test your knowledge and skills.</div>
 		</div>
-		<div>
+		<div id="home-how-2">
 			<div class="global-title-font">Receive Feedback</div>
 			<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/woman_2.png" />
 			<div>Comprehensive and professional feedback from our team of industry
 				professionals.</div>
 		</div>
-		<div>
+		<div id="home-how-3">
 			<div class="global-title-font">Get Jobs</div>
 			<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/woman_3.png" />
 			<div>Own technical interviews. Learn industry best practices for code!</div>
@@ -47,27 +47,37 @@
 	</div>
 </div>
 
-<div class="home-light-demo">
+<div class="home-light-demo" id="home-demo">
 	<div class="content">
-		<div class="global-title"><img width="72" src="https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/144x144-white.png"/></div>
+		<div class="global-title" id="home-demo-1">
+			<img width="72" src="https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/144x144-white.png"/>
+		</div>
 		<div class="spacer"></div>
-		<div>
+		<div id="home-demo-2">
 			Using industry best practices to improve coding skills and create opportunities
 			for others to learn the code.
 		</div>
 	</div>
-	<div class="image-spacer"></div>
+	<div class="images" id="home-demo-images">
+		<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/landing-ss-1.png"
+			 id="home-demo-images-1"/>
+		<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/landing-ss-2.png"
+			 id="home-demo-images-2"/>
+		<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/landing-ss-3.png"
+			 id="home-demo-images-3"/>
+	</div>
 </div>
 
-<div class="home-achievement top">
+<div class="home-achievement top" id="home-achievement">
 	<div class="middle-aligner"></div>
 	<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/woman.png"
-		 class="middle-aligned"/>
+		 class="middle-aligned"
+		 id="home-achievement-1" />
 	<div class="horizontal-spacer middle-aligned"></div>
 	<div class="content middle-aligned">
-		<div class="global-title">beyond the classroom coding</div>
+		<div class="global-title" id="home-achievement-2">beyond the classroom coding</div>
 		<div class="spacer"></div>
-		<div>
+		<div id="home-achievement-3">
 			The classroom might have provided you with a strong coding skills.
 			However, you still want to ace that job interview. After that, you
 			want to hit the ground running and be a rockstar in the office.
@@ -78,21 +88,21 @@
 			Go beyond the classroom!
 		</div>
 		<div class="spacer"></div>
-		<a href="#home-sign-up" class="global-pink-button">sign up</a>
+		<a href="#home-sign-up" class="global-pink-button" id="home-achievement-4">sign up</a>
 	</div>
 </div>
-<div class="home-achievement bottom">
+<div class="home-achievement bottom" id="home-mission">
 	<div class="middle-aligner"></div>
 	<div class="content middle-aligned">
-		<div class="global-title">our mission</div>
+		<div class="global-title" id="home-mission-2">our mission</div>
 		<div class="spacer"></div>
-		<div>
+		<div id="home-mission-3">
 			Technology is increasingly becoming more integrated into our everyday lives. At
 			Exception Null, we believe that being able to write good code should be a skill
 			everyone should have a chance to develop. That is why we built our platform.
 		</div>
 		<div class="spacer"></div>
-		<div>
+		<div id="home-mission-4">
 			When you subscribe to our service, you not only unlock features that allow you to
 			build on your skills through challenges and collaboration that simulates industry, but
 			you will also be providing an opportunity for someone else less fortunate to learn to
@@ -104,16 +114,17 @@
 	</div>
 	<div class="horizontal-spacer middle-aligned"></div>
 	<img src="https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/standing_woman.png"
-		 class="middle-aligned"/>
+		 class="middle-aligned"
+		 id="home-mission-1" />
 </div>
 
-<div class="home-membership">
-	<div class="global-title">MEMBERSHIPS</div>
-	<div class="subtitle">When you sign up for our premium membership, we pledge that a
+<div class="home-membership" id="home-membership">
+	<div class="global-title" id="home-membership-1">MEMBERSHIPS</div>
+	<div class="subtitle" id="home-membership-2">When you sign up for our premium membership, we pledge that a
 		portion of the proceeds goes towards providing opportunities for others to learn coding!</div>
 
 	<div class="home-membership-plans">
-		<div class="free">
+		<div class="free" id="home-membership-3">
 			<div class="body">
 				<div class="global-title">FREE</div>
 				<div class="price">0</div>
@@ -125,7 +136,7 @@
 			<a href="/dashboard">SIGN UP</a>
 		</div>
 		<div class="divider"></div>
-		<div class="premium">
+		<div class="premium" id="home-membership-4">
 			<div class="body">
 				<div class="global-title">PREMIUM</div>
 				<div class="price">19.99</div>
@@ -142,6 +153,85 @@
 		</div>
 	</div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script>
+	(function() {
+		// This sequence of functions is a little confusing, so to explain here's an example:
+		// <div id="base-id">
+		//   <div id="base-id-1"></div>
+		//   <div id="base-id-2"></div>
+		//   <div id="base-id-3"></div>
+		// </div>
+		// In the javascript, this would be animated by calling `bind('base-id', 3)`
+		// The functions will then automatically hide the 3 children elements and once the parent
+		// wrapper element is scrolled down to and is visible in the viewport, the 3 elements will
+		// fade in with the order given by the id numbering.
+
+		// Fetch element
+		function e(s) {
+			return document.getElementById(s);
+		}
+		function zero() {
+			for (let i = 0; i < arguments.length; i++) {
+				arguments[i].style.opacity = 0;
+			}
+		}
+		function animate(el, delay) {
+			delay = delay || 0;
+			setTimeout(function() { $(el).animate({ 'opacity': 1 }, 500, 'easeInOutCubic'); }, delay);
+		}
+		let boundAnimations = {};
+		function bind(base, count) {
+			// Have we already scrolled past it?
+			if (e(base).getBoundingClientRect().top < 0) {
+				return;
+			}
+
+			// If not, hide all the children
+			for (let i = 1; i <= count; i++) {
+				zero(e(base + "-" + i));
+			}
+
+			// And add the parent to the animation queue
+			boundAnimations[base] = { e: e(base), count: count };
+		}
+
+		// First load
+		let signUp = e('home-sign-up');
+		zero(signUp);
+		window.onload = function() {
+			animate(signUp);
+		};
+
+		// on scroll
+		window.onscroll = function() {
+			Object.keys(boundAnimations).forEach(function(base) {
+				// check if the wrapper is in viewport
+				if (boundAnimations[base].e.getBoundingClientRect().top < document.body.offsetHeight / 3 * 2) {
+					// Animate in the children in order
+					let delay = 0;
+					for (let i = 1; i <= boundAnimations[base].count; i++) {
+						animate(e(base + "-" + i), delay);
+						delay += 150;
+					}
+
+					// Because we're now visible, delete this wrapper from the animation queue as
+					// the opacity is already 1 and there'd be no point in re-animating them.
+					delete boundAnimations[base];
+				}
+			});
+		};
+
+		bind('home-how', 3);
+		bind('home-demo', 2);
+		bind('home-demo-images', 3);
+		bind('home-achievement', 4);
+		bind('home-mission', 4);
+		bind('home-membership', 4);
+	} ())
+</script>
 
 <footer class="home-footer">
 	<div>Made with love in Seattle, Washington.</div>

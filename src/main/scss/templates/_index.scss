@@ -90,13 +90,10 @@
 }
 
 .home-light-demo {
-	background: $color-light-blue url(https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/stacked_browsers.png) center bottom no-repeat;
+	background: $color-light-blue;
 	color: $color-white;
 	text-align: center;
 
-	.image-spacer {
-		height: 523px;
-	}
 
 	.global-title {
 		font-size: $font-size-t1;
@@ -111,6 +108,35 @@
 
 	.spacer {
 		height: $size-base * 4;
+	}
+
+	.images {
+		height: 523px;
+		overflow: hidden;
+		position: relative;
+
+		img {
+			@extend %shadow-layer-5;
+			width: 60vw;
+			display: inline-block;
+			position: absolute;
+			min-height: 523px;
+		}
+		img:first-child {
+			left: 5vw;
+			z-index: 2;
+			top: 100px;
+		}
+		img:nth-child(2) {
+			left: 20vw;
+			top: 0;
+			z-index: 3;
+		}
+		img:last-child {
+			right: 5vw;
+			top: 100px;
+			z-index: 2;
+		}
 	}
 }
 
