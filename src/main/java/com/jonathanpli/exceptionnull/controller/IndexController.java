@@ -91,4 +91,12 @@ public class IndexController {
 		result.addObject("earningsClasses", "active");
 		return result;
 	}
+
+	@RequestMapping(value = "/friends")
+	public ModelAndView friends() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("friends");
+		mav.addObject("friendsClasses", "active");
+		return mav;
+	}
 }
