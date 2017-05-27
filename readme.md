@@ -62,6 +62,16 @@ This is used for deployment or deployment package testing.
    + Windows: `mvnw.cmd package`
 3. Find the output in the root of the `target` folder
 
+### Running in Offline Mode
+1. Create or download a server with version >= 0.0.9-SNAPSHOT
+2. Download and unzip the offline static content [here](https://s3-us-west-2.amazonaws.com/jpli-capstone/offline-enull.zip)
+3. Run the jar using the following command: `java -jar <server jar location> -offline -offlinePath <path>`
+   + Replace `<server jar location>` with the location of the server jar file
+   + Replace `<path>` with the location of the unzipped static content folder. Include a trailing
+     slash. If there are spaces in the path, be sure to quote or escape them. This should also
+     accept a relative path (but hasn't been tested).
+   + An example: `java -jar enull-0.0.9-SNAPSHOT.jar -offline -offlinePath offline-content/`
+
 ###### Advanced
 Settings for the build can be changed within the `pom.xml` file under
 the `<build>...</build>` tag.

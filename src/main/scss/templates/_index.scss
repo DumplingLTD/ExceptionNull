@@ -23,7 +23,7 @@
 	.right {
 		flex: 1 1 60%;
 		height: 100%;
-		background: $color-white url(https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/comp-right.png) left center no-repeat;
+		background: $color-white left center no-repeat;
 		background-size: cover;
 	}
 
@@ -181,7 +181,7 @@
 }
 
 .home-membership {
-	background: $color-midnight-bluuu url(https://s3-us-west-2.amazonaws.com/jpli-capstone/logo/home-header-bg.png) fixed;
+	background: $color-midnight-bluuu fixed;
 	color: $color-white;
 	padding: $size-base * 13 0;
 	text-align: center;
