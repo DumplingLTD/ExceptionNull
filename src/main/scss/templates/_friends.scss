@@ -1,0 +1,55 @@
+// Friends styling
+.friends {
+  display: block;
+  padding: $size-base * 2;
+
+  .card {
+    background-color: $color-white;
+    padding: $size-base * 2;
+    border-radius: $size-base;
+    margin: $size-base * 1.5;
+    text-align: center;
+    width: 250px;
+    height: 300px;
+    display: inline-block;
+    vertical-align: top;
+
+    .username {
+      margin-top: $size-base * 1.5;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .user-type {
+      font-size: 12px;
+      color: $color-deep-grey;
+    }
+
+    .profile-container {
+      height: 200px;
+      line-height: 200px;
+      margin: $size-base * 1.5;
+    }
+
+    .profile-photo {
+      max-height: 200px;
+      max-width: 200px;
+      border-radius: $size-base;
+      vertical-align: middle;
+    }
+
+    .status-offline, .status-online {
+      font-size: 12px;
+    }
+
+    .status-offline {
+      color: $color-grey-5;
+      font-style: italic;
+    }
+
+    .status-online {
+      color: $color-real-green;
+      font-weight: bold;
+    }
+  }
+}

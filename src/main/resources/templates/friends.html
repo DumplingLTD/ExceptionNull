@@ -1,0 +1,27 @@
+{# The page to display user's friends #}
+{% extends "base/li-sidebar-page" %}
+{% block title %} Exception Null - Buddy List {% endblock %}
+
+{% macro friendCard(imageSrc, username, userType, online, rating) %}
+<div class="card">
+    <div class="profile-container">
+        <img class="profile-photo" src={{ imageSrc }} />
+    </div>
+    <div class="username">{{ username }}</div>
+    <div class="user-type">{{ userType }} - <span class="rating">★ {{ rating }}</span></div>
+    <div class={{ online ? "status-online" : "status-offline" }}>{{ online ? "Online" : "Offline" }}</div>
+</div>
+{% endmacro %}
+
+{% block content %}
+<div class="friends">
+    {{ friendCard("https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/profile-photo-1.jpg", "Kodlee Yin", "GURU", true, 5.00) }}
+    {{ friendCard("https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/profile-photo-2.jpg", "Brittney Hoy", "GURU", true, 5.00) }}
+    {{ friendCard("https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/profile-photo-3.jpg", "Royce Le", "GURU", true, 4.78) }}
+    {{ friendCard("https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/profile-photo-4.jpg", "Chengsu Chen", "GURU", true, 4.67) }}
+    {{ friendCard("https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/profile-photo-5.jpg", "Jonathan Li", "MEMBER", false, 4.21) }}
+    {{ friendCard("https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/profile-photo-6.jpg", "Michael Davidson", "MEMBER", false, 3.57) }}
+    {{ friendCard("https://s3-us-west-2.amazonaws.com/jpli-capstone/icons/profile-photo-7.jpg", "Irene Adler", "MEMBER", false, 3) }}
+</div>
+
+{% endblock %}
