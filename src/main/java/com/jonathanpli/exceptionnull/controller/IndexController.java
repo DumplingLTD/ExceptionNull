@@ -107,4 +107,12 @@ public class IndexController {
 		mav.addObject("messagesClasses", "active");
 		return mav;
 	}
+
+	@RequestMapping(value = "/settings")
+	public ModelAndView settings() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("settings");
+		mav.addObject("settingsClasses", "active");
+		return mav;
+	}
 }

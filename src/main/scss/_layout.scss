@@ -181,37 +181,6 @@ $rubric-wrapper-width: 250px;
 			}
 		}
 	}
-
-	.buttons {
-		padding: $size-base * 2;
-		text-align: center;
-
-		a {
-			display: inline-block;
-			margin: $size-base;
-			padding: $size-base $size-base * 2;
-			border-radius: 3px;
-			font-size: 14px;
-
-			&, &:link, &:visited {
-				color: $color-midnight-bluuu;
-				background-color: transparent;
-			}
-		}
-
-		.save {
-			&:hover, &:active {
-				background-color: $color-light-grey-5;
-			}
-		}
-
-		.submit {
-			&:hover, &:active {
-				background-color: $color-midnight-bluuu;
-				color: $color-white;
-			}
-		}
-	}
 }
 
 // Belongs inside a code-split left block.
@@ -231,6 +200,37 @@ $rubric-wrapper-width: 250px;
 		font-size: 12px;
 		color: $color-deep-grey;
 		margin-top: $size-base * 2;
+	}
+}
+
+.buttons {
+	padding: $size-base * 2;
+	text-align: center;
+
+	a {
+		display: inline-block;
+		margin: $size-base;
+		padding: $size-base $size-base * 2;
+		border-radius: 3px;
+		font-size: 14px;
+
+		&, &:link, &:visited {
+			color: $color-midnight-bluuu;
+			background-color: transparent;
+		}
+	}
+
+	.secondary-button {
+		&:hover, &:active {
+			background-color: $color-light-grey-5;
+		}
+	}
+
+	.primary-button {
+		&:hover, &:active {
+			background-color: $color-midnight-bluuu;
+			color: $color-white;
+		}
 	}
 }
 

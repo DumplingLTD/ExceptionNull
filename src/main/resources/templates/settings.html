@@ -1,0 +1,43 @@
+{# The page to display user's settings #}
+{% extends "base/li-sidebar-page" %}
+{% block title %} Exception Null - Settings {% endblock %}
+
+{% macro input(type, name) %}
+<div class="form-group">
+    <label for={{ name.toLowerCase() }}>{{ name }}:</label><div class="user-input">
+    {% if type == "text" %}
+        <input type="text" id={{ name.toLowerCase() }} placeholder="{{ name }}..." />
+    {% elseif type == "password" %}
+        <input type="password" id={{ name.toLowerCase() }} placeholder="{{ name }}..." />
+    {% elseif type == "checkbox" %}
+        <div class="checkbox">
+            <input type="checkbox" value="1" id={{ name.toLowerCase() }} />
+            <label for={{ name.toLowerCase() }}></label>
+        </div>
+    {% endif %}
+    </div>
+</div>
+{% endmacro %}
+
+{% block content %}
+
+<div class="settings">
+    <div class="card">
+        <h1>Settings</h1>
+        <br/>
+        <form>
+            {{ input("text", "Email") }}
+            {{ input("text", "Full Name") }}
+            {{ input("password", "Password") }}
+            {{ input("checkbox", "Notifications") }}
+            {{ input("checkbox", "2-FA") }}
+
+            <div class="buttons">
+                <a class="primary-button" href="#">Update</a>
+                <a class="secondary-button" href="/">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
