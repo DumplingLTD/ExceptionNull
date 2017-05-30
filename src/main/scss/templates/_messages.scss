@@ -1,0 +1,104 @@
+// Messages styling
+.messages {
+  display: flex;
+  padding: $size-base * 2;
+  height: 100%;
+
+  .card {
+    background-color: $color-white;
+    padding: $size-base * 2;
+    border-radius: $size-base;
+    margin: $size-base * 1.5;
+    width: 100%;
+  }
+
+  .subheader {
+    font-size: 24px;
+    padding-bottom: $size-base;
+  }
+
+  .description {
+    text-align: center;
+  }
+
+  .left-section, .right-section, .left, .right {
+    display: inline-block;
+  }
+
+  .left-section, .right-section {
+    vertical-align: top;
+    height: 100%;
+  }
+
+  .left-section {
+    flex: 0 0 auto;
+    width: 30%;
+    border-right: 1px solid $color-grey-3;
+  }
+
+  .right-section {
+    flex: 1 1 auto;
+    margin-left: 0;
+    width: 70%;
+  }
+
+  hr {
+    border: 1px solid $color-grey-3;
+  }
+
+  .message-summary {
+    padding: $size-base;
+
+    > div {
+      margin-top: $size-base * 0.5;
+    }
+
+    .left {
+      width: 60%;
+    }
+
+    .right {
+      width: 40%;
+    }
+  }
+
+  .title {
+    width: 100%;
+    font-weight: bold;
+  }
+
+  .left-message, .right-message {
+    padding: ($size-base * 2) ($size-base * 2) 0;
+
+    > div {
+      display: inline-block;
+    }
+  }
+
+  .left, .left-message {
+    text-align: left;
+  }
+
+  .right, .right-message {
+    text-align: right;
+  }
+
+  .message-body {
+    width: 60%;
+  }
+
+  .message-input {
+    flex: 1 1 auto;
+    width: 67%;
+    position: absolute;
+    bottom: 0;
+
+    > textarea {
+      border-color: $color-grey-3;
+      border-radius: $size-base;
+      padding: $size-base;
+      margin: 0 ($size-base * 0.5) 0 $size-base;
+      width: 100%;
+    }
+  }
+}

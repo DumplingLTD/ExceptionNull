@@ -233,3 +233,10 @@ $rubric-wrapper-width: 250px;
 		margin-top: $size-base * 2;
 	}
 }
+
+.truncate {
+	width: inherit;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
