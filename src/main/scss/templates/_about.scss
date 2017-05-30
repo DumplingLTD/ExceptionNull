@@ -1,0 +1,31 @@
+// About styling
+.about {
+  background-color: $color-midnight-bluuu;
+  color: $color-white;
+  height: 100vh;
+
+  .header {
+    padding: $size-base * 2;
+    text-align: center;
+  }
+
+  .row {
+    text-align: center;
+
+    .person {
+      width: 40%;
+      margin: ($size-base * 2) auto;
+      text-align: center;
+      display: inline-block;
+
+      img {
+        max-width: 250px;
+        max-height: 250px;
+      }
+
+      .person-desc {
+        font-size: $size-base * 1.5;
+      }
+    }
+  }
+}
