@@ -2,43 +2,63 @@
 {% extends "base/empty-page" %}
 {% block title %}Exception Null - About{% endblock %}
 
-{% macro person(imgSrc, name, description) %}
+{% macro person(imgSrc, name, position, description) %}
 <div class="person">
-    <img src="{{ imgSrc }}" class="photo"/>
-    <div class="person-name">{{ name }}</div>
-    <br/>
-    <div class="person-desc">{{ description }}</div>
+	<img src="{{ imgSrc }}" />
+	<div>
+		<div class="name">{{ name }}</div>
+		<div class="position">{{ position }}</div>
+		<div class="desc">{{ description }}</div>
+	</div>
 </div>
 {% endmacro %}
 
 {% block body %}
-<div class="about" style="background-image: url({{ resource.amazon }}/logo/home-header-bg.png)">
-    <h2>The Team:</h2>
+<div class="about">
+	<div class="logo">
+		<img src="{{ resource.amazon }}/logo/full-size.png" alt="Exception Null Logo" />
+		<div class="global-title-font">Exception Null Team</div>
+	</div>
 
-    <div class="row">
-        {{ person(resource.amazon + "/icons/gh.png", "Gabriel Ho",
-            "Hailing from Singapore, Gabriel’s dream for Exception Null is to reinvent the online education space by embracing the Social Enterprise
-            model and put profits earned towards creating real value for others. In his spare time, Gabriel coaches Rugby at the University of Washington and hopes to
-            grow the sport in America. Legend has it that Gabriel once played so fiercely that he carried 8 men across the line. In reality, Gabriel says he simply
-            convinced the 8 men to work with him to get him into the endzone. Such is his ability to bring people together.") }}
-        {{ person(resource.amazon + "/icons/cc.png", "Chengsu Chen",
-            "Chengsu is a graduating senior at the University of Washington studying Information Science with a focus in Human-Computer Interaction
-            and Business with a focus in Marketing. Before designing for Exception Null, she has interned at companies like Google and Boeing. Her hopes for Exception
-            Null to be integrated into new employee training programs at tech giants and startups alike. With an interest in reshaping the edtech industry, Chengsu plans
-            on designing Exception Null to cater to all ages in the future.") }}
-        {{ person(resource.amazon + "/icons/ky.jpg", "Kodlee Yin",
-            "Passionate about programming and education, Kodlee is a graduating senior at the University of Washington. Drawing from experience working at
-            companies like Google and YouTube, Kodlee aims to bring structure and industry best practices to the development team. To him, Exception Null means sharing
-            knowledge; a directive that's core to his values. Above all else, Kodlee wants to see Exception Null make an impact on the interest and learning aspects of
-            computer science.") }}
-        {{ person(resource.amazon + "/icons/jl.jpg", "Jonathan Li",
-            "Born in Oregon, Jonathan decided to attend the University of Washington with the intent to study music performance, but
-            his career interests later shifted to psychology and finally to technology. After taking some programming courses and landing
-            two internships, he solidified his passion for working in the technology industry. Additionally, education is a large
-            driver for him, and he has enjoyed having the opportunity of being a teaching assistant for multiple courses and participating
-            in furthering his fellow students’ educations. His hope for Exception Null is to further enable developers to improve their
-            capabilities.") }}
-    </div>
+	<div class="people">
+		{{ person(resource.amazon + "/icons/gh.png", "Gabriel Ho", "Project Manager",
+			"Hailing from Singapore, Gabriel’s dream for Exception Null is to reinvent the online
+			education space by embracing the Social Enterprise
+			model and put profits earned towards creating real value for others. In his spare time,
+			Gabriel coaches Rugby at the University of Washington and hopes to
+			grow the sport in America. Legend has it that Gabriel once played so fiercely that he
+			carried 8 men across the line. In reality, Gabriel says he simply
+			convinced the 8 men to work with him to get him into the endzone. Such is his ability to
+			bring people together.") }}
+		{{ person(resource.amazon + "/icons/cc.png", "Chengsu Chen", "Designer",
+			"Chengsu is a graduating senior at the University of Washington studying Information Science
+			with a focus in Human-Computer Interaction
+			and Business with a focus in Marketing. Before designing for Exception Null, she has
+			interned at companies like Google and Boeing. Her hopes for Exception
+			Null to be integrated into new employee training programs at tech giants and startups alike.
+			With an interest in reshaping the edtech industry, Chengsu plans
+			on designing Exception Null to cater to all ages in the future.") }}
+		{{ person(resource.amazon + "/icons/ky.jpg", "Kodlee Yin", "Developer",
+			"Passionate about programming and education, Kodlee is a graduating senior at the University
+			of Washington. Drawing from experience working at
+			companies like Google and YouTube, Kodlee aims to bring structure and industry best
+			practices to the development team. To him, Exception Null means sharing
+			knowledge; a directive that's core to his values. Above all else, Kodlee wants to see
+			Exception Null make an impact on the interest and learning aspects of
+			computer science.") }}
+		{{ person(resource.amazon + "/icons/jl.jpg", "Jonathan Li", "Developer",
+			"Born in Oregon, Jonathan decided to attend the University of Washington with the intent to
+			study music performance, but
+			his career interests later shifted to psychology and finally to technology. After taking
+			some programming courses and landing
+			two internships, he solidified his passion for working in the technology industry.
+			Additionally, education is a large
+			driver for him, and he has enjoyed having the opportunity of being a teaching assistant for
+			multiple courses and participating
+			in furthering his fellow students’ educations. His hope for Exception Null is to further
+			enable developers to improve their
+			capabilities.") }}
+	</div>
 </div>
 
 {% include "base/partial/footer" %}

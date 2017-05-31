@@ -1,7 +1,7 @@
 // Styles for the footer
 .partial-footer {
 	display: flex;
-	padding: $size-base * 2 $size-base * 4;
+	padding: $size-base * 2 $size-base * 6;
 	font-size: 14px;
 
 	a {
@@ -28,5 +28,6 @@
 	.right {
 		text-align: right;
 		flex: 1 1 auto;
+		padding-right: $size-base;
 	}
 }
