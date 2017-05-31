@@ -99,4 +99,12 @@ public class IndexController {
 		mav.addObject("friendsClasses", "active");
 		return mav;
 	}
+
+	@RequestMapping(value = "/messages")
+	public ModelAndView messages() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("messages");
+		mav.addObject("messagesClasses", "active");
+		return mav;
+	}
 }

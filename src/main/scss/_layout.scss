@@ -30,6 +30,9 @@
 	font-size: 13px;
 	position: relative;
 	z-index: 0;
+	background-color: $color-white;
+	padding: $size-base * 2;
+	border-radius: $size-base;
 
 	> .title {
 		text-align: left;
@@ -232,4 +235,11 @@ $rubric-wrapper-width: 250px;
 		color: $color-deep-grey;
 		margin-top: $size-base * 2;
 	}
+}
+
+.truncate {
+	width: inherit;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
