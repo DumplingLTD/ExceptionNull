@@ -4,14 +4,13 @@
 
 {% macro msgSummary(person, lastMessaged, body, lastActive) %}
 <div class="message-summary">
-    <div class="title left">
-        {{ person }}
-    </div><div class="right">
-        {{ lastMessaged }}
-    </div>
+    <div class="title left">{{ person }}</div>
+    <div class="right">{{ lastMessaged }}</div>
 
     <div class="truncate">
-        {{ body }}<br/>{{ lastActive }}
+        {{ body }}
+        <br/>
+        {{ lastActive }}
     </div>
 </div>
 <hr />
@@ -19,12 +18,8 @@
 
 {% macro message(person, body, current) %}
 <div class={{ current ? "right-message" : "left-message" }}>
-    <div class="title">
-        {{ person }}:
-    </div>
-    <div class="message-body">
-        {{ body }}
-    </div>
+    <div class="title">{{ person }}:</div>
+    <div class="message-body">{{ body }}</div>
 </div>
 {% endmacro %}
 
@@ -33,9 +28,7 @@
 <div class="messages">
     <div class="card">
         <div class="left-section">
-            <div class="subheader">
-                <i class="fa fa-pencil-square-o"></i>
-            </div>
+            <div class="subheader"><i class="fa fa-pencil-square-o"></i></div>
             <hr />
             {{ msgSummary("Kodlee Yin", "10:57 PM", "Dependency injection? I solved that one awhile back. Sec") }}
             {{ msgSummary("David Kim", "9:58 PM", "Do you have some time to help me? I'm stuck") }}
@@ -43,18 +36,15 @@
             {{ msgSummary("Brittney Hoy", "3:12 AM", "Thanks so much!") }}
             {{ msgSummary("Michael Colins", "Sunday", "You: Let me know if you need any more help!") }}
             {{ msgSummary("Sherlock Holmes", "Apr 14", "It's easy. All you have to do is re-read the problem.") }}
-        </div><div class="right-section">
-            <div class="subheader description">
-                Jonathan Li
-            </div>
+        </div>
+        <div class="right-section">
+            <div class="subheader description">Jonathan Li</div>
             <hr />
             {{ message("Kodlee Yin", "Hi there! I see that you're working on the Dependency Injection problem!") }}
             {{ message("You", "Yeah...I have no idea how to approach it", true) }}
             {{ message("Kodlee Yin", "Well, a good start is to think about what it's supposed to do in the first place.") }}
 
-            <div class="message-input">
-                <textarea rows="2" placeholder="Type message here..." ></textarea>
-            </div>
+            <div class="message-input"><textarea rows="2" placeholder="Type message here..." ></textarea></div>
         </div>
     </div>
 </div>
