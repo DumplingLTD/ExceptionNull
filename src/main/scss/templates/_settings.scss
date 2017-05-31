@@ -1,0 +1,111 @@
+// Settings styling
+.settings {
+  display: flex;
+  padding: $size-base * 2;
+  height: 100%;
+
+  .card {
+    background-color: $color-white;
+    padding: $size-base * 2;
+    border-radius: $size-base;
+    margin: $size-base * 1.5;
+    width: 100%;
+  }
+
+  form {
+    .form-group {
+      margin: $size-base auto;
+      width: 50%;
+
+      label, .user-input {
+        display: inline-block;
+      }
+
+      label {
+        width: 30%;
+        font-weight: bold;
+      }
+
+      .user-input {
+        width: 70%;
+      }
+
+      input {
+        border-radius: $size-base;
+        border: 1px solid $color-grey-4;
+        padding: $size-base;
+      }
+
+      input[type="text"], input[type="password"] {
+        width: 100%;
+      }
+
+      input[type="checkbox"] {
+        visibility: hidden;
+      }
+
+      .checkbox {
+        width: 50px;
+        height: 20px;
+        background: #333;
+        margin-top: $size-base;
+
+        border-radius: 50px;
+        position: relative;
+      }
+
+      .checkbox:before {
+        content: 'On';
+        position: absolute;
+        top: 5px;
+        left: 7px;
+        height: 1px;
+        color: $color-real-green;
+        font-size: 8px;
+      }
+
+      .checkbox:after {
+        content: 'Off';
+        position: absolute;
+        top: 5px;
+        left: 32px;
+        height: 1px;
+        color: $color-grey-3;
+        font-size: 8px;
+      }
+
+      .checkbox label {
+        display: block;
+        width: 20px;
+        height: 12px;
+        border-radius: 50px;
+
+        transition: all .5s ease;
+        cursor: pointer;
+        position: absolute;
+        top: 4px;
+        z-index: 1;
+        left: 6px;
+        background: $color-white;
+      }
+
+      .checkbox input[type=checkbox]:checked + label {
+        left: 24px;
+        background: $color-real-green;
+      }
+    }
+
+    .primary-button {
+      color: $color-white;
+      background-color: $color-deep-purple;
+    }
+
+    .secondary-button {
+      background-color: $color-grey-5;
+    }
+  }
+
+  h1 {
+    text-align: center;
+  }
+}
