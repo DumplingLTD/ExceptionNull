@@ -115,4 +115,11 @@ public class IndexController {
 		mav.addObject("settingsClasses", "active");
 		return mav;
 	}
+
+	@RequestMapping(value = "/about")
+	public ModelAndView about() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("about");
+		return mav;
+	}
 }
