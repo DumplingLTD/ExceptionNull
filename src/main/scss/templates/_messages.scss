@@ -5,15 +5,13 @@
   height: 100%;
 
   .card {
-    background-color: $color-white;
-    padding: $size-base * 2;
-    border-radius: $size-base;
     margin: $size-base * 1.5;
     width: 100%;
+    font-size: 0;
   }
 
   .subheader {
-    font-size: 24px;
+    font-size: 16px;
     padding-bottom: $size-base;
   }
 
@@ -28,6 +26,7 @@
   .left-section, .right-section {
     vertical-align: top;
     height: 100%;
+    font-size: 13px;
   }
 
   .left-section {
@@ -48,9 +47,11 @@
 
   .message-summary {
     padding: $size-base;
+    font-size: 0;
 
     > div {
       margin-top: $size-base * 0.5;
+      font-size: 13px;
     }
 
     .left {
