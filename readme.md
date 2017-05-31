@@ -53,7 +53,7 @@ relevant technology for developers today.
   would provide the functionality required to run our service.
 + [Digital Ocean](https://www.digitalocean.com/) (server hardware)  
   One of the most cost-effective, reliable managed hardware providers on the market today. 
-+ HTML, SASS (CSS), Javascript | [jQuery](https://jquery.com/), 
++ HTML, [SASS](http://sass-lang.com/) (CSS), Javascript | [jQuery](https://jquery.com/), 
 [jQuery Easing](https://github.com/gdsmith/jquery.easing), [HighlightJS](https://highlightjs.org/), 
 [ChartJS](http://www.chartjs.org/)  
   As a web platform, you're very much squeezed to use HTML, CSS, and Javascript. SASS helps us
