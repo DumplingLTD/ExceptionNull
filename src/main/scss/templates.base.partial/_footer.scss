@@ -1,0 +1,32 @@
+// Styles for the footer
+.partial-footer {
+	display: flex;
+	padding: $size-base * 2 $size-base * 4;
+	font-size: 14px;
+
+	a {
+		&, &:link, &:visited {
+			display: inline-block;
+			padding: 0 $size-base;
+			color: $color-midnight-bluuu;
+		}
+		&:hover, &:active {
+			color: $color-deluge;
+		}
+	}
+
+	li {
+		display: inline-block;
+		list-style: none;
+	}
+
+	.left {
+		flex: 1 1 auto;
+		display: inline-block;
+	}
+
+	.right {
+		text-align: right;
+		flex: 1 1 auto;
+	}
+}
