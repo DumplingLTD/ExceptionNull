@@ -1,40 +1,57 @@
 // About styling
+
+$about-person-height: 300px;
+$about-person-vertical-spacing: $size-base * 4;
 .about {
-  background-color: $color-midnight-bluuu;
-  color: $color-white;
-  min-height: 100vh;
+	.logo {
+		text-align: center;
+		margin: $size-base * 7 0;
 
-  h2 {
-    text-align: center;
-    padding-top: $size-base * 3;
-  }
+		img {
+			height: 200px;
+			display: inline-block;
+		}
+	}
 
-  .header {
-    padding: $size-base * 2;
-    text-align: center;
-  }
+	.global-title-font {
+		font-size: 18px;
+	}
 
-  .row {
-    text-align: center;
+	.people {
+		background-color: $color-grey-2;
+	}
 
-    .person {
-      width: 40%;
-      margin: ($size-base * 2) auto;
-      text-align: center;
-      display: inline-block;
-      vertical-align: top;
+	.person {
+		display: flex;
+		align-items: center;
+		height: $about-person-height;
+		padding: $about-person-vertical-spacing $size-base * 7;
+		border-bottom: 3px solid $color-white;
 
-      > img {
-        max-width: 250px;
-        max-height: 250px;
-        border-radius: 50%;
-      }
+		&:last-child {
+			border-bottom: none;
+		}
 
-      .person-desc {
-        font-size: 12px;
-        margin: auto;
-        max-width: 350px;
-      }
-    }
-  }
+		img {
+			flex: 0 0 auto;
+			height: $about-person-height - ($about-person-vertical-spacing * 2);
+		}
+
+		> div {
+			flex: 1 1 auto;
+			padding-left: $size-base * 7;
+		}
+
+		.name {
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.position {
+			color: $color-deep-grey;
+			font-size: 12px;
+			margin-top: -2px;
+			margin-bottom: $size-base;
+		}
+	}
 }
